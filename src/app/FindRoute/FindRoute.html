@@ -1,1 +1,7 @@
-<h2>Find Route</h2>
+<div>
+  <h2>Find Route Breweries</h2>
+  <ul *ngIf="brews"></ul>
+  <li *ngFor = "let brew of brews">
+    <p class='name'>{{ brew.name }}</p>
+  </li>
+</div>
