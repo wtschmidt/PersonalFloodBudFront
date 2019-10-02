@@ -4,9 +4,15 @@
 html,
 body {
   height: 100%;
+  background-color: #E3F2FD
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.header-nav {
+  background-color: #2196F3;
+  color: white
 }
