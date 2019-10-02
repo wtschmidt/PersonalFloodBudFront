@@ -1,13 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { } from 'googlemaps';
+import { HttpService } from '../http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './FindRoute.html'
 })
-export class FindRoute {
+export class FindRoute implements OnInit {
   @ViewChild('gmap', {static: true}) gmapElement: any;
   map: google.maps.Map;
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
     var mapProp = {

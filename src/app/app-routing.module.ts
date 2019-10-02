@@ -5,7 +5,7 @@ import { CreateReport } from './CreateReport/CreateReportComponent';
 import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
 
 const routes: Routes = [
-  { path: 'find-route', component: FindRoute },
+  { path: 'route', component: FindRoute },
   { path: 'create-report', component: CreateReport },
   { path: 'connect-contacts', component: ConnectContacts }
 ];
