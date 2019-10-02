@@ -1,26 +1,20 @@
 <!--The mat-toolbar is our header. It is where the hanburger and the radar/rainfall buttons will go.-->
-<mat-toolbar color="primary">
+<mat-toolbar class="header-nav">
   <span>Rising Waters</span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <span> <button mat-raised-button color="primary" (click)="openDialog()">Show dialog</button>
+  <span> <button mat-raised-button color="secondary" (click)="openDialog()">Show Radar</button>
   </span>
 </mat-toolbar>
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="row">
+  <div class="col">
+    <ul>
+      <li routerLink="/route" routerLinkActive="active">Find route</li>
+      <li routerLink="/create-report" routerLinkActive="active">Create report</li>
+      <li routerLink="/connect-contacts" routerLinkActive="active">Connect to contacts</li>
+    </ul>
+  </div>
 </div>
-<div class="wrapper">
-  <button mat-raised-button color="primary" (click)="openDialog()">Show dialog</button>
-</div>
-
-<ul>
-  <li routerLink="/route" routerLinkActive="active">Find route</li>
-  <li routerLink="/create-report" routerLinkActive="active">Create report</li>
-  <li routerLink="/connect-contacts" routerLinkActive="active">Connect to contacts</li>
-</ul>
-
 <router-outlet></router-outlet>
