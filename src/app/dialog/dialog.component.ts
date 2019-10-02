@@ -8,9 +8,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
   styleUrls: ["./dialog.component.css"]
 })
 export class DialogComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  // ngOnInit(): void {
+  //   throw new Error("Method not implemented.");
+  // }
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,

@@ -11,6 +11,7 @@ import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
 import { MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material";
+import { MatToolbarModule } from "@angular/material";
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
 
@@ -31,6 +32,7 @@ import { DialogService } from "./services/dialog.service";
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
+    MatToolbarModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
