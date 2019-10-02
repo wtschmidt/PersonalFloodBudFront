@@ -1,3 +1,5 @@
+// Confession: I really don't know what's happening here yet but I do know that it is somehow handling our dialog. - DM
+
 import { Injectable } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { DialogData } from "../shared/dialog-data";
