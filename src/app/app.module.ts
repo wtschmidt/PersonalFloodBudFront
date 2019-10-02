@@ -10,7 +10,9 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
 import { MatDialogModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 import { DialogComponent } from "./dialog/dialog.component";
+import { DialogService } from "./services/dialog.service";
 
 @NgModule({
   declarations: [
@@ -28,11 +30,12 @@ import { DialogComponent } from "./dialog/dialog.component";
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
+    MatButtonModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
   // entryComponents: [CourseDialogComponent]
 })
