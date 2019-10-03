@@ -25,8 +25,8 @@ export class UserLocationComponent implements OnInit {
         // console.log(pos.lng);
         this.currLat = pos.lat;
         this.currLng = pos.lng;
-        console.log(this.currLat);
-        console.log(this.currLng);
+        // console.log(this.currLat);
+        // console.log(this.currLng);
         this.currLocation = pos.lat + " " + pos.lng;
       });
     } else { 

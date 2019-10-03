@@ -40,8 +40,11 @@ export class FindRoute implements OnInit {
   }
   
   calcRoute() {
+    console.log(this.lat + " " + this.geo.currLat);
+    this.lat = this.geo.currLat;
+    this.lng = this.geo.currLng;
     var request = {
-      origin: this.origin,
+      origin: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
       destination: this.destination,
       travelMode: google.maps.TravelMode['DRIVING']
     };
