@@ -14,6 +14,7 @@ export class FindRoute implements OnInit {
     
     ngOnInit() {
       this.http.getRoute().subscribe(data => {
+        console.log(data);
         this.brews = data;
       })
     }
