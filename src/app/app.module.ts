@@ -22,6 +22,7 @@ import {
 } from "@angular/material";
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
+import { AppHeaderComponent } from './app-header/app-header.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DialogService } from "./services/dialog.service";
     ConnectContacts,
     UserLocationComponent,
     AutoCompleteSearchComponent,
-    DialogComponent
+    DialogComponent,
+    AppHeaderComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
