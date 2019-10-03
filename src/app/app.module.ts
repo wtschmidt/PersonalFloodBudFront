@@ -23,6 +23,7 @@ import {
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     UserLocationComponent,
     AutoCompleteSearchComponent,
     DialogComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    UserProfileComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
