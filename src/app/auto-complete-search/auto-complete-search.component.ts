@@ -11,4 +11,8 @@ export class AutoCompleteSearchComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    
+  }
+
 }
