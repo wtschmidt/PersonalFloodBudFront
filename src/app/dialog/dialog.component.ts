@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
   templateUrl: "./dialog.component.html",
   styleUrls: ["./dialog.component.css"]
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent {
   // ngOnInit(): void {
   //   throw new Error("Method not implemented.");
   // }
