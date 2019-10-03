@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { FindRoute } from './FindRoute/FindRouteComponent';
 import { CreateReport } from './CreateReport/CreateReportComponent';
 import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
-import { UserLocationComponent } from './user-location/user-location.component';
 
 const routes: Routes = [
   { path: 'route', component: FindRoute },
