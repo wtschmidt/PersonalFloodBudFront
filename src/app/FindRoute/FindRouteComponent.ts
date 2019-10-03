@@ -17,8 +17,8 @@ export class FindRoute implements OnInit {
   map: google.maps.Map;
 
   constructor(private http: HttpService) {
-    // this.directionsService = new google.maps.DirectionsService();
-    // this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
   }
 
   ngOnInit() {
@@ -26,33 +26,22 @@ export class FindRoute implements OnInit {
       zoom: 14,
       center: this.origin
     }
-    // this.userLocation();
-    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-    // this.directionsRenderer.setMap(this.map);
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    this.directionsRenderer.setMap(this.map);
   }
-  // userLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(function (position) {
-  //       var geolocation = {
-  //         lat: position.coords.latitude,
-  //         lng: position.coords.longitude
-  //       };
-  //       console.log(geolocation);
-  //     })
-  //   }
-  // }
-  // calcRoute() {
-  //   var request = {
-  //     origin: this.origin,
-  //     destination: this.destination,
-  //     travelMode: google.maps.TravelMode['DRIVING']
-  //   };
+  
+  calcRoute() {
+    var request = {
+      origin: this.origin,
+      destination: this.destination,
+      travelMode: google.maps.TravelMode['DRIVING']
+    };
 
-  //   let myDirectionsRenderer = this.directionsRenderer
-  //   this.directionsService.route(request, function (response) {
-  //     if (response.status == 'OK') {
-  //       myDirectionsRenderer.setDirections(response);
-  //     }
-  //   });
-  // }
+    let myDirectionsRenderer = this.directionsRenderer
+    this.directionsService.route(request, function (response) {
+      if (response.status == 'OK') {
+        myDirectionsRenderer.setDirections(response);
+      }
+    });
+  }
 }
