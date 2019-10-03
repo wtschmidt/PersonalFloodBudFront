@@ -9,24 +9,31 @@ import { UserLocationComponent } from '../user-location/user-location.component'
   templateUrl: './FindRoute.html'
 })
 export class FindRoute implements OnInit {
-
   @ViewChild('gmap', {static: true}) gmapElement: any;
   directionsService: any;
   directionsRenderer: any;
-  origin = new google.maps.LatLng(29.9855777, -90.08403059999999);
+  lat: number = this.geo.currLat;
+  lng: number = this.geo.currLng;
+  // getGeoLocation;
+  origin = new google.maps.LatLng(this.lat, this.lng);
   destination = new google.maps.LatLng(29.951065, -90.071533);;
   map: google.maps.Map;
 
   constructor(private http: HttpService, private geo: UserLocationComponent) {
-    this.geo.getLocation();
+    // this.getGeoLocation = this.geo.getLocation();
+    console.log('lat: ' + this.lat + " lng: " + this.lng)
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
   }
 
   ngOnInit() {
+    this.geo.getLocation();
+    this.lat = this.geo.currLat;
+    this.lng = this.geo.currLng;
+    console.log('lat: ' + this.lat + " lng: " + this.lng)
     var mapProp = {
       zoom: 14,
-      center: this.origin
+      center: new google.maps.LatLng(29.95, -90.07),
     }
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.directionsRenderer.setMap(this.map);
