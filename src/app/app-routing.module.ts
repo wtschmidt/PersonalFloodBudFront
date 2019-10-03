@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'route', component: FindRoute },
   { path: 'create-report', component: CreateReport },
   { path: 'connect-contacts', component: ConnectContacts },
-  { path: 'location', component: UserLocationComponent },
 ];
 
 @NgModule({
