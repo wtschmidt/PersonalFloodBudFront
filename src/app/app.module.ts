@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FindRoute } from './FindRoute/FindRouteComponent';
 import { CreateReport } from './CreateReport/CreateReportComponent';
 import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
+import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complete-search.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     FindRoute,
     CreateReport,
-    ConnectContacts
+    ConnectContacts,
+    AutoCompleteSearchComponent
   ],
   imports: [
     BrowserModule,
