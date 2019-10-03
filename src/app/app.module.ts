@@ -9,6 +9,7 @@ import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLocationComponent } from './user-location/user-location.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     FindRoute,
     CreateReport,
     ConnectContacts,
+    UserLocationComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [UserLocationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

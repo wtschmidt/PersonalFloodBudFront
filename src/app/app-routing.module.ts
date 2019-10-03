@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { FindRoute } from './FindRoute/FindRouteComponent';
 import { CreateReport } from './CreateReport/CreateReportComponent';
 import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
+import { UserLocationComponent } from './user-location/user-location.component';
 
 const routes: Routes = [
   { path: 'route', component: FindRoute },
   { path: 'create-report', component: CreateReport },
-  { path: 'connect-contacts', component: ConnectContacts }
+  { path: 'connect-contacts', component: ConnectContacts },
+  { path: 'location', component: UserLocationComponent },
 ];
 
 @NgModule({
