@@ -12,6 +12,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { UserLocationComponent } from './user-location/user-location.component';
 import {
   MatButtonModule,
   MatIconModule,
@@ -28,6 +29,7 @@ import { DialogService } from "./services/dialog.service";
     FindRoute,
     CreateReport,
     ConnectContacts,
+    UserLocationComponent,
     AutoCompleteSearchComponent,
     DialogComponent
     // CourseDialogComponent
@@ -48,7 +50,7 @@ import { DialogService } from "./services/dialog.service";
       enabled: environment.production
     })
   ],
-  providers: [DialogService],
+  providers: [DialogService, UserLocationComponent],
   bootstrap: [AppComponent]
   // entryComponents: [CourseDialogComponent]
 })

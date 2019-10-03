@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { } from 'googlemaps';
 import { HttpService } from '../http.service';
 import { Observable } from 'rxjs';
+import { UserLocationComponent } from '../user-location/user-location.component';
 
 @Component({
   selector: 'find-route',
@@ -16,7 +17,8 @@ export class FindRoute implements OnInit {
   destination = new google.maps.LatLng(29.951065, -90.071533);;
   map: google.maps.Map;
 
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService, private geo: UserLocationComponent) {
+    this.geo.getLocation();
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
   }
