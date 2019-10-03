@@ -9,9 +9,13 @@ import { ConnectContacts } from "./ConnectToContacts/ConnectToContacts";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
-import { MatDialogModule } from "@angular/material";
-import { MatButtonModule } from "@angular/material";
-import { MatToolbarModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatDialogModule
+} from "@angular/material";
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
 
@@ -33,6 +37,8 @@ import { DialogService } from "./services/dialog.service";
     MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
