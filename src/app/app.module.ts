@@ -11,6 +11,16 @@ import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complet
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatDialogModule
+} from "@angular/material";
+import { DialogComponent } from "./dialog/dialog.component";
+import { DialogService } from "./services/dialog.service";
 
 @NgModule({
   declarations: [
@@ -18,16 +28,28 @@ import { HttpClientModule } from '@angular/common/http';
     FindRoute,
     CreateReport,
     ConnectContacts,
-    AutoCompleteSearchComponent
+    AutoCompleteSearchComponent,
+    DialogComponent
+    // CourseDialogComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    MatDialogModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    })
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
+  // entryComponents: [CourseDialogComponent]
 })
-export class AppModule { }
+export class AppModule {}
