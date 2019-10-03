@@ -1,15 +1,18 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FindRoute } from './FindRoute/FindRouteComponent';
+import { CreateReport } from './CreateReport/CreateReportComponent';
+import { ConnectContacts } from './ConnectToContacts/ConnectToContacts';
+import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complete-search.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { FindRoute } from "./FindRoute/FindRouteComponent";
-import { CreateReport } from "./CreateReport/CreateReportComponent";
-import { ConnectContacts } from "./ConnectToContacts/ConnectToContacts";
-import { ServiceWorkerModule } from "@angular/service-worker";
-import { environment } from "../environments/environment";
 import { UserLocationComponent } from './user-location/user-location.component';
-import { HttpClientModule } from "@angular/common/http";
 import {
   MatButtonModule,
   MatIconModule,
@@ -27,6 +30,7 @@ import { DialogService } from "./services/dialog.service";
     CreateReport,
     ConnectContacts,
     UserLocationComponent,
+    AutoCompleteSearchComponent,
     DialogComponent
     // CourseDialogComponent
   ],
@@ -34,6 +38,7 @@ import { DialogService } from "./services/dialog.service";
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
