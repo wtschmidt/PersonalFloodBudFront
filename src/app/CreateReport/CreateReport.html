@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div layout="row" layout-margin="">
+    <div class="col col-lg-4">
       <!-- start of card -->
       <mat-card>
         <mat-card-title-group>
@@ -11,7 +11,7 @@
         <img mat-card-image src="'../../../../assets/images/Screen Shot 2019-10-03 at 4.40.33 PM.png">
         <!-- below is the form that users will fill out to add a report -->
         <div class="row">
-          <div class="col sm-12">
+          <div class="col col-sm-12 col-md-4">
             <mat-form-field class="example-form-field">
               <input matInput type="text" placeholder="Location" [(ngModel)]="value">
               <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
@@ -24,6 +24,7 @@
         <mat-form-field>
           <textarea matInput placeholder="Enter Details"></textarea>
         </mat-form-field>
+        <!-- These buttons will need functionality (obvs) -->
         <mat-card-actions>
           <button mat-button>ADD PHOTO</button>
           <button mat-button>SUBMIT</button>
