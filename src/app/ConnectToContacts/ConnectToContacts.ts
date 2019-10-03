@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'connect-contacts',
   templateUrl: './ConnectToContacts.html'
 })
 export class ConnectContacts {
