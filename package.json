@@ -23,6 +23,7 @@
     "@angular/pwa": "~0.803.6",
     "@angular/router": "~8.2.8",
     "@angular/service-worker": "~8.2.8",
+    "@types/googlemaps": "^3.37.7",
     "body-parser": "^1.19.0",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
