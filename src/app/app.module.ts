@@ -50,7 +50,7 @@ import { DialogService } from "./services/dialog.service";
       enabled: environment.production
     })
   ],
-  providers: [DialogService],
+  providers: [DialogService, UserLocationComponent],
   bootstrap: [AppComponent]
   // entryComponents: [CourseDialogComponent]
 })
