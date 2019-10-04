@@ -5,8 +5,8 @@ import { UserLocationComponent } from '../user-location/user-location.component'
 
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./CreateReport.html"
+  selector: 'create-report',
+  templateUrl: './CreateReport.html'
 })
 export class CreateReport implements OnInit {
 
