@@ -54,7 +54,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       enabled: environment.production
     })
   ],
-  providers: [DialogService, UserLocationComponent],
+  providers: [DialogService],
   bootstrap: [AppComponent]
   // entryComponents: [CourseDialogComponent]
 })
