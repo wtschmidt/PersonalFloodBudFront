@@ -6,11 +6,12 @@ import { Component, OnInit, AfterViewInit, Input, Output, ViewChild, EventEmitte
 })
 export class AutoCompleteSearchComponent implements AfterViewInit {
 
-  @Input() addressType: string;
   @Output() setAddress: EventEmitter<any> = new EventEmitter();
   @ViewChild('addresstext', {static: true}) addresstext: any;
 
   autocompleteInput: string;
+  destLat: number;
+  destLng: number;
 
   constructor() {
   }
@@ -19,14 +20,16 @@ export class AutoCompleteSearchComponent implements AfterViewInit {
     this.getPlaceAutocomplete();
   }
 
-  private getPlaceAutocomplete() {
+  getPlaceAutocomplete() {
     const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
       {
         componentRestrictions: { country: 'US' },
-        types: ["geocode"]  // 'establishment' / 'address' / 'geocode'
+        types: ["address"]  // 'establishment' / 'address' / 'geocode'
       });
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
       const place = autocomplete.getPlace();
+      this.destLat = place.geometry.location.lat();
+      this.destLng = place.geometry.location.lng();
       this.invokeEvent(place);
     });
   }
