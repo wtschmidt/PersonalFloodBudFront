@@ -15,7 +15,7 @@ export class FindRoute implements OnInit {
   lat: number = this.geo.currLat;
   lng: number = this.geo.currLng;
   // getGeoLocation;
-  origin = new google.maps.LatLng(this.lat, this.lng);
+  // origin = new google.maps.LatLng(this.lat, this.lng);
   destination = new google.maps.LatLng(29.951065, -90.071533);;
   map: google.maps.Map;
 
