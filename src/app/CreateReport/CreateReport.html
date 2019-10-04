@@ -1,6 +1,6 @@
 <div class="container">
   <div layout="row" layout-margin="">
-    <div class="col col-lg-4">
+    <div class="col col-lg-4 report-card">
       <!-- start of card -->
       <mat-card>
         <mat-card-title-group>
@@ -8,17 +8,31 @@
           <mat-card-subtitle>Latitude, Longitude</mat-card-subtitle>
         </mat-card-title-group>
         <!-- Below is a hard-coded image. We need to figure out how to make it a real map -->
-        <img mat-card-image src="'../../../../assets/images/Screen Shot 2019-10-03 at 4.40.33 PM.png">
+        <img
+          mat-card-image
+          src="'../../../../assets/images/Screen Shot 2019-10-03 at 4.40.33 PM.png"
+        />
         <!-- below is the form that users will fill out to add a report -->
         <div class="row">
           <div class="col col-sm-12 col-md-4">
             <mat-form-field class="example-form-field">
-              <input matInput type="text" placeholder="Location" [(ngModel)]="value">
-              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <input
+                matInput
+                type="text"
+                placeholder="Location"
+                [(ngModel)]="value"
+              />
+              <button
+                mat-button
+                *ngIf="value"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="value = ''"
+              >
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
-
           </div>
         </div>
         <mat-form-field>
