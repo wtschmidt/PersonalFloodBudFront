@@ -8,6 +8,10 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
+  getAddress(lat, lng) {
+    
+  }
+
   getRoute(){
     return this.http.get('/route');
   }

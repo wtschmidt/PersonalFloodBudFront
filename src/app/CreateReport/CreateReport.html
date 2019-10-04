@@ -7,6 +7,7 @@
           <mat-card-title>Create a report</mat-card-title>
           <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle>
         </mat-card-title-group>
+        <app-user-location></app-user-location>
         <!-- Below is a hard-coded image. We need to figure out how to make it a real map -->
         <!-- <img
           mat-card-image
@@ -21,7 +22,7 @@
                 matInput
                 type="text"
                 placeholder="Location"
-                [(ngModel)]="value"
+                value="2533 Esplanade Ave., New Orleans, LA 70112"
               />
               <button
                 mat-button
