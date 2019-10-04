@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit } from "@angular/core";
 import { MatCardModule } from "@angular/material";
+import { HttpService } from '../http.service';
 import { UserLocationComponent } from '../user-location/user-location.component';
 
 
@@ -18,7 +19,7 @@ export class CreateReport implements OnInit {
   lng = 0;
   latLng = {};
 
-  constructor(private geo: UserLocationComponent) {
+  constructor(private geo: UserLocationComponent, private http: HttpService) {
   }
 
   ngOnInit () {
