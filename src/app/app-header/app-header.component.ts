@@ -10,23 +10,16 @@ import { HttpService } from '../http.service';
 })
 export class AppHeaderComponent implements OnInit {
 
-  rainfall: object;
-
   constructor(private http: HttpService, private dialogService: DialogService) {}
 
-  openDialog() {
-    this.http.getRainfall().subscribe(data => {
-      console.log(data);
-      this.rainfall = data;
-    });
 
+  openDialog() {
     const dialogData: DialogData = {
       title: "Current Rainfall Level",
-      message: `It's rained ${this.rainfall} inches so far today.`,
+      message: `It's rained ${this.http.rainfall} inches so far today.`,
       showOKBtn: true,
       showCancelBtn: true
     };
-
 
     const dialogRef = this.dialogService.openDialog(dialogData, {
       disableClose: true
