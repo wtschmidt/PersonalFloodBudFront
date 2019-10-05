@@ -11,4 +11,8 @@ export class HttpService {
   getRoute(){
     return this.http.get('/route');
   }
+
+  getRainfall(){
+    return this.http.get('/rainfall');
+  }
 }
