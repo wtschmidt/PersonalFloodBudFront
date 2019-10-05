@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-user-location',
-  templateUrl: './user-location.component.html',
-  styleUrls: ['./user-location.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class UserLocationComponent implements OnInit {
+export class UserLocationService implements OnInit{
 
   constructor() { }
 
   currLocation: any;
   currLat: number;
   currLng: number;
+
+  ngOnInit() {
+    this.getLocation();
+  }
 
   getLocation(){
     if (navigator.geolocation) {
@@ -27,11 +29,5 @@ export class UserLocationComponent implements OnInit {
     } else { 
       alert("Geolocation is not supported by this browser.");
     }
-    
   }
-
-  ngOnInit() {
-    this.getLocation();
-  }
-
 }
