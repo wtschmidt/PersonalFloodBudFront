@@ -15,6 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatDividerModule } from "@angular/material/divider";
 
 import {
   MatButtonModule,
@@ -67,6 +68,7 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     MatInputModule,
     HttpModule,
     MatGridListModule,
+    MatDividerModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
