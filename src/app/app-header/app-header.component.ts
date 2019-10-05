@@ -10,14 +10,14 @@ import { HttpService } from '../http.service';
 })
 export class AppHeaderComponent implements OnInit {
 
-  rainfall: String;
+  rainfall: object;
 
   constructor(private http: HttpService, private dialogService: DialogService) {}
 
   openDialog() {
     this.http.getRainfall().subscribe(data => {
       console.log(data);
-      this.rainfall = data.toString();
+      this.rainfall = data;
     });
 
     const dialogData: DialogData = {
