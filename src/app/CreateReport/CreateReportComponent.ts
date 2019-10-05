@@ -59,9 +59,6 @@ export class CreateReport implements OnInit {
   }
 
   createReport() {
-    // function that converts our lat/long into an address
-    // console.log(this.description);
-    // console.log(this.lat);
     this.http.submitReport(this.report).subscribe(data => {
       console.log(data);
     });
