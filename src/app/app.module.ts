@@ -14,7 +14,6 @@ import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { UserLocationComponent } from "./user-location/user-location.component";
 import {
   MatButtonModule,
   MatIconModule,
@@ -28,8 +27,9 @@ import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
 import { AppHeaderComponent } from "./app-header/app-header.component";
 import { UserProfileComponent } from "./user-profile/user-profile.component";
-import { UserSettingsComponent } from './user-settings/user-settings.component';
-import { UserReportsComponent } from './user-reports/user-reports.component';
+import { UserSettingsComponent } from "./user-settings/user-settings.component";
+import { UserReportsComponent } from "./user-reports/user-reports.component";
+import { UserLocationService } from "./services/user-location.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import { UserReportsComponent } from './user-reports/user-reports.component';
     FindRoute,
     CreateReport,
     ConnectContacts,
-    UserLocationComponent,
     AutoCompleteSearchComponent,
     DialogComponent,
     AppHeaderComponent,
@@ -66,7 +65,7 @@ import { UserReportsComponent } from './user-reports/user-reports.component';
       enabled: environment.production
     })
   ],
-  providers: [DialogService],
+  providers: [DialogService, UserLocationService],
   bootstrap: [AppComponent]
   // entryComponents: [CourseDialogComponent]
 })
