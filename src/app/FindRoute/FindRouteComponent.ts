@@ -27,7 +27,7 @@ export class FindRoute implements OnInit {
       center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
     }
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-    // this.directionsRenderer.setMap(this.map);
+    this.directionsRenderer.setMap(this.map);
   }
   
   calcRoute() {
@@ -38,23 +38,11 @@ export class FindRoute implements OnInit {
       provideRouteAlternatives: true
     };
 
-    // let myDirectionsRenderer = this.directionsRenderer;
-    let map = this.map;
+    let myDirectionsRenderer = this.directionsRenderer;
     this.directionsService.route(request, function (response) {
-      const color = ['red', 'blue', 'green', 'yellow'];
-      for (var i = 0; i < response.routes.length; i++) {
-        let polyline = new google.maps.Polyline(
-          {
-            path: response.routes[i].overview_path,
-            geodesic: true,
-            strokeColor: color[i],
-          }
-        )
-        polyline.setMap(map);
+      if (response.status == 'OK') {
+        myDirectionsRenderer.setDirections(response);
       }
-      // if (response.status == 'OK') {
-      //   myDirectionsRenderer.setDirections(response);
-      // }
     });
   }
 }
