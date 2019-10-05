@@ -14,6 +14,8 @@ import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatGridListModule } from "@angular/material/grid-list";
+
 import {
   MatButtonModule,
   MatIconModule,
@@ -23,6 +25,7 @@ import {
   MatCardModule,
   MatInputModule
 } from "@angular/material";
+
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogService } from "./services/dialog.service";
 import { AppHeaderComponent } from "./app-header/app-header.component";
@@ -30,6 +33,7 @@ import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
+import { AppFooterComponent } from "./app-footer/app-footer.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { UserLocationService } from "./services/user-location.service";
     AppHeaderComponent,
     UserProfileComponent,
     UserSettingsComponent,
-    UserReportsComponent
+    UserReportsComponent,
+    AppFooterComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
@@ -61,6 +66,7 @@ import { UserLocationService } from "./services/user-location.service";
     MatFormFieldModule,
     MatInputModule,
     HttpModule,
+    MatGridListModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })

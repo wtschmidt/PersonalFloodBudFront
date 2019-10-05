@@ -1,0 +1,18 @@
+.demo-section {
+  border: 1px solid #bbb;
+}
+
+footer {
+  height: 60px;
+  background-color: #0D47A1;
+  border-top: 1px solid #bbb;
+  text-align: center;
+}
+
+#clickFooter {
+  position: relative;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
