@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-auto-complete-search',
