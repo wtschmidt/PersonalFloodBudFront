@@ -36,6 +36,9 @@ import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
 import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-contacts.component';
+import { ContactSafeMovingComponent } from './contact-safe-moving/contact-safe-moving.component';
+import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-stranded-okay.component';
+import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-con
     UserSettingsComponent,
     UserReportsComponent,
     AppFooterComponent,
-    ConnectToContactsComponent
+    ConnectToContactsComponent,
+    ContactSafeMovingComponent,
+    ContactStrandedOkayComponent,
+    ContactNeedHelpComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
