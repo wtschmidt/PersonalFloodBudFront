@@ -24,8 +24,8 @@ export class FindRoute implements OnInit {
 
   ngOnInit() {
     var mapProp = {
-      zoom: 12,
-      center: new google.maps.LatLng(29.95, -90.07),
+      zoom: 15,
+      center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
     }
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.directionsRenderer.setMap(this.map);
@@ -43,7 +43,7 @@ export class FindRoute implements OnInit {
     this.directionsService.route(request, function (response) {
       console.log(response);
       if (response.status == 'OK') {
-        myDirectionsRenderer.setDirections(response.routes[0]);
+        myDirectionsRenderer.setDirections(response);
       }
     });
   }
