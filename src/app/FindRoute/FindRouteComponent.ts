@@ -35,13 +35,15 @@ export class FindRoute implements OnInit {
     var request = {
       origin: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
       destination: new google.maps.LatLng(this.AutoCompleteSearch.destLat, this.AutoCompleteSearch.destLng),
-      travelMode: google.maps.TravelMode['DRIVING']
+      travelMode: google.maps.TravelMode['DRIVING'],
+      provideRouteAlternatives: true
     };
 
     let myDirectionsRenderer = this.directionsRenderer
     this.directionsService.route(request, function (response) {
+      console.log(response);
       if (response.status == 'OK') {
-        myDirectionsRenderer.setDirections(response);
+        myDirectionsRenderer.setDirections(response.routes[0]);
       }
     });
   }
