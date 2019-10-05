@@ -11,9 +11,7 @@ export class HttpService {
   
 
   submitReport(report) {
-    // let latLng = lat + "," + lng
     console.log(report);
-    // let params = new HttpParams().set('location', report);
     return this.http.post('/submitReport', {report});
   }
 
