@@ -2,8 +2,8 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { } from 'googlemaps';
 import { HttpService } from '../http.service';
 import { Observable } from 'rxjs';
-import { UserLocationComponent } from '../user-location/user-location.component';
 import { AutoCompleteSearchComponent } from '../auto-complete-search/auto-complete-search.component';
+import { UserLocationService } from '../services/user-location.service';
 
 @Component({
   selector: 'find-route',
@@ -12,12 +12,12 @@ import { AutoCompleteSearchComponent } from '../auto-complete-search/auto-comple
 export class FindRoute implements OnInit {
   @ViewChild('gmap', {static: true}) gmapElement: any;
   @ViewChild(AutoCompleteSearchComponent, {static: true}) AutoCompleteSearch;
-  @ViewChild(UserLocationComponent, {static: true}) geo;
+  // @ViewChild(UserLocationComponent, {static: true}) geo;
   directionsService: any;
   directionsRenderer: any;
   map: google.maps.Map;
 
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService, private geo: UserLocationService) {
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
   }
