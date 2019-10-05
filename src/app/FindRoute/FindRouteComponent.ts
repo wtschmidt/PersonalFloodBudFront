@@ -1,18 +1,17 @@
-import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
-import { } from 'googlemaps';
-import { HttpService } from '../http.service';
-import { Observable } from 'rxjs';
-import { AutoCompleteSearchComponent } from '../auto-complete-search/auto-complete-search.component';
-import { UserLocationService } from '../services/user-location.service';
+import { Component, ViewChild, OnInit, ElementRef } from "@angular/core";
+import {} from "googlemaps";
+import { HttpService } from "../http.service";
+import { Observable } from "rxjs";
+import { AutoCompleteSearchComponent } from "../auto-complete-search/auto-complete-search.component";
+import { UserLocationService } from "../services/user-location.service";
 
 @Component({
-  selector: 'find-route',
-  templateUrl: './FindRoute.html'
+  selector: "find-route",
+  templateUrl: "./FindRoute.html"
 })
 export class FindRoute implements OnInit {
-  @ViewChild('gmap', {static: true}) gmapElement: any;
-  @ViewChild(AutoCompleteSearchComponent, {static: true}) AutoCompleteSearch;
-  // @ViewChild(UserLocationComponent, {static: true}) geo;
+  @ViewChild("gmap", { static: true }) gmapElement: any;
+  @ViewChild(AutoCompleteSearchComponent, { static: true }) AutoCompleteSearch;
   directionsService: any;
   directionsRenderer: any;
   map: google.maps.Map;
@@ -25,22 +24,25 @@ export class FindRoute implements OnInit {
   ngOnInit() {
     var mapProp = {
       zoom: 12,
-      center: new google.maps.LatLng(29.95, -90.07),
-    }
+      center: new google.maps.LatLng(29.95, -90.07)
+    };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.directionsRenderer.setMap(this.map);
   }
-  
+
   calcRoute() {
     var request = {
       origin: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-      destination: new google.maps.LatLng(this.AutoCompleteSearch.destLat, this.AutoCompleteSearch.destLng),
-      travelMode: google.maps.TravelMode['DRIVING']
+      destination: new google.maps.LatLng(
+        this.AutoCompleteSearch.destLat,
+        this.AutoCompleteSearch.destLng
+      ),
+      travelMode: google.maps.TravelMode["DRIVING"]
     };
 
-    let myDirectionsRenderer = this.directionsRenderer
-    this.directionsService.route(request, function (response) {
-      if (response.status == 'OK') {
+    let myDirectionsRenderer = this.directionsRenderer;
+    this.directionsService.route(request, function(response) {
+      if (response.status == "OK") {
         myDirectionsRenderer.setDirections(response);
       }
     });
