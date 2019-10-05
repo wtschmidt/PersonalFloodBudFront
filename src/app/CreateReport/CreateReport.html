@@ -1,37 +1,30 @@
 <div class="container  mt-4 mb-5">
-  <div layout="row" layout-margin="">
-    <div class="col col-lg-4 report-card">
-      <!-- start of card -->
-      <mat-card>
-        <mat-card-title-group>
-          <mat-card-title>Create a report</mat-card-title>
-          <mat-card-subtitle>Lat: {{this.lat}} <br> Long: {{this.lng}}</mat-card-subtitle>
-        </mat-card-title-group>
+  <!-- start of card -->
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>Create a report</mat-card-title>
+      <mat-card-subtitle>Lat: {{this.lat}} <br> Long: {{this.lng}}</mat-card-subtitle>
+    </mat-card-title-group>
 
-        <div #gmap style='width:100%;height:250px'></div>
-        <div class="row mt-3">
-          <div class="col">
-            <mat-form-field class="col-sm-12">
-              <input matInput type="text" placeholder="Location" value="" [(ngModel)]="location" />
-              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
-          </div>
-        </div>
-        <div>
-          <mat-form-field class="col-sm-12">
-            <textarea matInput [(ngModel)]="description" placeholder="Enter Details"></textarea>
-          </mat-form-field>
-        </div>
-        <!-- These buttons will need functionality (obvs) -->
-        <mat-card-actions>
-          <button mat-button>ADD PHOTO</button>
-          <button mat-button (click)="submitReport()">SUBMIT</button>
-        </mat-card-actions>
-      </mat-card>
-      <!-- end of card -->
-    </div>
-  </div>
+    <div #gmap style='width:100%;height:250px'></div>
+    <form class="mt-3">
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="bmd-label-floating">Location</label>
+        <input type="email" class="form-control" id="exampleInputEmail1">
+        <span class="bmd-help">Lat: {{this.lat}} Long: {{this.long}}</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="bmd-label-floating">Enter Details</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      </div>
+    </form>
+
+
+    <!-- These buttons will need functionality (obvs) -->
+    <mat-card-actions>
+      <button mat-button>ADD PHOTO</button>
+      <button mat-button (click)="submitReport()">SUBMIT</button>
+    </mat-card-actions>
+  </mat-card>
+  <!-- end of card -->
   <h1 class=" pt-4 mt-5 mb-5"></h1>
-</div>
