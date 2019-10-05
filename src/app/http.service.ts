@@ -10,12 +10,11 @@ export class HttpService {
   rainfall: object;
   
 
-  getAddress(lat, lng) {
-    let latLng = lat + "," + lng
-    let params = new HttpParams().set('location', latLng);
-    return this.http.get(`/convert-address`, {
-      params: params
-    })
+  submitReport(report) {
+    // let latLng = lat + "," + lng
+    console.log(report);
+    // let params = new HttpParams().set('location', report);
+    return this.http.post('/submitReport', {report});
   }
 
   getRoute(){
@@ -25,4 +24,6 @@ export class HttpService {
   getRainfall(){
     return this.http.get('/rainfall');
   }
+
+  
 }
