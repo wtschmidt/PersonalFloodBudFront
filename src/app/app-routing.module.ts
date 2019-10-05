@@ -6,11 +6,12 @@ import { ConnectContacts } from "./ConnectToContacts/ConnectToContacts";
 import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserSettingsComponent } from "./user-settings/user-settings.component";
+import { ConnectToContactsComponent } from "./connect-to-contacts/connect-to-contacts.component";
 
 const routes: Routes = [
   { path: "route", component: FindRoute },
   { path: "create-report", component: CreateReport },
-  { path: "connect-contacts", component: ConnectContacts },
+  { path: "connect-contacts", component: ConnectToContactsComponent },
   { path: "user-profile", component: UserProfileComponent },
   { path: "user-reports", component: UserReportsComponent },
   { path: "user-settings", component: UserSettingsComponent }

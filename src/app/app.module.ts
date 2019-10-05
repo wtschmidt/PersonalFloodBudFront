@@ -35,6 +35,7 @@ import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
+import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-contacts.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     UserProfileComponent,
     UserSettingsComponent,
     UserReportsComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    ConnectToContactsComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
