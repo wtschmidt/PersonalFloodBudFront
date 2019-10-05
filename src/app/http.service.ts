@@ -7,6 +7,8 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 export class HttpService {
 
   constructor(private http: HttpClient) { }
+  rainfall: object;
+  
 
   getAddress(lat, lng) {
     let latLng = lat + "," + lng
@@ -18,5 +20,9 @@ export class HttpService {
 
   getRoute(){
     return this.http.get('/route');
+  }
+
+  getRainfall(){
+    return this.http.get('/rainfall');
   }
 }
