@@ -9,7 +9,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FindRoute } from "./FindRoute/FindRouteComponent";
 import { CreateReport } from "./CreateReport/CreateReportComponent";
-import { ConnectContacts } from "./ConnectToContacts/ConnectToContacts";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
@@ -47,7 +46,6 @@ import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.
     AppComponent,
     FindRoute,
     CreateReport,
-    ConnectContacts,
     DialogComponent,
     AppHeaderComponent,
     UserProfileComponent,
