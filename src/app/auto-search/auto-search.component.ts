@@ -1,4 +1,6 @@
 import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { HttpService } from "../http.service";
+import { UserLocationService } from "../services/user-location.service";
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader} from '@agm/core';
@@ -10,31 +12,23 @@ import { MapsAPILoader} from '@agm/core';
 })
 export class AutoSearchComponent implements OnInit {
 
-
-  public latitude: number;
-  public longitude: number;
-  public searchControl: FormControl;
-  public zoom: number;
+  lat: number;
+  lng: number;
+  searchControl: FormControl;
 
   @ViewChild("search", { static: true })
   public searchElementRef: ElementRef;
 
   constructor(
+    private http: HttpService,
+    private geo: UserLocationService,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
-  ) { }
+    private ngZone: NgZone) {
+  }
 
   ngOnInit() {
-    //set google maps defaults
-    this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
-
     //create search FormControl
     this.searchControl = new FormControl();
-
-    //set current position
-    this.setCurrentPosition();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -46,28 +40,12 @@ export class AutoSearchComponent implements OnInit {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          //verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          //set latitude, longitude
+          this.lat = place.geometry.location.lat();
+          this.lng = place.geometry.location.lng();
         });
       });
     });
-  }
-
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 12;
-      });
-    }
   }
 
 }

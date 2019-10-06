@@ -4,13 +4,10 @@
       type="text"
       class="formControl"
       [(ngModel)]="location" 
-      value=""
+      location=""
       #search>
-      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+      <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location = ''">
         <mat-icon>close</mat-icon>
       </button>
 </mat-form-field>
-<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-</agm-map>
 
