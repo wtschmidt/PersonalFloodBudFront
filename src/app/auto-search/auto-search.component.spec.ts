@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutoCompleteSearchComponent } from './auto-complete-search.component';
+import { AutoSearchComponent } from './auto-search.component';
 
-describe('AutoCompleteSearchComponent', () => {
-  let component: AutoCompleteSearchComponent;
-  let fixture: ComponentFixture<AutoCompleteSearchComponent>;
+describe('AutoSearchComponent', () => {
+  let component: AutoSearchComponent;
+  let fixture: ComponentFixture<AutoSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoCompleteSearchComponent ]
+      declarations: [ AutoSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutoCompleteSearchComponent);
+    fixture = TestBed.createComponent(AutoSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,13 @@
+<mat-form-field class="example-form-field">
+    <input matInput 
+      placeholder="search for location" 
+      type="text"
+      class="formControl"
+      [(ngModel)]="location" 
+      location=""
+      #search>
+      <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+</mat-form-field>
+

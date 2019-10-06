@@ -5,17 +5,21 @@
       <mat-card>
         <mat-card-title-group>
           <mat-card-title>Create a report</mat-card-title>
-          <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle>
+          <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
         </mat-card-title-group>
-        <!-- Below is a hard-coded image. We need to figure out how to make it a real map -->
-        <!-- <img
-          mat-card-image
-          src="'../../../../assets/images/Screen Shot 2019-10-03 at 4.40.33 PM.png"
-        /> -->
-        <div #gmap style='width:100%;height:400px'></div>
+        <agm-map [latitude]="markLat" [longitude]="markLng" [zoom]="15">
+          <agm-marker 
+          [latitude]="markLat"
+          [longitude]="markLng"
+          [markerDraggable]="true"
+          >
+          </agm-marker>
+        </agm-map>
+        <!-- <div #gmap style='width:100%;height:400px'></div> -->
         <!-- below is the form that users will fill out to add a report -->
         <div class="row">
           <div class="col col-sm-12 col-md-4">
+            <!-- <app-auto-search></app-auto-search> -->
             <mat-form-field class="example-form-field">
               <input matInput type="text" placeholder="Location" value="" [(ngModel)]="report.location" />
               <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
@@ -30,7 +34,7 @@
         <!-- These buttons will need functionality (obvs) -->
         <mat-card-actions>
           <button mat-button>ADD PHOTO</button>
-          <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button>
+          <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
           <button mat-button (click)="createReport()">SUBMIT</button>
         </mat-card-actions>
       </mat-card>
