@@ -9,6 +9,9 @@ import { ConnectToContactsComponent } from "./connect-to-contacts/connect-to-con
 import { ContactNeedHelpComponent } from "./contact-need-help/contact-need-help.component";
 import { ContactSafeMovingComponent } from "./contact-safe-moving/contact-safe-moving.component";
 import { ContactStrandedOkayComponent } from "./contact-stranded-okay/contact-stranded-okay.component";
+import { SafeMovingComponent } from "./safe-moving/safe-moving.component";
+import { StrandedOkayComponent } from "./stranded-okay/stranded-okay.component";
+import { NeedHelpComponent } from "./need-help/need-help.component";
 
 const routes: Routes = [
   { path: "route", component: FindRoute },
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path: "user-settings", component: UserSettingsComponent },
   { path: "contact-need-help", component: ContactNeedHelpComponent },
   { path: "contact-safe-moving", component: ContactSafeMovingComponent },
-  { path: "contact-stranded-okay", component: ContactStrandedOkayComponent }
+  { path: "contact-stranded-okay", component: ContactStrandedOkayComponent },
+  { path: "safe-moving", component: SafeMovingComponent },
+  { path: "stranded-okay", component: StrandedOkayComponent },
+  { path: "need-help", component: NeedHelpComponent }
 ];
 
 @NgModule({
