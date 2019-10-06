@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutoCompleteSearchComponent } from './auto-complete-search.component';
+import { ContactSafeMovingComponent } from './contact-safe-moving.component';
 
-describe('AutoCompleteSearchComponent', () => {
-  let component: AutoCompleteSearchComponent;
-  let fixture: ComponentFixture<AutoCompleteSearchComponent>;
+describe('ContactSafeMovingComponent', () => {
+  let component: ContactSafeMovingComponent;
+  let fixture: ComponentFixture<ContactSafeMovingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoCompleteSearchComponent ]
+      declarations: [ ContactSafeMovingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutoCompleteSearchComponent);
+    fixture = TestBed.createComponent(ContactSafeMovingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

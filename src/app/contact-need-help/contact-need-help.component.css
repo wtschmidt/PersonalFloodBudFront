@@ -1,0 +1,18 @@
+#need-help {
+  background-color: #B92D00;
+  color: white;
+  height: 150px;
+  padding: 12px;
+  position: relative
+}
+
+#need-help h6 {
+  position: absolute;
+  bottom: 0;
+  font-size: 18px
+}
+
+#need-help .btn-primary {
+  background-color: #FF8A80;
+  color: #B92D00
+}
