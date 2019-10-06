@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DialogService } from "../services/dialog.service";
 import { DialogData } from "../shared/dialog-data";
+import { HttpService } from '../http.service';
 
 @Component({
   selector: "app-app-header",
@@ -8,12 +9,14 @@ import { DialogData } from "../shared/dialog-data";
   styleUrls: ["./app-header.component.css"]
 })
 export class AppHeaderComponent implements OnInit {
-  constructor(private dialogService: DialogService) {}
+
+  constructor(private http: HttpService, private dialogService: DialogService) {}
+
 
   openDialog() {
     const dialogData: DialogData = {
-      title: "Test Dialog",
-      message: "This is our first dialog!",
+      title: "Current Rainfall Level",
+      message: `It's rained ${this.http.rainfall} inches so far today.`,
       showOKBtn: true,
       showCancelBtn: true
     };
@@ -30,5 +33,6 @@ export class AppHeaderComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

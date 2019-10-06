@@ -4,15 +4,17 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="/user-profile" routerLinkActive="active">
         <span>Edit Profile</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="/user-settings" routerLinkActive="active">
         <span>Edit Contacts</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="/user-reports" routerLinkActive="active">
         <span>Edit Active Reports</span>
       </button>
+      <mat-divider></mat-divider>
+
       <button mat-menu-item>
         <span>Logout</span>
       </button>

@@ -7,16 +7,21 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 export class HttpService {
 
   constructor(private http: HttpClient) { }
+  rainfall: object;
+  
 
-  getAddress(lat, lng) {
-    let latLng = lat + "," + lng
-    let params = new HttpParams().set('location', latLng);
-    return this.http.get(`/convert-address`, {
-      params: params
-    })
+  submitReport(report) {
+    console.log(report);
+    return this.http.post('/submitReport', {report});
   }
 
   getRoute(){
     return this.http.get('/route');
   }
+
+  getRainfall(){
+    return this.http.get('/rainfall');
+  }
+
+  
 }

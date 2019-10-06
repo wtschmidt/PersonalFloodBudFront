@@ -1,0 +1,18 @@
+#stranded-okay {
+  background-color: #FFEB3B;
+  color: black 87;
+  height: 150px;
+  padding: 12px;
+  position: relative
+}
+
+#stranded-okay h6 {
+  position: absolute;
+  bottom: 0;
+  font-size: 18px
+}
+
+#stranded-okay .btn-primary {
+  background-color: #FFFF8D;
+  color: black
+}
