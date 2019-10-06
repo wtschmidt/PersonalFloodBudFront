@@ -35,6 +35,7 @@ import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
+import { AutoSearchComponent } from './auto-search/auto-search.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     UserProfileComponent,
     UserSettingsComponent,
     UserReportsComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    AutoSearchComponent,
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
