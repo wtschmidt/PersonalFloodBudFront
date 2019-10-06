@@ -32,7 +32,7 @@ export class CreateReport implements OnInit {
   ngOnInit() {
     this.geo.getLocation();
     var mapProp = {
-      zoom: 12,
+      zoom: 8,
       center: new google.maps.LatLng(29.95, -90.05)
     };
     // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
@@ -48,7 +48,7 @@ export class CreateReport implements OnInit {
     this.marker = new google.maps.Marker({
       position: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
       map: new google.maps.Map(this.gmapElement.nativeElement, {
-        zoom: 18,
+        zoom: 14,
         center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng)
       }),
       title: "Save us... bitch!"

@@ -15,6 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatDividerModule } from "@angular/material/divider";
 
 import {
   MatButtonModule,
@@ -34,6 +35,10 @@ import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
+import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-contacts.component';
+import { ContactSafeMovingComponent } from './contact-safe-moving/contact-safe-moving.component';
+import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-stranded-okay.component';
+import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     UserProfileComponent,
     UserSettingsComponent,
     UserReportsComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    ConnectToContactsComponent,
+    ContactSafeMovingComponent,
+    ContactStrandedOkayComponent,
+    ContactNeedHelpComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
@@ -67,6 +76,7 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     MatInputModule,
     HttpModule,
     MatGridListModule,
+    MatDividerModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
