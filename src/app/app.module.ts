@@ -43,6 +43,7 @@ import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.
 import { SafeMovingComponent } from './safe-moving/safe-moving.component';
 import { NeedHelpComponent } from './need-help/need-help.component';
 import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
     ContactNeedHelpComponent,
     SafeMovingComponent,
     NeedHelpComponent,
-    StrandedOkayComponent
+    StrandedOkayComponent,
+    HomeComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
