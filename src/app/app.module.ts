@@ -2,13 +2,14 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FindRoute } from "./FindRoute/FindRouteComponent";
 import { CreateReport } from "./CreateReport/CreateReportComponent";
 import { ConnectContacts } from "./ConnectToContacts/ConnectToContacts";
-import { AutoCompleteSearchComponent } from "./auto-complete-search/auto-complete-search.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { HttpClientModule } from "@angular/common/http";
@@ -41,7 +42,6 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     FindRoute,
     CreateReport,
     ConnectContacts,
-    AutoCompleteSearchComponent,
     DialogComponent,
     AppHeaderComponent,
     UserProfileComponent,
@@ -67,6 +67,11 @@ import { AppFooterComponent } from "./app-footer/app-footer.component";
     MatInputModule,
     HttpModule,
     MatGridListModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDparA5bqjrMG9t3hRPFFOzX-bbJ-cRwJ8',
+      libraries: ["places"]
+    }),
+    AgmDirectionModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
