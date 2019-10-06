@@ -41,6 +41,7 @@ import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-st
 import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
 import { SafeMovingComponent } from './safe-moving/safe-moving.component';
 import { NeedHelpComponent } from './need-help/need-help.component';
+import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NeedHelpComponent } from './need-help/need-help.component';
     ContactStrandedOkayComponent,
     ContactNeedHelpComponent,
     SafeMovingComponent,
-    NeedHelpComponent
+    NeedHelpComponent,
+    StrandedOkayComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
