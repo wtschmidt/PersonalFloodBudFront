@@ -17,9 +17,15 @@ export class CreateReport implements OnInit {
   marker: google.maps.Marker;
   lat = 0;
   lng = 0;
-  latLng = {};
-  description: string;
-  location: string;
+  // description: string;
+  // location: string;
+  image: any;
+  report = {
+    latLng: this.geo.currLat + "," + this.geo.currLng,
+    location: '',
+    desc: '',
+    img: this.image,
+  }
 
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
@@ -49,11 +55,10 @@ export class CreateReport implements OnInit {
     });
   }
 
-  submitReport() {
-    // function that converts our lat/long into an address
-    // console.log(this.description);
-    console.log(this.lat);
-    this.http.getAddress(this.geo.currLat, this.geo.currLng);
+  createReport() {
+    this.http.submitReport(this.report).subscribe(data => {
+      console.log(data);
+    });
   }
 
   getCurrentLocation() {

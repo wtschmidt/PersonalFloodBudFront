@@ -22,7 +22,7 @@
                 type="text"
                 placeholder="Location"
                 value=""
-                [(ngModel)]="location"
+                [(ngModel)]="report.location"
               />
               <button
                 mat-button
@@ -38,13 +38,13 @@
           </div>
         </div>
         <mat-form-field>
-          <textarea matInput [(ngModel)]="description" placeholder="Enter Details"></textarea>
+          <textarea matInput [(ngModel)]="report.desc" placeholder="Enter Details"></textarea>
         </mat-form-field>
         <!-- These buttons will need functionality (obvs) -->
         <mat-card-actions>
           <button mat-button>ADD PHOTO</button>
           <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button>
-          <button mat-button (click)="submitReport()">SUBMIT</button>
+          <button mat-button (click)="createReport()">SUBMIT</button>
         </mat-card-actions>
       </mat-card>
       <!-- end of card -->
