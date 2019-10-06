@@ -40,6 +40,9 @@ import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-con
 import { ContactSafeMovingComponent } from './contact-safe-moving/contact-safe-moving.component';
 import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-stranded-okay.component';
 import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
+import { SafeMovingComponent } from './safe-moving/safe-moving.component';
+import { NeedHelpComponent } from './need-help/need-help.component';
+import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.
     ConnectToContactsComponent,
     ContactSafeMovingComponent,
     ContactStrandedOkayComponent,
-    ContactNeedHelpComponent
+    ContactNeedHelpComponent,
+    SafeMovingComponent,
+    NeedHelpComponent,
+    StrandedOkayComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
