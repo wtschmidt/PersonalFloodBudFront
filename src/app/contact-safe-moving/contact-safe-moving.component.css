@@ -1,0 +1,18 @@
+#safe-moving {
+  background-color: #0D47A1;
+  color: white;
+  height: 150px;
+  padding: 12px;
+  position: relative
+}
+
+#safe-moving h6 {
+  position: absolute;
+  bottom: 0;
+  font-size: 18px
+}
+
+#safe-moving .btn-primary {
+  background-color: #82B1FF;
+  color: #0D47A1
+}

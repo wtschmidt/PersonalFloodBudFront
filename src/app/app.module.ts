@@ -16,6 +16,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatDividerModule } from "@angular/material/divider";
 
 import {
   MatButtonModule,
@@ -36,6 +37,10 @@ import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
 import { AutoSearchComponent } from './auto-search/auto-search.component';
+import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-contacts.component';
+import { ContactSafeMovingComponent } from './contact-safe-moving/contact-safe-moving.component';
+import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-stranded-okay.component';
+import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +55,10 @@ import { AutoSearchComponent } from './auto-search/auto-search.component';
     UserReportsComponent,
     AppFooterComponent,
     AutoSearchComponent,
+    ConnectToContactsComponent,
+    ContactSafeMovingComponent,
+    ContactStrandedOkayComponent,
+    ContactNeedHelpComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
@@ -74,6 +83,7 @@ import { AutoSearchComponent } from './auto-search/auto-search.component';
       libraries: ["places"]
     }),
     AgmDirectionModule,
+    MatDividerModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
