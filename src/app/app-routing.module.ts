@@ -12,6 +12,7 @@ import { ContactStrandedOkayComponent } from "./contact-stranded-okay/contact-st
 import { SafeMovingComponent } from "./safe-moving/safe-moving.component";
 import { StrandedOkayComponent } from "./stranded-okay/stranded-okay.component";
 import { NeedHelpComponent } from "./need-help/need-help.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   { path: "route", component: FindRoute },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "contact-stranded-okay", component: ContactStrandedOkayComponent },
   { path: "safe-moving", component: SafeMovingComponent },
   { path: "stranded-okay", component: StrandedOkayComponent },
-  { path: "need-help", component: NeedHelpComponent }
+  { path: "need-help", component: NeedHelpComponent },
+  { path: "", component: HomeComponent }
 ];
 
 @NgModule({

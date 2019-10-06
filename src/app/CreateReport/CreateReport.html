@@ -1,5 +1,5 @@
 <div class="container">
-  <div layout="row" layout-margin="">
+  <div class="row mt-5">
     <div class="col col-lg-4 report-card">
       <!-- start of card -->
       <mat-card>
@@ -8,16 +8,12 @@
           <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
         </mat-card-title-group>
         <agm-map [latitude]="markLat" [longitude]="markLng" [zoom]="15">
-          <agm-marker 
-          [latitude]="markLat"
-          [longitude]="markLng"
-          [markerDraggable]="true"
-          >
+          <agm-marker [latitude]="markLat" [longitude]="markLng" [markerDraggable]="true">
           </agm-marker>
         </agm-map>
         <!-- <div #gmap style='width:100%;height:400px'></div> -->
         <!-- below is the form that users will fill out to add a report -->
-        <div class="row">
+        <div class="row mt-3 ">
           <div class="col col-sm-12 col-md-4">
             <!-- <app-auto-search></app-auto-search> -->
             <mat-form-field class="example-form-field">
@@ -39,6 +35,7 @@
         </mat-card-actions>
       </mat-card>
       <!-- end of card -->
+      <h1 class="pt-5 pb-5"></h1>
     </div>
   </div>
 </div>
