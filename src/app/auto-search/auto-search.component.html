@@ -5,6 +5,7 @@
       class="formControl"
       [(ngModel)]="location" 
       location=""
+      (blur)="emitter()"
       #search>
       <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location = ''">
         <mat-icon>close</mat-icon>
