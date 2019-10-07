@@ -16,12 +16,15 @@ export class FindRoute implements OnInit {
   lng;
   origin: any;
   destination: any;
+  markers;
+  otherUserMarker = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 
   constructor(private http: HttpService, private geo: UserLocationService) {
 
   }
 
   ngOnInit() {
+    this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
   }
@@ -29,5 +32,21 @@ export class FindRoute implements OnInit {
   getDirection() {
     this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
+  }
+
+  getReportCoords() {
+    let markerArray = [];
+    // format the reports to create an array of objects of coords:
+    // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
+    this.http.dbReports.forEach(report => {
+      // check if latlng is null. the db has some test data that has null
+      if (report.latlng) {
+        let reportArr = report.latlng.split(',');
+        console.log(reportArr);
+        markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
+      }
+    });
+    // change this later. the first object is formatted differently from the rest so exclude for now
+    return markerArray.slice(1);
   }
 }
