@@ -17,7 +17,7 @@ export class CreateReport implements OnInit {
   markLng: number;
   image: any;
   report = {
-    latLng: this.markLat + "," + this.markLng,
+    latLng: '',
     location: '',
     desc: '',
     img: this.image,
@@ -26,8 +26,20 @@ export class CreateReport implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) { }
 
   ngOnInit() {
+    console.log('init location', this.geo.currLat, this.geo.currLng);
     this.markLat = this.geo.currLat;
     this.markLng = this.geo.currLng;
+  }
+
+  setMarkers() {
+    console.log('off click');
+    // change the marker locations
+    this.markLat = this.AutoSearch.lat;
+    this.markLng = this.AutoSearch.lng;
+
+    // update the report coords
+    this.report.latLng = this.AutoSearch.lat + ',' + this.AutoSearch.lng;
+    this.report.location = this.AutoSearch.address;
   }
 
   createReport() {
