@@ -36,11 +36,11 @@ export class CreateReport implements OnInit {
   setMarkers() {
     console.log('off click');
     // change the marker locations
-    this.lat = this.AutoSearch.lat;
-    this.lng = this.AutoSearch.lng;
+    this.lat = this.AutoSearch.lat || this.geo.currLat;
+    this.lng = this.AutoSearch.lng || this.geo.currLng;
 
     // update the report coords
-    this.report.latLng = this.AutoSearch.lat + ',' + this.AutoSearch.lng;
+    this.report.latLng = this.lat + ',' + this.lng;
     this.report.location = this.AutoSearch.address;
   }
 
