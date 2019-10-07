@@ -7,8 +7,8 @@
           <mat-card-title>Create a report</mat-card-title>
           <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
         </mat-card-title-group>
-        <agm-map [latitude]="markLat" [longitude]="markLng" [zoom]="15">
-          <agm-marker [latitude]="markLat" [longitude]="markLng" [markerDraggable]="true">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true">
           </agm-marker>
         </agm-map>
         <!-- <div #gmap style='width:100%;height:400px'></div> -->

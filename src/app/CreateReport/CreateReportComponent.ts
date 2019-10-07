@@ -31,28 +31,28 @@ export class CreateReport implements OnInit {
 
   ngOnInit () {
     this.geo.getLocation();
-    var mapProp = {
-      zoom: 12,
-      center: new google.maps.LatLng(29.95, -90.05),
-    }
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    // var mapProp = {
+    //   zoom: 12,
+    //   center: new google.maps.LatLng(29.95, -90.05),
+    // }
+    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
 
-  ngOnInit() {
-    this.markLat = this.geo.currLat;
-    this.markLng = this.geo.currLng;
-  }
+  // ngOnInit() {
+  //   this.markLat = this.geo.currLat;
+  //   this.markLng = this.geo.currLng;
+  // }
 
-    this.marker = new google.maps.Marker({
-      position: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-      map: new google.maps.Map(this.gmapElement.nativeElement, {
-        zoom: 18,
-        center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-      }),
-      label: "A",
-      title: 'Save us... bitch!'
-    });
+    // this.marker = new google.maps.Marker({
+    //   position: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
+    //   map: new google.maps.Map(this.gmapElement.nativeElement, {
+    //     zoom: 18,
+    //     center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
+    //   }),
+    //   label: "A",
+    //   title: 'Save us... bitch!'
+    // });
     // this.marker = new google.maps.Marker({
     //   position: new google.maps.LatLng(29.9777, -90.0797473),
     //   map: new google.maps.Map(this.gmapElement.nativeElement, {
