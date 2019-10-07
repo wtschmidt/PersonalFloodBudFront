@@ -10,6 +10,9 @@
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
           <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true">
           </agm-marker>
+          <div *ngFor="let marker of markers">
+            <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'></agm-marker>
+          </div>
         </agm-map>
         <!-- <div #gmap style='width:100%;height:400px'></div> -->
         <!-- below is the form that users will fill out to add a report -->

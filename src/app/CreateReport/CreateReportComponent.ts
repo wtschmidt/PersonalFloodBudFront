@@ -14,17 +14,22 @@ export class CreateReport implements OnInit {
 
   @ViewChild('gmap', {static: true}) gmapElement: any;
   // @ViewChild(UserLocationComponent, {static: true}) geo;
-  directionsService: any;
-  directionsRenderer: any;
-  map: google.maps.Map;
-  marker: google.maps.Marker;
-  marker2: google.maps.Marker;
+  // directionsService: any;
+  // directionsRenderer: any;
+  // map: google.maps.Map;
+  // marker: google.maps.Marker;
+  // marker2: google.maps.Marker;
   markers = [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}, {lat: 29.9770, lng: -90.0797773}, {lat: 29.9699, lng: -90.08}]
   lat = 0;
   lng = 0;
-  latLng = {};
-  description: string;
-  location: string;
+  currUser = 'You Are Here!';
+  otherUserMarker = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+  report = {
+    latLng: this.geo.currLat + "," + this.geo.currLng,
+    location: '',
+    desc: '',
+    img: '',
+  }
 
   constructor(private http: HttpService, private geo: UserLocationService) {
   }
@@ -43,36 +48,6 @@ export class CreateReport implements OnInit {
   //   this.markLat = this.geo.currLat;
   //   this.markLng = this.geo.currLng;
   // }
-
-    // this.marker = new google.maps.Marker({
-    //   position: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-    //   map: new google.maps.Map(this.gmapElement.nativeElement, {
-    //     zoom: 18,
-    //     center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-    //   }),
-    //   label: "A",
-    //   title: 'Save us... bitch!'
-    // });
-    // this.marker = new google.maps.Marker({
-    //   position: new google.maps.LatLng(29.9777, -90.0797473),
-    //   map: new google.maps.Map(this.gmapElement.nativeElement, {
-    //     zoom: 18,
-    //     center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-    //   }),
-    //   label: "B",
-    //   title: 'Lesser Bitch!'
-    // });
-    // this.markers.forEach(mark => {
-    //   this.marker = new google.maps.Marker({
-    //   position: new google.maps.LatLng(mark.lat, mark.lng),
-    //   map: new google.maps.Map(this.gmapElement.nativeElement, {
-    //     zoom: 18,
-    //     center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-    //   }),
-    //   label: "B",
-    //   title: 'lesser bitches!'
-    // });
-    // })
   }
 
   // currLat: number;
@@ -90,12 +65,7 @@ export class CreateReport implements OnInit {
   // // description: string;
   // // location: string;
   // image: any;
-  // report = {
-  //   latLng: this.geo.currLat + "," + this.geo.currLng,
-  //   location: '',
-  //   desc: '',
-  //   img: this.image,
-  // }
+  
 
   // constructor(private http: HttpService, private geo: UserLocationService) {}
 
@@ -131,9 +101,9 @@ export class CreateReport implements OnInit {
   //   });
   // }
 
-  // createReport() {
-  //   this.http.submitReport(this.report).subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
+  createReport() {
+    this.http.submitReport(this.report).subscribe(data => {
+      console.log(data);
+    });
+  }
 }
