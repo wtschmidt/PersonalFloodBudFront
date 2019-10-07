@@ -16,8 +16,10 @@ export class AppComponent implements OnInit{
     this.http.getRainfall().subscribe(data => {
         console.log(data + ' is the rainfall so far today');
         this.http.rainfall = data;
-
-  })
+    })
+    this.http.getReports().subscribe(data => {
+      this.http.dbReports = data;
+    });
     this.geo.getLocation();
   }
 }

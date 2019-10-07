@@ -13,7 +13,8 @@ import { AutoSearchComponent } from '../auto-search/auto-search.component';
 export class CreateReport implements OnInit {
 
   @ViewChild(AutoSearchComponent, {static: true}) AutoSearch: any;
-  markers = [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}, {lat: 29.9770, lng: -90.0797773}, {lat: 29.9699, lng: -90.08}]
+  markers;
+  // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}, {lat: 29.9770, lng: -90.0797773}, {lat: 29.9699, lng: -90.08}]
   lat;
   lng;
   currUser = 'You Are Here!';
@@ -28,9 +29,27 @@ export class CreateReport implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) { }
 
   ngOnInit() {
+    console.log('testing', this.http.dbReports);
+    this.markers = this.getReportCoords();
     console.log('init location', this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+  }
+
+  getReportCoords() {
+    let markerArray = [];
+    // format the reports to create an array of objects of coords:
+    // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
+    this.http.dbReports.forEach(report => {
+      // check if latlng is null. the db has some test data that has null
+      if (report.latlng) {
+        let reportArr = report.latlng.split(',');
+        console.log(reportArr);
+        markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
+      }
+    });
+    // change this later. the first object is formatted differently from the rest so exclude for now
+    return markerArray.slice(1);
   }
 
   setMarkers() {
