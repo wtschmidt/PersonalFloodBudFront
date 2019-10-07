@@ -17,7 +17,7 @@ export class UserLocationService implements OnInit{
 
   getLocation(){
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.watchPosition((position) => {
         const pos = {
           lat : position.coords.latitude,
           lng : position.coords.longitude

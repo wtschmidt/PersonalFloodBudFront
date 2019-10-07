@@ -12,22 +12,36 @@ import { AutoSearchComponent } from '../auto-search/auto-search.component';
 })
 export class CreateReport implements OnInit {
 
-  @ViewChild(AutoSearchComponent, { static: true }) AutoSearch;
-  markLat: number;
-  markLng: number;
-  image: any;
+  @ViewChild(AutoSearchComponent, {static: true}) AutoSearch: any;
+  markers = [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}, {lat: 29.9770, lng: -90.0797773}, {lat: 29.9699, lng: -90.08}]
+  lat;
+  lng;
+  currUser = 'You Are Here!';
+  otherUserMarker = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
   report = {
-    latLng: this.markLat + "," + this.markLng,
+    latLng: this.geo.currLat + "," + this.geo.currLng,
     location: '',
     desc: '',
-    img: this.image,
-  };
+    img: '',
+  }
 
   constructor(private http: HttpService, private geo: UserLocationService) { }
 
   ngOnInit() {
-    this.markLat = this.geo.currLat;
-    this.markLng = this.geo.currLng;
+    console.log('init location', this.geo.currLat, this.geo.currLng);
+    this.lat = this.geo.currLat;
+    this.lng = this.geo.currLng;
+  }
+
+  setMarkers() {
+    console.log('off click');
+    // change the marker locations
+    this.lat = this.AutoSearch.lat;
+    this.lng = this.AutoSearch.lng;
+
+    // update the report coords
+    this.report.latLng = this.AutoSearch.lat + ',' + this.AutoSearch.lng;
+    this.report.location = this.AutoSearch.address;
   }
 
   createReport() {
@@ -52,12 +66,7 @@ export class CreateReport implements OnInit {
   // // description: string;
   // // location: string;
   // image: any;
-  // report = {
-  //   latLng: this.geo.currLat + "," + this.geo.currLng,
-  //   location: '',
-  //   desc: '',
-  //   img: this.image,
-  // }
+  
 
   // constructor(private http: HttpService, private geo: UserLocationService) {}
 

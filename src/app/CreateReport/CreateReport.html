@@ -7,21 +7,26 @@
           <mat-card-title>Create a report</mat-card-title>
           <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
         </mat-card-title-group>
-        <agm-map [latitude]="markLat" [longitude]="markLng" [zoom]="15">
-          <agm-marker [latitude]="markLat" [longitude]="markLng" [markerDraggable]="true">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true">
           </agm-marker>
+          <div *ngFor="let marker of markers">
+            <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'></agm-marker>
+          </div>
         </agm-map>
         <!-- <div #gmap style='width:100%;height:400px'></div> -->
         <!-- below is the form that users will fill out to add a report -->
         <div class="row mt-3 ">
           <div class="col col-sm-12 col-md-4">
-            <!-- <app-auto-search></app-auto-search> -->
-            <mat-form-field class="example-form-field">
+          
+            <app-auto-search (eventEmitter)="setMarkers()"></app-auto-search>
+            
+            <!-- <mat-form-field class="example-form-field">
               <input matInput type="text" placeholder="Location" value="" [(ngModel)]="report.location" />
               <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
                 <mat-icon>close</mat-icon>
               </button>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
         <mat-form-field>

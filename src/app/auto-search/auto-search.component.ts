@@ -1,4 +1,4 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { HttpService } from "../http.service";
 import { UserLocationService } from "../services/user-location.service";
 import { FormControl } from '@angular/forms';
@@ -14,11 +14,15 @@ export class AutoSearchComponent implements OnInit {
 
   lat: number;
   lng: number;
+  address: any;
   searchControl: FormControl;
 
   @ViewChild("search", { static: true })
   public searchElementRef: ElementRef;
 
+  @Output() 
+  eventEmitter = new EventEmitter();
+  
   constructor(
     private http: HttpService,
     private geo: UserLocationService,
@@ -40,12 +44,17 @@ export class AutoSearchComponent implements OnInit {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          //set latitude, longitude
+          //set latitude, longitude and address
+          this.address = place.formatted_address;
           this.lat = place.geometry.location.lat();
           this.lng = place.geometry.location.lng();
         });
       });
     });
+  }
+
+  emitter() {
+    this.eventEmitter.emit();
   }
 
 }
