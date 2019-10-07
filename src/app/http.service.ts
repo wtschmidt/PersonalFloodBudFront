@@ -8,6 +8,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
   rainfall: object;
+  dbReports;
   
 
   submitReport(report) {
@@ -23,5 +24,8 @@ export class HttpService {
     return this.http.get('/rainfall');
   }
 
+  getReports() {
+    return this.http.get('/floodReports');
+  }
   
 }
