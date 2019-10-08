@@ -63,7 +63,7 @@ export class DialogComponent implements OnInit {
       //     },
       //   });
       console.log(views);
-      this.radarLayer = views;
+      this.radarLayer = views.toGeoJson();
     });
   }
 }
