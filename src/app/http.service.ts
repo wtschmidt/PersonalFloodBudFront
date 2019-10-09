@@ -9,10 +9,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
   rainfall: object;
   dbReports;
-  
-  getRadar() {
-    return this.http.get('/radar');
-  }
 
   submitReport(report) {
     console.log(report);

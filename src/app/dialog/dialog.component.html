@@ -1,11 +1,12 @@
 <h2 mat-dialog-title [innerHTML]="data.title"></h2>
+<div style="height:60vh;" id='radar-map' class="map">{{this.gmap}}</div>
 <mat-dialog-content [innerHTML]="data.message"></mat-dialog-content>
 <div class="col">
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="8">
+  <!-- <agm-map id="radar-map" [latitude]="lat" [longitude]="lng" [zoom]="8">
     <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true">
     </agm-marker>
-    <agm-data-layer id='radar-map' [geoJson]="radarLayer"></agm-data-layer>
-  </agm-map>
+    <agm-data-layer [geoJson]="radarLayer"></agm-data-layer>
+  </agm-map> -->
 <mat-dialog-actions class="flexbox-parent">
   <div class="row justify-content-center">
 
