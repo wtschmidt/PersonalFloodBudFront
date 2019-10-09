@@ -1,30 +1,32 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class HttpService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   rainfall: object;
   dbReports;
 
   submitReport(report) {
     console.log(report);
-    return this.http.post('/submitReport', {report});
+    return this.http.post("/submitReport", { report });
   }
 
-  getRoute(){
-    return this.http.get('/route');
+  submitMessage(message) {
+    return this.http.post("/submitMessage", { message });
   }
 
-  getRainfall(){
-    return this.http.get('/rainfall');
+  getRoute() {
+    return this.http.get("/route");
+  }
+
+  getRainfall() {
+    return this.http.get("/rainfall");
   }
 
   getReports() {
-    return this.http.get('/floodReports');
+    return this.http.get("/floodReports");
   }
-  
 }
