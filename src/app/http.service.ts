@@ -9,7 +9,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
   rainfall: object;
   dbReports;
-  
 
   submitReport(report) {
     console.log(report);
