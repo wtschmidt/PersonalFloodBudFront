@@ -41,11 +41,11 @@ export class CreateReport implements OnInit {
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
+      console.log('wefiubwauie', report);
       // check if latlng is null. the db has some test data that has null
       if (report.latlng) {
-        let reportArr = report.latlng.split(',');
-        console.log(reportArr);
-        markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
+        let reportCoords = report.latlng.split(',');
+        markerArray.push({ lat: reportCoords[0], lng: reportCoords[1], img: report.img, desc: report.description });
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now
@@ -61,6 +61,16 @@ export class CreateReport implements OnInit {
     // update the report coords
     this.report.latLng = this.lat + ',' + this.lng;
     this.report.location = this.AutoSearch.address;
+  }
+
+  processFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.report.img = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   createReport() {
