@@ -13,13 +13,16 @@ export class AppComponent implements OnInit{
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
   ngOnInit() {
-    this.http.getRainfall().subscribe(data => {
-        console.log(data + ' is the rainfall so far today');
-        this.http.rainfall = data;
-    })
+    
+    this.geo.getLocation();
+
     this.http.getReports().subscribe(data => {
       this.http.dbReports = data;
     });
-    this.geo.getLocation();
+    
+    this.http.getRainfall().subscribe(data => {
+      console.log(data + ' is the rainfall so far today');
+      this.http.rainfall = data;
+    })
   }
 }
