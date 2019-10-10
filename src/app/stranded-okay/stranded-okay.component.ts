@@ -16,11 +16,26 @@ export class StrandedOkayComponent implements OnInit {
 
   sendMessage() {
     console.log(this.message);
+    this.http.submitMessage(
+      {
+        user: 1,
+        message: this.message,
+        lat: this.lat,
+        lng: this.lng,
+      }
+    ).subscribe(data => {
+      console.log(data);
+    });
+      
   }
 
   handleInput(event) {
     this.message = event.target.value;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.lat = this.geo.currLat;
+    this.lng = this.geo.currLng;
+    console.log('init location', this.lat, this.lng);
+  }
 }
