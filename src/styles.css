@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html,
 body {
   height: 100%;
+  width: 100%;
   background-color: #E3F2FD
 }
 
@@ -23,16 +23,14 @@ body {
   flex: 1 1 auto;
 }
 
-
-#btmFooter {
-  align-self: flex-end;
-}
-
-.navbar {
-  overflow: hidden;
+.footer {
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
 
 /* Style the links inside the navigation bar */
