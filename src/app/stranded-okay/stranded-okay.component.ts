@@ -10,11 +10,17 @@ import { UserLocationService } from "../services/user-location.service";
 export class StrandedOkayComponent implements OnInit {
   lat;
   lng;
-  message = {};
+  message: string = `I've been caught in a flood, but I'm ok. I'm staying put and sending you my location.`;
 
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
-  sendMessage() {}
+  sendMessage() {
+    console.log(this.message);
+  }
+
+  handleInput(event) {
+    this.message = event.target.value;
+  }
 
   ngOnInit() {}
 }

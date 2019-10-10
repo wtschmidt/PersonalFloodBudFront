@@ -9,12 +9,12 @@
       <form>
         <div class="form-group">
           <label for="message" class="bmd-label-floating">Message</label>
-          <textarea class="form-control" id="message"
-            rows="3">I’ve been caught in a flood, but I’m OK. I’m staying put and I’m sending you my location.</textarea>
+          <textarea class="form-control" id="message" rows="3" (change)="handleInput($event)">{{message}}</textarea>
           <span>We'll send this message, along with your location, to .</span>
+
         </div>
         <button class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+        <button type="submit" class="btn btn-primary btn-raised" (click)="sendMessage()">Submit</button>
 
       </form>
     </div>
