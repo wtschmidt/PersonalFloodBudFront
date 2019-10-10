@@ -6,7 +6,7 @@
         <div class="form">
           <div class="form-group">
             <app-auto-search></app-auto-search>
-            <button class="btn btn-raised btn-primary mt-2 btn-sm" (click)="getDirection()">GET ROUTE</button>
+            <button class="btn btn-raised btn-primary mt-2 btn-sm" (click)="getDirections()">GET ROUTE</button>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
         <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'>
           <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
         </agm-marker>
-        <agm-direction [origin]="origin" [destination]="destination">
+        <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints">
         </agm-direction>
       </agm-map>
     </div>
