@@ -7,8 +7,8 @@ import { AutoSearchComponent } from '../auto-search/auto-search.component';
 
 @Component({
   selector: "create-report",
-  styles: ['agm-map { height: 400px;}'],
-  templateUrl: "./CreateReport.html",
+  styles: ['agm-map { height: 50vh;}'],
+  templateUrl: "./CreateReport.html"
 })
 
 export class CreateReport implements OnInit {
@@ -27,10 +27,11 @@ export class CreateReport implements OnInit {
     img: '',
   }
 
+
   constructor(private http: HttpService, private geo: UserLocationService) { }
 
   ngOnInit() {
-    console.log('testing', this.http.dbReports);
+    
     this.markers = this.getReportCoords();
     console.log('init location', this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;

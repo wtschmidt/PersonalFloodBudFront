@@ -16,7 +16,11 @@ export class FindRoute implements OnInit {
   lng;
   origin: any;
   destination: any;
+  wayPoints: object;
+  directions: any;
+  reports: any;
   markers;
+  mapReqInfo: object;
   otherUserMarker = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 
   constructor(private http: HttpService, private geo: UserLocationService) {
@@ -27,12 +31,26 @@ export class FindRoute implements OnInit {
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+    console.log(this.geo.currLat, "this is my lat")
+    console.log(this.lng, "this is my lng");
   }
 
-  getDirection() {
+  getDirections() {
     this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
-  }
+    this.mapReqInfo = {
+      origin : this.origin,
+      destination : this.destination,
+    }
+
+    this.http.getMap(this.mapReqInfo).subscribe(directions => {
+      //use "diretions" to make API call to agm-direction,
+      // to create a route with the series of waypoints returned from the http req in "directions"
+      this.directions = directions;
+      console.log('these are the directions from turf', this.directions);
+      this.wayPoints = this.directions.waypoints;
+  });
+}
 
   getReportCoords() {
     let markerArray = [];
