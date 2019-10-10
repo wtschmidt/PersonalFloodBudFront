@@ -13,9 +13,9 @@
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
         <agm-marker [latitude]="lat" [longitude]="lng">
         </agm-marker>
-        <div *ngFor="let marker of markers">
-          <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'></agm-marker>
-        </div>
+        <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'>
+          <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
+        </agm-marker>
         <agm-direction [origin]="origin" [destination]="destination">
         </agm-direction>
       </agm-map>
