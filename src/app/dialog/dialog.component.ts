@@ -6,9 +6,6 @@ import { UserLocationService } from "../services/user-location.service";
 import {} from "googlemaps";
 import { HttpService } from "../http.service";
 import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from "@angular/platform-browser-dynamic";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 @Component({
   selector: "app-dialog",
@@ -26,8 +23,8 @@ export class DialogComponent implements OnInit {
 
   radar;
   aeris = new AerisWeather(
-    `${process.env.AERIS_ACCESS_ID}`,
-    `${process.env.AERIS_SECRET_KEY}`
+    `cpmoBx8KS2aW4va7zoDze`,
+    `xADMSwJQCB4Ay8Fw21B0l2bCIn3kfjIcN6T9f3xG`
   );
 
   constructor(
@@ -70,7 +67,7 @@ export class DialogComponent implements OnInit {
       var layers = new google.maps.ImageMapType({
         getTileUrl: function(coord, zoom) {
           return [
-            `https://maps.aerisapi.com/${process.env.AERIS_ACCESS_ID}_${process.env.AERIS_SECRET_KEY}/flat,radar,admin/`,
+            `https://maps.aerisapi.com/cpmoBx8KS2aW4va7zoDze_xADMSwJQCB4Ay8Fw21B0l2bCIn3kfjIcN6T9f3xG/flat,radar,admin/`,
             zoom,
             "/",
             coord.x,
