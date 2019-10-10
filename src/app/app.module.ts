@@ -64,7 +64,7 @@ import { HomeComponent } from './home/home.component';
     SafeMovingComponent,
     NeedHelpComponent,
     StrandedOkayComponent,
-    HomeComponent
+    HomeComponent,
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],

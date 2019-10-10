@@ -59,9 +59,8 @@ export class FindRoute implements OnInit {
     this.http.dbReports.forEach(report => {
       // check if latlng is null. the db has some test data that has null
       if (report.latlng) {
-        let reportArr = report.latlng.split(',');
-        console.log(reportArr);
-        markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
+        let reportCoords = report.latlng.split(',');
+        markerArray.push({ lat: reportCoords[0], lng: reportCoords[1], img: report.img, desc: report.description });
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now

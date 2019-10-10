@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from "@angular/core";
+import { Directive, Component, ViewChild, OnInit } from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -10,6 +10,7 @@ import { AutoSearchComponent } from '../auto-search/auto-search.component';
   styles: ['agm-map { height: 50vh;}'],
   templateUrl: "./CreateReport.html"
 })
+
 export class CreateReport implements OnInit {
 
   @ViewChild(AutoSearchComponent, {static: true}) AutoSearch: any;
@@ -42,10 +43,11 @@ export class CreateReport implements OnInit {
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
+      console.log('wefiubwauie', report);
       // check if latlng is null. the db has some test data that has null
       if (report.latlng) {
-        let reportArr = report.latlng.split(',');
-        markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
+        let reportCoords = report.latlng.split(',');
+        markerArray.push({ lat: reportCoords[0], lng: reportCoords[1], img: report.img, desc: report.description });
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now
@@ -63,67 +65,20 @@ export class CreateReport implements OnInit {
     this.report.location = this.AutoSearch.address;
   }
 
+  processFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.report.img = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
   createReport() {
     console.log(this.report);
     this.http.submitReport(this.report).subscribe(data => {
       console.log(data);
     });
   }
-
-  // currLat: number;
-  // currLng: number;
-  // description: string;
-  // location: string;
-  // @ViewChild("gmap", { static: true }) gmapElement: any;
-  // // @ViewChild(UserLocationComponent, {static: true}) geo;
-  // directionsService: any;
-  // directionsRenderer: any;
-  // map: google.maps.Map;
-  // marker: google.maps.Marker;
-  // lat = 0;
-  // lng = 0;
-  // // description: string;
-  // // location: string;
-  // image: any;
-  
-
-  // constructor(private http: HttpService, private geo: UserLocationService) {}
-
-  // ngOnInit() {
-  //   this.currLat = this.geo.currLat;
-  //   this.currLng = this.geo.currLng;
-  // }
-
-  // submitReport() {
-  //   this.http.getAddress(this.geo.currLat, this.geo.currLng);
-  //   this.geo.getLocation();
-  //   var mapProp = {
-  //     zoom: 8,
-  //     center: new google.maps.LatLng(29.95, -90.05)
-  //   };
-  //   // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-  //   this.lat = this.geo.currLat;
-  //   this.lng = this.geo.currLng;
-  //   console.log("CLICK CLICK BOOM", this.lat);
-  //   console.log("CLICK CLICK BOOM GEo", this.geo.currLat);
-
-  //   // this.geo.getLocation();
-  //   // console.log(this.geo.currLat);
-  //   // this.latLng = {lat: this.geo.currLat, lng: this.geo.currLng};
-
-  //   this.marker = new google.maps.Marker({
-  //     position: new google.maps.LatLng(this.geo.currLat, this.geo.currLng),
-  //     map: new google.maps.Map(this.gmapElement.nativeElement, {
-  //       zoom: 14,
-  //       center: new google.maps.LatLng(this.geo.currLat, this.geo.currLng)
-  //     }),
-  //     title: "Save us... bitch!"
-  //   });
-  // }
-
-  // createReport() {
-  //   this.http.submitReport(this.report).subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
 }
