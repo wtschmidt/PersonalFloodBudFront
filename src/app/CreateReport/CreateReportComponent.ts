@@ -7,7 +7,7 @@ import { AutoSearchComponent } from '../auto-search/auto-search.component';
 
 @Component({
   selector: "create-report",
-  styles: ['agm-map { height: 400px;}'],
+  styles: ['agm-map { height: 50vh;}'],
   templateUrl: "./CreateReport.html"
 })
 export class CreateReport implements OnInit {
@@ -26,10 +26,11 @@ export class CreateReport implements OnInit {
     img: '',
   }
 
+
   constructor(private http: HttpService, private geo: UserLocationService) { }
 
   ngOnInit() {
-    console.log('testing', this.http.dbReports);
+    
     this.markers = this.getReportCoords();
     console.log('init location', this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
@@ -44,7 +45,6 @@ export class CreateReport implements OnInit {
       // check if latlng is null. the db has some test data that has null
       if (report.latlng) {
         let reportArr = report.latlng.split(',');
-        console.log(reportArr);
         markerArray.push({ lat: reportArr[0], lng: reportArr[1] });
       }
     });
