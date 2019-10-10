@@ -14,8 +14,14 @@ export class HttpService {
     return this.http.post("/submitReport", { report });
   }
 
+  //this will submit a message to a user's emergency contacts
   submitMessage(message) {
     return this.http.post("/submitMessage", { message });
+  }
+
+  //this will get info about the current user
+  getUserInfo() {
+    return this.http.get("/userInfo");
   }
 
   getRoute() {
