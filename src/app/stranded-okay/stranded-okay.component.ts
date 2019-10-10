@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "../http.service";
 import { UserLocationService } from "../services/user-location.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-stranded-okay",
@@ -16,17 +17,16 @@ export class StrandedOkayComponent implements OnInit {
 
   sendMessage() {
     console.log(this.message);
-    this.http.submitMessage(
-      {
+    this.http
+      .submitMessage({
         user: 1,
         message: this.message,
         lat: this.lat,
-        lng: this.lng,
-      }
-    ).subscribe(data => {
-      console.log(data);
-    });
-      
+        lng: this.lng
+      })
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
   handleInput(event) {
@@ -36,6 +36,6 @@ export class StrandedOkayComponent implements OnInit {
   ngOnInit() {
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    console.log('init location', this.lat, this.lng);
+    console.log("init location", this.lat, this.lng);
   }
 }
