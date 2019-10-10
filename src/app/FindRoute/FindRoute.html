@@ -1,12 +1,11 @@
 <h2>Find Route</h2>
 <app-auto-search></app-auto-search>
-<button mat-button (click)="getDirection()">get route</button>
+<button mat-button (click)="getDirections()">get route</button>
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
   <agm-marker [latitude]="lat" [longitude]="lng">
   </agm-marker>
   <div *ngFor="let marker of markers">
     <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'></agm-marker>
   </div>
-  <agm-direction [origin]="origin" [destination]="destination">
-  </agm-direction>
+  <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints"></agm-direction>
 </agm-map>
