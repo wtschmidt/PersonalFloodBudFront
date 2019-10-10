@@ -45,10 +45,11 @@ export class DialogComponent implements OnInit {
       console.log("!!!!!!!", views);
       const map = new views.InteractiveMap(document.getElementById('radar-map'), {
         center: {
-          lat: 29.977,
-          lon: -90.08,
+          lat: this.geo.currLat,
+          lon: this.geo.currLng,
         },
-        // zoom: 4,
+        zoom: 8,
+        // marker
         strategy: 'google',
         accessToken: 'AIzaSyAbJOa8X-CeBSal5VFPQPT1Qkhd-XTnf0s', //GOOGLE
         layers: 'radar,alerts',
@@ -59,14 +60,14 @@ export class DialogComponent implements OnInit {
       });
       console.log(map);
       // this.radarLayer = map;
-      var layers = new google.maps.ImageMapType({
-        getTileUrl: function(coord, zoom) {
-            return ['https://maps.aerisapi.com/cpmoBx8KS2aW4va7zoDze_xADMSwJQCB4Ay8Fw21B0l2bCIn3kfjIcN6T9f3xG/flat,radar,admin/', zoom, '/', coord.x, '/', coord.y, '/current.png'].join('');
-            // need to move these API keys to be in an env file, there's one for id and pass/secret
-        },
-        tileSize: new google.maps.Size(256, 256)
-    });
-    map.overlayMapTypes.push(layers);
+    //   var layers = new google.maps.ImageMapType({
+    //     getTileUrl: function(coord, zoom) {
+    //         return ['https://maps.aerisapi.com/cpmoBx8KS2aW4va7zoDze_xADMSwJQCB4Ay8Fw21B0l2bCIn3kfjIcN6T9f3xG/flat,radar,admin/', zoom, '/', coord.x, '/', coord.y, '/current.png'].join('');
+    //         // need to move these API keys to be in an env file, there's one for id and pass/secret
+    //     },
+    //     tileSize: new google.maps.Size(256, 256)
+    // });
+    // map.overlayMapTypes.push(layers);
     this.gmap = map;
     });
     
