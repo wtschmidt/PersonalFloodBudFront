@@ -25,17 +25,17 @@
               <div>
                 <label for="report-details" class="bmd-label-floating">Enter Details</label>
 
-                <textarea id="report-details" class="form-control" [(ngModel)]="report.desc"></textarea>
+                <textarea id="report-details" class="form-control" [(ngModel)]="report.desc"
+                  [ngModelOptions]="{standalone: true}"></textarea>
+              </div>
+              <div>
+                <!-- <button mat-button>ADD PHOTO</button> -->
+                <input type="file" accept="image/*" (change)="processFile($event)">
+                <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
+                <button mat-button (click)="createReport()">SUBMIT</button>
               </div>
             </form>
           </div>
-
-          <mat-card-actions>
-            <!-- <button mat-button>ADD PHOTO</button> -->
-            <input type="file" accept="image/*" (change)="processFile($event)">
-            <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
-            <button mat-button (click)="createReport()">SUBMIT</button>
-          </mat-card-actions>
         </div>
       </div>
       <!-- end of card -->
