@@ -1,5 +1,4 @@
-<input matInput placeholder="search for location" type="text" class="form-control" [(ngModel)]="location" location=""
-  (blur)="emitter()" #search>
+<input type="text" id="auto-search" class="form-control" [(ngModel)]="location" location="" (blur)="emitter()" #search>
 <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location = ''">
   <mat-icon>close</mat-icon>
 </button>
