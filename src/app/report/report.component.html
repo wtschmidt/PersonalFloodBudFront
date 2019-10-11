@@ -5,7 +5,7 @@
     <div class="card mb-3" style="width: 100%;">
       <img *ngIf="report.img" class="card-img-top" src={{report.img}} alt="Card image cap">
       <div class="card-body">
-        <!-- I think the title should say the time of the report -->
+        <!-- Should title say the time of the report or should it be location? If we have location, then that, else show the time? Other thoughts? -->
         <h5 class="card-title">Flood report</h5>
         <p class="card-text">{{report.description}}
         </p>
@@ -14,7 +14,7 @@
           {{report.physical_address}}</p>
       </div>
       <div class="card-body">
-        <!-- We need a function that will remove the selected report from the database -->
+        <!-- We need a (click) function that will remove the selected report from the database -->
         <button class="btn btn-primary float-right">DELETE</button>
       </div>
     </div>
