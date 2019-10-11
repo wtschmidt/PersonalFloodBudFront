@@ -1,24 +1,27 @@
 <div class="container">
   <div class="row mt-4">
     <div class="col">
-      <h5 class="mb-3">Find Route</h5>
-      <div class="col">
-        <div class="form">
-          <div class="form-group">
-            <app-auto-search></app-auto-search>
-            <button class="btn btn-raised btn-primary mt-2 btn-sm" (click)="getDirections()">GET ROUTE</button>
+      <div class="card">
+        <h5 class="card-header">Find Route</h5>
+        <div class="card-body">
+          <div class="form">
+            <div class="form-group">
+              <app-auto-search></app-auto-search>
+              <button class="btn btn-raised btn-primary mt-2 btn-sm" (click)="getDirections()">GET ROUTE</button>
+            </div>
           </div>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
+            <agm-marker [latitude]="lat" [longitude]="lng">
+            </agm-marker>
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
+              [iconUrl]='otherUserMarker'>
+              <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
+            </agm-marker>
+            <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints">
+            </agm-direction>
+          </agm-map>
         </div>
       </div>
-      <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
-        <agm-marker [latitude]="lat" [longitude]="lng">
-        </agm-marker>
-        <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]='otherUserMarker'>
-          <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
-        </agm-marker>
-        <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints">
-        </agm-direction>
-      </agm-map>
     </div>
   </div>
 </div>
