@@ -2,12 +2,14 @@
   <div class="row mt-4">
     <div class="col">
       <div class="card">
-        <h5 class="card-header">Find Route</h5>
+        <h5 class="card-header">Find a Route</h5>
         <div class="card-body">
+          <p>Enter your location and your destination and we'll do our best to get you around potential and reported
+            flooding.</p>
           <div class="form">
             <div class="form-group">
               <app-auto-search></app-auto-search>
-              <button class="btn btn-raised btn-primary mt-2 btn-sm" (click)="getDirections()">GET ROUTE</button>
+              <button class="btn btn-primary mt-2 btn-sm" (click)="getDirections()">GET ROUTE</button>
             </div>
           </div>
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
@@ -22,6 +24,7 @@
           </agm-map>
         </div>
       </div>
+      <h1 class="pt-5 mb-5"></h1>
     </div>
   </div>
 </div>
