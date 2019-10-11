@@ -7,7 +7,13 @@ import { HttpService } from "../http.service";
   styleUrls: ["./report.component.css"]
 })
 export class ReportComponent implements OnInit {
+  reports;
   constructor(private http: HttpService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.getReports().subscribe(data => {
+      this.reports = data;
+      console.log(this.reports);
+    });
+  }
 }

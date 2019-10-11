@@ -1,1 +1,20 @@
-<p>report works!</p>
+<ul *ngIf="reports">
+  <!-- this is like mapping in js -->
+  <li *ngFor="let report of reports">
+
+
+    <div class="card mb-3" style="width: 100%;">
+      <img class="card-img-top" src={{report.img}} alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Flood report</h5>
+        <p class="card-text">{{report.description}}
+        </p>
+        <p *ngIf="report.physical_address !== null">Location: {{report.physical_address}}</p>
+      </div>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </li>
+</ul>
