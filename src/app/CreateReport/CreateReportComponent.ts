@@ -4,6 +4,8 @@ import { HttpService } from "../http.service";
 import {} from "googlemaps";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
+import Swal from 'sweetalert2';
+import { Router } from "@angular/router"
 
 @Component({
   selector: "create-report",
@@ -29,6 +31,7 @@ export class CreateReport implements OnInit {
     private http: HttpService, 
     private geo: UserLocationService,
     private NgZone: NgZone,
+    private router: Router,
     ) {}
 
   ngOnInit() {
@@ -84,9 +87,21 @@ export class CreateReport implements OnInit {
 
   createReport() {
     console.log(this.report);
-    this.http.submitReport(this.report).subscribe(data => {
-      console.log(data);
-    });
+
+    //user must have location
+    if (this.report.latLng === 'undefined,undefined') {
+      Swal.fire('Your location is missing!')
+    } else {
+      this.http.submitReport(this.report).subscribe(data => {
+        console.log(data);
+      });
+      Swal.fire(
+        'Report sent!',
+        'Thanks for helping your fellow New Orleanians. Stay safe',
+        'success'
+      );
+      this.router.navigate(['']);
+    }
   }
 
   setLocation(place) {
