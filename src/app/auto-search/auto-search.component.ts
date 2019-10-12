@@ -3,7 +3,7 @@ import { HttpService } from "../http.service";
 import { UserLocationService } from "../services/user-location.service";
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
-import { MapsAPILoader} from '@agm/core';
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-auto-search',
@@ -16,6 +16,7 @@ export class AutoSearchComponent implements OnInit {
   lng: number;
   address: any;
   searchControl: FormControl;
+  location: string;
 
   @ViewChild("search", { static: true })
   public searchElementRef: ElementRef;
