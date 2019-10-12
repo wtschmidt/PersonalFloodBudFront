@@ -10,7 +10,7 @@ export class HttpService {
 
   rainfall: object;
   dbReports;
- 
+
   getMap(mapReqInfo) {
     return this.http.post('/getMap', {mapReqInfo});
   }

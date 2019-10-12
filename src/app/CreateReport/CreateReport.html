@@ -8,7 +8,7 @@
         <div class="card-body">
           <div class="mb-4">
             <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
-              <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true">
+              <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="moveReport($event)">
               </agm-marker>
               <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
                 [iconUrl]='otherUserMarker'>
