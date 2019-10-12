@@ -3,6 +3,7 @@ import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
+import { AutoSearchStartComponent } from "../auto-search-start/auto-search-start.component";
 
 @Component({
   selector: "find-route",
@@ -11,6 +12,7 @@ import { AutoSearchComponent } from "../auto-search/auto-search.component";
 })
 export class FindRoute implements OnInit {
   @ViewChild(AutoSearchComponent, { static: true }) autoSearch;
+  @ViewChild(AutoSearchStartComponent, { static: true }) autoSearchStart;
   lat;
   lng;
   origin: any;
@@ -33,7 +35,11 @@ export class FindRoute implements OnInit {
   }
 
   getDirections() {
-    this.origin = { lat: this.lat, lng: this.lng };
+    if (this.autoSearchStart) {
+      this.origin = { lat: this.autoSearchStart.lat, lng: this.autoSearchStart.lng}
+    } else {
+      this.origin = { lat: this.lat, lng: this.lng };
+    }
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
     this.mapReqInfo = {
       origin: this.origin,

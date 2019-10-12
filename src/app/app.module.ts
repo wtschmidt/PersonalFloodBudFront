@@ -46,6 +46,7 @@ import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
 import { HomeComponent } from './home/home.component';
 import { ReportComponent } from './report/report.component';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
+import { AutoSearchStartComponent } from './auto-search-start/auto-search-start.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     HomeComponent,
     ReportComponent,
     AddContactsComponent,
+    AutoSearchStartComponent,
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
