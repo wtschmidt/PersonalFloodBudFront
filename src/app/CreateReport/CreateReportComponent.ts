@@ -42,12 +42,14 @@ export class CreateReport implements OnInit {
   }
 
   getReportCoords() {
+    this.setMarkers();
+
     let markerArray = [];
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
       // check if latlng is null. the db has some test data that has null
-      if (report.latlng) {
+      if (report.latLng) {
         let reportCoords = report.latlng.split(",");
         markerArray.push({
           lat: reportCoords[0],
@@ -85,8 +87,6 @@ export class CreateReport implements OnInit {
   }
 
   createReport() {
-    console.log(this.report);
-
     //user must have location
     if (this.report.latLng === "undefined,undefined") {
       Swal.fire("Your location is missing!");
@@ -96,7 +96,7 @@ export class CreateReport implements OnInit {
       });
       Swal.fire(
         "Report sent!",
-        "Thanks for helping your fellow New Orleanians. Stay safe",
+        "Thanks for helping your fellow New Orleanians. Stay safe out there!",
         "success"
       );
       this.router.navigate([""]);
@@ -106,6 +106,7 @@ export class CreateReport implements OnInit {
   setLocation(place) {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
+    this.report.location = place.formatted_address;
   }
 
   moveReport(event) {
@@ -117,6 +118,13 @@ export class CreateReport implements OnInit {
         });
       }
     });
+
     console.log(this.lat, this.lng);
+    this.report.latLng = this.lat + "," + this.lng;
+    console.log(this.report);
+    this.http.getAddress(this.report.latLng).subscribe(location => {
+      console.log(location);
+      // this.report.location = location.data;
+    });
   }
 }
