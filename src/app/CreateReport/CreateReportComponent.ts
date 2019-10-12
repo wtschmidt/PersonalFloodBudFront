@@ -36,20 +36,21 @@ export class CreateReport implements OnInit {
 
   ngOnInit() {
     this.markers = this.getReportCoords();
+    console.log(this.markers);
     console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
   }
 
   getReportCoords() {
-    this.setMarkers();
+    // this.setMarkers();
 
     let markerArray = [];
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
       // check if latlng is null. the db has some test data that has null
-      if (report.latLng) {
+      if (report.latlng) {
         let reportCoords = report.latlng.split(",");
         markerArray.push({
           lat: reportCoords[0],
