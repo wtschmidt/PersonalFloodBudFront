@@ -13,7 +13,6 @@ export class ReportComponent implements OnInit {
   ngOnInit() {
     this.http.getReports().subscribe(data => {
       this.reports = data;
-      console.log(this.reports);
     });
   }
 }

@@ -4,8 +4,8 @@ import { HttpService } from "../http.service";
 import {} from "googlemaps";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
-import Swal from 'sweetalert2';
-import { Router } from "@angular/router"
+import Swal from "sweetalert2";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "create-report",
@@ -28,11 +28,11 @@ export class CreateReport implements OnInit {
   };
 
   constructor(
-    private http: HttpService, 
+    private http: HttpService,
     private geo: UserLocationService,
     private NgZone: NgZone,
-    private router: Router,
-    ) {}
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.markers = this.getReportCoords();
@@ -42,13 +42,14 @@ export class CreateReport implements OnInit {
   }
 
   getReportCoords() {
+    this.setMarkers();
+
     let markerArray = [];
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
-      // console.log("wefiubwauie", report);
       // check if latlng is null. the db has some test data that has null
-      if (report.latlng) {
+      if (report.latLng) {
         let reportCoords = report.latlng.split(",");
         markerArray.push({
           lat: reportCoords[0],
@@ -67,9 +68,9 @@ export class CreateReport implements OnInit {
     // change the marker locations
     // this.lat = this.AutoSearch.lat || this.geo.currLat;
     // this.lng = this.AutoSearch.lng || this.geo.currLng;
-    this.lat = this.AutoSearch.lat || this.lat;
-    this.lng = this.AutoSearch.lng || this.lng;
-    
+    this.lat = this.AutoSearch.lat || this.geo.currLat;
+    this.lng = this.AutoSearch.lng || this.geo.currLng;
+
     // update the report coords
     this.report.latLng = this.lat + "," + this.lng;
     this.report.location = this.AutoSearch.address;
@@ -86,38 +87,44 @@ export class CreateReport implements OnInit {
   }
 
   createReport() {
-    console.log(this.report);
-
     //user must have location
-    if (this.report.latLng === 'undefined,undefined') {
-      Swal.fire('Your location is missing!')
+    if (this.report.latLng === "undefined,undefined") {
+      Swal.fire("Your location is missing!");
     } else {
       this.http.submitReport(this.report).subscribe(data => {
         console.log(data);
       });
       Swal.fire(
-        'Report sent!',
-        'Thanks for helping your fellow New Orleanians. Stay safe',
-        'success'
+        "Report sent!",
+        "Thanks for helping your fellow New Orleanians. Stay safe out there!",
+        "success"
       );
-      this.router.navigate(['']);
+      this.router.navigate([""]);
     }
   }
 
   setLocation(place) {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
+    this.report.location = place.formatted_address;
   }
 
   moveReport(event) {
     const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'location': event.coords}, (res, status) => {
+    geocoder.geocode({ location: event.coords }, (res, status) => {
       if (status === google.maps.GeocoderStatus.OK && res.length) {
         this.NgZone.run(() => {
-          this.setLocation(res[0])
-        })
+          this.setLocation(res[0]);
+        });
       }
-    })
+    });
+
     console.log(this.lat, this.lng);
+    this.report.latLng = this.lat + "," + this.lng;
+    console.log(this.report);
+    this.http.getAddress(this.report.latLng).subscribe(location => {
+      console.log(location);
+      // this.report.location = location.data;
+    });
   }
 }
