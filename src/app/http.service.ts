@@ -39,7 +39,6 @@ export class HttpService {
   }
 
   getReports() {
-
     return this.http.get("/floodReports");
   }
 }
