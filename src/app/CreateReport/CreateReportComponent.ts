@@ -1,4 +1,4 @@
-import { Directive, Component, ViewChild, OnInit } from "@angular/core";
+import { Directive, Component, ViewChild, OnInit, NgZone } from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -25,7 +25,11 @@ export class CreateReport implements OnInit {
     img: ""
   };
 
-  constructor(private http: HttpService, private geo: UserLocationService) {}
+  constructor(
+    private http: HttpService, 
+    private geo: UserLocationService,
+    private NgZone: NgZone,
+    ) {}
 
   ngOnInit() {
     this.markers = this.getReportCoords();
@@ -58,9 +62,11 @@ export class CreateReport implements OnInit {
   setMarkers() {
     console.log("off click");
     // change the marker locations
-    this.lat = this.AutoSearch.lat || this.geo.currLat;
-    this.lng = this.AutoSearch.lng || this.geo.currLng;
-
+    // this.lat = this.AutoSearch.lat || this.geo.currLat;
+    // this.lng = this.AutoSearch.lng || this.geo.currLng;
+    this.lat = this.AutoSearch.lat || this.lat;
+    this.lng = this.AutoSearch.lng || this.lng;
+    
     // update the report coords
     this.report.latLng = this.lat + "," + this.lng;
     this.report.location = this.AutoSearch.address;
@@ -81,5 +87,22 @@ export class CreateReport implements OnInit {
     this.http.submitReport(this.report).subscribe(data => {
       console.log(data);
     });
+  }
+
+  setLocation(place) {
+    this.lat = place.geometry.location.lat();
+    this.lng = place.geometry.location.lng();
+  }
+
+  moveReport(event) {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'location': event.coords}, (res, status) => {
+      if (status === google.maps.GeocoderStatus.OK && res.length) {
+        this.NgZone.run(() => {
+          this.setLocation(res[0])
+        })
+      }
+    })
+    console.log(this.lat, this.lng);
   }
 }
