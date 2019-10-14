@@ -1,17 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { DialogService } from "../services/dialog.service";
 import { DialogData } from "../shared/dialog-data";
-import { HttpService } from '../http.service';
+import { HttpService } from "../http.service";
 
 @Component({
   selector: "app-app-header",
   templateUrl: "./app-header.component.html",
-  styleUrls: ["./app-header.component.css"]
+  styleUrls: ["./app-header.component.scss"]
 })
 export class AppHeaderComponent implements OnInit {
-
-  constructor(private http: HttpService, private dialogService: DialogService) {}
-
+  constructor(
+    private http: HttpService,
+    private dialogService: DialogService
+  ) {}
 
   openDialog() {
     const dialogData: DialogData = {
@@ -33,6 +34,5 @@ export class AppHeaderComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

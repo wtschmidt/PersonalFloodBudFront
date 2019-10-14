@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 @Component({
   selector: "app-stranded-okay",
   templateUrl: "./stranded-okay.component.html",
-  styleUrls: ["./stranded-okay.component.css"]
+  styleUrls: ["./stranded-okay.component.scss"]
 })
 export class StrandedOkayComponent implements OnInit {
   lat;
