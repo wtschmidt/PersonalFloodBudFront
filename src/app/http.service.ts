@@ -5,14 +5,13 @@ import { HttpClient, HttpParams } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   rainfall: object;
   dbReports;
- 
+
   getMap(mapReqInfo) {
-    return this.http.post('/getMap', {mapReqInfo});
+    return this.http.post("/getMap", { mapReqInfo });
   }
 
   submitReport(report) {
@@ -39,7 +38,10 @@ export class HttpService {
   }
 
   getReports() {
-
     return this.http.get("/floodReports");
+  }
+
+  getAddress(latlng) {
+    return this.http.get(`/reportLocation/:${latlng}`);
   }
 }

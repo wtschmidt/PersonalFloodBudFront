@@ -25,7 +25,11 @@ export class UserLocationService implements OnInit{
         this.currLat = pos.lat;
         this.currLng = pos.lng;
         this.currLocation = pos.lat + " " + pos.lng;
-      });
+      },
+      (error) => {
+        console.log(error);
+      }, 
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
     } else { 
       alert("Geolocation is not supported by this browser.");
     }

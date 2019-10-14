@@ -1,5 +1,5 @@
 <ul *ngIf="reports">
-  <li *ngFor="let report of reports">
+  <li *ngFor="let report of reports.slice().reverse()">
 
 
     <div class="card mb-3" style="width: 100%;">

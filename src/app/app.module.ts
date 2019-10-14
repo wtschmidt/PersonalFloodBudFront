@@ -45,6 +45,7 @@ import { NeedHelpComponent } from './need-help/need-help.component';
 import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
 import { HomeComponent } from './home/home.component';
 import { ReportComponent } from './report/report.component';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ReportComponent } from './report/report.component';
     StrandedOkayComponent,
     HomeComponent,
     ReportComponent,
+    AddContactsComponent,
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],

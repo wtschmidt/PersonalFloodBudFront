@@ -49,8 +49,8 @@ export class DialogComponent implements OnInit {
         document.getElementById("radar-map"),
         {
           center: {
-            lat: 29.977,
-            lon: -90.08
+            lat: this.geo.currLat,
+            lon: this.geo.currLng
           },
           // zoom: 4,
           strategy: "google",
