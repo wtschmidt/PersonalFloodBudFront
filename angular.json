@@ -137,5 +137,10 @@
       }
     }
   },
-  "defaultProject": "flood"
+  "defaultProject": "flood",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
