@@ -9,7 +9,11 @@ import { HttpService } from "../http.service";
   styleUrls: ["./app-header.component.scss"]
 })
 export class AppHeaderComponent implements OnInit {
+  googleLogoutUrl = `/logout`;
+  googleLoginUrl = `/auth/google`;
+  currentUser = localStorage.getItem("userId");
   rainfall;
+
   constructor(
     private http: HttpService,
     private dialogService: DialogService
