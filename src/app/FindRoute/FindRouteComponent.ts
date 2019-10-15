@@ -35,11 +35,12 @@ export class FindRoute implements OnInit {
   }
 
   getDirections() {
-    if (this.autoSearchStart) {
-      this.origin = { lat: this.autoSearchStart.lat, lng: this.autoSearchStart.lng}
-    } else {
-      this.origin = { lat: this.lat, lng: this.lng };
-    }
+    // this will be where the auto-fill start location search bar will be... when it's working
+    // if (this.autoSearchStart) {
+    //   this.origin = { lat: this.autoSearchStart.lat, lng: this.autoSearchStart.lng}
+    // } else {
+      this.origin = { lat: this.geo.currLat, lng: this.geo.currLng };
+    // }
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
     this.mapReqInfo = {
       origin: this.origin,
@@ -72,6 +73,6 @@ export class FindRoute implements OnInit {
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now
-    return markerArray.slice(1);
+    return markerArray;
   }
 }
