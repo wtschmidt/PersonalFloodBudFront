@@ -9,8 +9,13 @@ import { HttpService } from '../http.service';
   styleUrls: ["./app-header.component.css"]
 })
 export class AppHeaderComponent implements OnInit {
-
-  constructor(private http: HttpService, private dialogService: DialogService) {}
+  googleLogoutUrl = `/logout`;
+  googleLoginUrl = `/auth/google`;
+  currentUser = localStorage.getItem('userId');
+  
+  constructor(
+    private http: HttpService, private dialogService: DialogService,
+    ) {}
 
 
   openDialog() {
@@ -34,5 +39,6 @@ export class AppHeaderComponent implements OnInit {
     });
   }
   ngOnInit() {
+    
   }
 }
