@@ -44,3 +44,12 @@ p {
   z-index: 1000;
   /* Ensure that your app's content doesn't overlap the toolbar */
 }
+
+.user-message {
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+.helper-text {
+  font-size: 1.2rem;
+}

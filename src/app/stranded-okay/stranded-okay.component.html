@@ -1,16 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col mt-4">
-      <h5>I'm stranded, but I'm okay.</h5>
+      <h3>I'm stranded, but I'm okay.</h3>
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col">
       <form>
         <div class="form-group">
           <label for="message" class="bmd-label-floating">Message</label>
-          <textarea class="form-control" id="message" rows="3" (change)="handleInput($event)">{{message}}</textarea>
-          <span>We'll send this message, along with your location, to .</span>
+          <textarea class="form-control user-message" id="message" rows="3"
+            (change)="handleInput($event)">{{message}}</textarea>
+          <span>
+            <p class="helper-text mt-3">Click the message to edit. We'll send it, along with your route, to your
+              contacts.</p>
+          </span>
 
         </div>
         <button class="btn btn-default">Cancel</button>
