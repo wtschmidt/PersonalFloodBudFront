@@ -9,6 +9,7 @@ import { HttpService } from "../http.service";
   styleUrls: ["./app-header.component.scss"]
 })
 export class AppHeaderComponent implements OnInit {
+  rainfall;
   constructor(
     private http: HttpService,
     private dialogService: DialogService
@@ -34,5 +35,9 @@ export class AppHeaderComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.getRainfall().subscribe(result => {
+      console.log("rain", result);
+    });
+  }
 }
