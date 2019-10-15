@@ -6,7 +6,7 @@ import { ContactStrandedOkayComponent } from "../contact-stranded-okay/contact-s
 @Component({
   selector: "app-connect-to-contacts",
   templateUrl: "./connect-to-contacts.component.html",
-  styleUrls: ["./connect-to-contacts.component.css"]
+  styleUrls: ["./connect-to-contacts.component.scss"]
 })
 export class ConnectToContactsComponent implements OnInit {
   constructor() {}
