@@ -61,7 +61,7 @@ export class CreateReport implements OnInit {
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now
-    return markerArray.slice(1);
+    return markerArray;
   }
 
   setMarkers() {
@@ -107,6 +107,7 @@ export class CreateReport implements OnInit {
   setLocation(place) {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
+    this.report.latLng = this.lat + "," + this.lng;
     this.report.location = place.formatted_address;
   }
 
@@ -121,7 +122,7 @@ export class CreateReport implements OnInit {
     });
 
     console.log(this.lat, this.lng);
-    this.report.latLng = this.lat + "," + this.lng;
+    // this.report.latLng = this.lat + "," + this.lng;
     console.log(this.report);
     this.http.getAddress(this.report.latLng).subscribe(location => {
       console.log(location);
