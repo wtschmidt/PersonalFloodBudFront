@@ -10,7 +10,7 @@ import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a 
 @Component({
   selector: "app-dialog",
   templateUrl: "./dialog.component.html",
-  styles: ["./dialog.component.css"]
+  styles: ["./dialog.component.scss"]
 })
 export class DialogComponent implements OnInit {
   markers;

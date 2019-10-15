@@ -6,9 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.scss"]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = "flood";
 
   constructor(
@@ -35,10 +35,10 @@ export class AppComponent implements OnInit{
     this.http.getReports().subscribe(data => {
       this.http.dbReports = data;
     });
-    
+
     this.http.getRainfall().subscribe(data => {
-      console.log(data + ' is the rainfall so far today');
+      console.log(data + " is the rainfall so far today");
       this.http.rainfall = data;
-    })
+    });
   }
 }

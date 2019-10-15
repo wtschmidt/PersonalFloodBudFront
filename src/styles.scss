@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+$color-primary: #2196F3;
+$color-secondary: #0D47A1;
+$color-accent: #2196F3;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 1.6rem
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+
+  flex: 1 1 auto;
+}
+
+
+.header-nav {
+  background-color: #2196F3;
+  color: white;
+  position: sticky;
+  position: -webkit-sticky;
+  /* For macOS/iOS Safari */
+  top: 0;
+  /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.user-message {
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+.helper-text {
+  font-size: 1.2rem;
+}

@@ -1,17 +1,24 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  NgZone,
+  OnInit,
+  ViewChild,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { HttpService } from "../http.service";
 import { UserLocationService } from "../services/user-location.service";
-import { FormControl } from '@angular/forms';
-import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
+import { FormControl } from "@angular/forms";
+import {} from "googlemaps";
+import { MapsAPILoader } from "@agm/core";
 
 @Component({
-  selector: 'app-auto-search',
-  templateUrl: './auto-search.component.html',
-  styleUrls: ['./auto-search.component.css']
+  selector: "app-auto-search",
+  templateUrl: "./auto-search.component.html",
+  styleUrls: ["./auto-search.component.scss"]
 })
 export class AutoSearchComponent implements OnInit {
-
   lat: number;
   lng: number;
   address: any;
@@ -21,15 +28,15 @@ export class AutoSearchComponent implements OnInit {
   @ViewChild("search", { static: true })
   public searchElementRef: ElementRef;
 
-  @Output() 
+  @Output()
   eventEmitter = new EventEmitter();
-  
+
   constructor(
     private http: HttpService,
     private geo: UserLocationService,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) {
-  }
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit() {
     //create search FormControl
@@ -37,9 +44,12 @@ export class AutoSearchComponent implements OnInit {
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
+      let autocomplete = new google.maps.places.Autocomplete(
+        this.searchElementRef.nativeElement,
+        {
+          types: ["address"]
+        }
+      );
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -57,5 +67,4 @@ export class AutoSearchComponent implements OnInit {
   emitter() {
     this.eventEmitter.emit();
   }
-
 }

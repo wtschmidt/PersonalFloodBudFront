@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col mt-4">
-      <h5>I'm safe, and I'm moving</h5>
+      <h3>I'm safe, and I'm moving</h3>
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col">
       <form>
         <div class="form-group">
           <label for="message" class="bmd-label-floating">Message</label>
-          <textarea class="form-control" id="message"
-            rows="3">I’ve been caught in a flood, but I’m OK. I’m headed to higher ground and my route is attached.</textarea>
-          <span>We'll send this message, along with your route, to .</span>
+          <textarea class="form-control user-message" id="message"
+            rows="3">I’ve been caught in a flood, but I’m OK. I’m headed to higher ground and my most recent location is attached.</textarea>
+          <span>
+            <p class="helper-text mt-3">Click the message to edit. We'll send it, along with your route, to your
+              contacts.</p>
+          </span>
         </div>
         <button class="btn btn-default">Cancel</button>
         <button type="submit" class="btn btn-primary btn-raised">Submit</button>
