@@ -3,7 +3,6 @@ import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
-import { AutoSearchStartComponent } from "../auto-search-start/auto-search-start.component";
 
 @Component({
   selector: "find-route",
@@ -12,7 +11,6 @@ import { AutoSearchStartComponent } from "../auto-search-start/auto-search-start
 })
 export class FindRoute implements OnInit {
   @ViewChild(AutoSearchComponent, { static: true }) autoSearch;
-  @ViewChild(AutoSearchStartComponent, { static: true }) autoSearchStart;
   lat;
   lng;
   origin: any;
@@ -26,8 +24,8 @@ export class FindRoute implements OnInit {
 
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
-  async ngOnInit() {
-    await this.geo.getLocation();
+  ngOnInit() {
+    this.geo.getLocation();
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
@@ -36,14 +34,6 @@ export class FindRoute implements OnInit {
   }
 
   getDirections() {
-    // this will be where the auto-fill start location search bar will be... when it's working
-    // if (this.autoSearchStart.lat) {
-    //   this.lat = this.autoSearchStart.lat;
-    //   this.lng = this.autoSearchStart.lng;
-    // } else {
-    //   this.lat = this.geo.currLat;
-    //   this.lng = this.geo.currLng;
-    // }
     this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
     this.mapReqInfo = {

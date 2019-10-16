@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       console.log('ROUTE', this.activatedRoute.snapshot.queryParams);
     }
 
-  async ngOnInit() {
+  ngOnInit() {
     // const userId = this.activatedRoute.snapshot.queryParams.id;
     // console.log(userId);
     // if (userId) {
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       localStorage.setItem('userId', queryParams.get("id"));
     })
 
-    await this.geo.getLocation();
+    this.geo.getLocation();
 
     this.http.getReports().subscribe(data => {
       this.http.dbReports = data;

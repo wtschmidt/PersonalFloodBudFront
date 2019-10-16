@@ -1,4 +1,4 @@
-import { Directive, Component, ViewChild, OnInit, NgZone } from "@angular/core";
+import { Directive, Component, ViewChild, OnInit, NgZone, OnDestroy } from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -47,8 +47,9 @@ export class CreateReport implements OnInit {
     }
   }
   
-  update() {
-    
+  ngOnDestroy() {
+    this.lat = Number(localStorage.getItem("currLat"));
+    this.lng = Number(localStorage.getItem("currLng"));
   }
 
   getReportCoords() {
