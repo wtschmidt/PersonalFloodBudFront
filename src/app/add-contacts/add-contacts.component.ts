@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { MatStepperModule } from "@angular/material/stepper";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { HttpService } from "../http.service";
 
 @Component({
   selector: "app-add-contacts",
@@ -6,7 +10,68 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./add-contacts.component.scss"]
 })
 export class AddContactsComponent implements OnInit {
-  constructor() {}
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thidFormGroup: FormGroup;
+  constructor(private fb: FormBuilder, private http: HttpService) {}
+  step = 0;
+  name1;
+  name2;
+  name3;
+  phone1;
+  phone2;
+  phone3;
+  userId;
 
-  ngOnInit() {}
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
+  ngOnInit() {
+    this.userId = localStorage.getItem("userId");
+  }
+
+  handleName1(event) {
+    this.name1 = event.target.value;
+  }
+
+  handleName2(event) {
+    this.name2 = event.target.value;
+  }
+
+  handleName3(event) {
+    this.name3 = event.target.value;
+  }
+
+  handlePhone1(event) {
+    this.phone1 = event.target.value;
+  }
+
+  handlePhone2(event) {
+    this.phone2 = event.target.value;
+  }
+
+  handlePhone3(event) {
+    this.phone3 = event.target.value;
+  }
+
+  submitContacts() {
+    this.http.submitContacts({
+      name1: this.name1,
+      name2: this.name2,
+      name3: this.name3,
+      phone1: this.phone1,
+      phone2: this.phone2,
+      phone3: this.phone3,
+      userId: this.userId
+    });
+  }
 }

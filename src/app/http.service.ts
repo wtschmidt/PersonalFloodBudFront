@@ -44,4 +44,8 @@ export class HttpService {
   getAddress(latlng) {
     return this.http.get(`/reportLocation/:${latlng}`);
   }
+
+  submitContacts(contacts) {
+    return this.http.post("./submitContacts", { contacts });
+  }
 }
