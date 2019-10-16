@@ -1,9 +1,9 @@
 <!--The mat-toolbar is our header. It is where the hanburger and the radar/rainfall buttons will go.-->
 <mat-toolbar class="header-nav mat-elevation-z4">
-<div *ngIf="!currentUser">
+<div *ngIf="!userId">
   <a [href]="googleLoginUrl"><button>Login With Google</button></a>
 </div>
-  <span> <button mat-button [matMenuTriggerFor]="menu">
+  <span *ngIf="userId"> <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu>
@@ -16,7 +16,7 @@
       <mat-divider></mat-divider>
 
       <button mat-menu-item>
-        <a [href]="googleLogoutUrl"><button>Logout</button></a>
+        <a [href]="googleLogoutUrl"><button (click)='logout()'>Logout</button></a>
         <!-- <span>Logout</span> -->
       </button>
 
