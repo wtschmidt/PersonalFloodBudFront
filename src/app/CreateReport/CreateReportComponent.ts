@@ -26,6 +26,7 @@ export class CreateReport implements OnInit {
     desc: "",
     img: ""
   };
+  userId;
 
   constructor(
     private http: HttpService,
@@ -39,6 +40,7 @@ export class CreateReport implements OnInit {
     console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+    this.userId = localStorage.getItem('userId');
   }
 
   getReportCoords() {
@@ -59,8 +61,7 @@ export class CreateReport implements OnInit {
         });
       }
     });
-    // change this later. the first object is formatted differently from the rest so exclude for now
-    return markerArray.slice(1);
+    return markerArray;
   }
 
   setMarkers() {
@@ -87,8 +88,12 @@ export class CreateReport implements OnInit {
   }
 
   createReport() {
+    // check if user is logged in
+    if (!this.userId) {
+      Swal.fire('Please log in');
+    }
     //user must have location
-    if (this.report.latLng === "undefined,undefined") {
+    else if (this.report.latLng === "undefined,undefined") {
       Swal.fire("Your location is missing!");
     } else {
       this.http.submitReport(this.report).subscribe(data => {
