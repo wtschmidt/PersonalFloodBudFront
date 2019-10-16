@@ -89,7 +89,7 @@ export class CreateReport implements OnInit {
 
   createReport() {
     // check if user is logged in
-    if (!this.userId) {
+    if (this.userId === 'null') {
       Swal.fire('Please log in');
     }
     //user must have location
