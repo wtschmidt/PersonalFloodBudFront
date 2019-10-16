@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppHeaderComponent implements OnInit {
   googleLogoutUrl = `/logout`;
   googleLoginUrl = `/auth/google`;
-  currentUser = localStorage.getItem("userId");
   rainfall;
   userId;
 
