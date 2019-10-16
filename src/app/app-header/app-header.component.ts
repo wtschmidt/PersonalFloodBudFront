@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DialogService } from "../services/dialog.service";
 import { DialogData } from "../shared/dialog-data";
-import { HttpService } from "../http.service";
+import { HttpService } from '../http.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: "app-app-header",
@@ -12,11 +13,14 @@ export class AppHeaderComponent implements OnInit {
   googleLogoutUrl = `/logout`;
   googleLoginUrl = `/auth/google`;
   rainfall;
+  userId;
 
   constructor(
     private http: HttpService,
-    private dialogService: DialogService
-  ) {}
+    private dialogService: DialogService,
+    private activatedRoute: ActivatedRoute,
+    public route: Router,
+    ) { }
 
   openDialog() {
     const dialogData: DialogData = {
@@ -38,9 +42,22 @@ export class AppHeaderComponent implements OnInit {
       }
     });
   }
+
+  logout() {
+    localStorage.setItem('userId', null);
+    this.userId = null;
+  }
+  
   ngOnInit() {
     this.http.getRainfall().subscribe(result => {
       console.log("rain", result);
     });
+    
+    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+      if (queryParams.get('id') !== null) {
+        localStorage.setItem('userId', queryParams.get("id"));
+        this.userId = localStorage.getItem('userId');
+      }
+    })
   }
 }
