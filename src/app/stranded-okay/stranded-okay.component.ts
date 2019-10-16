@@ -24,7 +24,7 @@ export class StrandedOkayComponent implements OnInit {
       console.log(this.message);
       this.http
         .submitMessage({
-          user: this.userId,
+          id: this.userId,
           message: this.message,
           lat: this.lat,
           lng: this.lng
