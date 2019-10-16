@@ -10,11 +10,9 @@ export class UserLocationService implements OnInit{
   currLocation: any;
   currLat: number;
   currLng: number;
-  storedLat = Number(localStorage.getItem("currLat"));
-  storedLng = Number(localStorage.getItem("currLng"));
 
-  async ngOnInit() {
-    await this.getLocation();
+  ngOnInit() {
+    this.getLocation();
   }
 
   getLocation(){
@@ -27,8 +25,6 @@ export class UserLocationService implements OnInit{
         this.currLat = pos.lat;
         this.currLng = pos.lng;
         this.currLocation = pos.lat + " " + pos.lng;
-        localStorage.setItem("currLat", this.currLat.toString());
-        localStorage.setItem("currLng", this.currLng.toString());
       },
       (error) => {
         console.log(error);
