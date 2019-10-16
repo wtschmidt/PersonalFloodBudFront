@@ -44,7 +44,6 @@ export class AutoSearchStartComponent implements OnInit {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
           //set latitude, longitude and address
           this.address = place.formatted_address;
           this.lat = place.geometry.location.lat();

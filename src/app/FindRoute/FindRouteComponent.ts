@@ -26,7 +26,8 @@ export class FindRoute implements OnInit {
 
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.geo.getLocation();
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
@@ -36,11 +37,14 @@ export class FindRoute implements OnInit {
 
   getDirections() {
     // this will be where the auto-fill start location search bar will be... when it's working
-    // if (this.autoSearchStart) {
-    //   this.origin = { lat: this.autoSearchStart.lat, lng: this.autoSearchStart.lng}
+    // if (this.autoSearchStart.lat) {
+    //   this.lat = this.autoSearchStart.lat;
+    //   this.lng = this.autoSearchStart.lng;
     // } else {
-      this.origin = { lat: this.geo.currLat, lng: this.geo.currLng };
+    //   this.lat = this.geo.currLat;
+    //   this.lng = this.geo.currLng;
     // }
+    this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
     this.mapReqInfo = {
       origin: this.origin,
