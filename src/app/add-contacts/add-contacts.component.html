@@ -1,81 +1,65 @@
-<div class="container">
-  <div class="row mt-3">
-    <div class="col">
-      <div class="card">
-        <h5 class="card-header">Contact #1</h5>
-        <div class="card-body">
-          <p>Enter a name and a telephone number for a person you'd like to contact in the event of a flood.</p>
-          <form>
-            <div class="form-group">
-              <div class="mb-3">
-                <label for="contact-name">Name</label>
-                <input type="text" class="form-control" id="contact-name">
-              </div>
-              <div>
-                <label for="contact-phone">Phone</label>
-                <input type="tel" class="form-control" id="contact-phone">
-              </div>
-            </div>
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Contact #1
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-          </form>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-sm">ADD CONTACT</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col">
-      <div class="card">
-        <h5 class="card-header">Contact #2</h5>
-        <div class="card-body">
-          <p>Enter a name and a telephone number for a person you'd like to contact in the event of a flood.</p>
-          <form>
-            <div class="form-group">
-              <div class="mb-3">
-                <label for="contact-name">Name</label>
-                <input type="text" class="form-control" id="contact-name">
-              </div>
-              <div>
-                <label for="contact-phone">Phone</label>
-                <input type="tel" class="form-control" id="contact-phone">
-              </div>
-            </div>
+    <mat-form-field>
+      <input (change)="handleName1($event)" matInput placeholder="Name">
+    </mat-form-field>
 
-          </form>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-sm">ADD CONTACT</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col">
-      <div class="card">
-        <h5 class="card-header">Contact #3</h5>
-        <div class="card-body">
-          <p>Enter a name and a telephone number for a person you'd like to contact in the event of a flood.</p>
-          <form>
-            <div class="form-group">
-              <div class="mb-3">
-                <label for="contact-name">Name</label>
-                <input type="text" class="form-control" id="contact-name">
-              </div>
-              <div>
-                <label for="contact-phone">Phone</label>
-                <input type="tel" class="form-control" id="contact-phone">
-              </div>
-            </div>
+    <mat-form-field>
+      <input matInput type="tel" min="1" placeholder="Phone Number">
+    </mat-form-field>
 
-          </form>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-sm">ADD CONTACT</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <h1 class="pt-5 pb-5"></h1>
-</div>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Contact #2
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="tel" min="1" placeholder="Phone Number">
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Contact #3
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="tel" min="1" placeholder="Phone Number">
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="submitContacts()">Submit</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>
