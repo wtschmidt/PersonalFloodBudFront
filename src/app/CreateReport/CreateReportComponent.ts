@@ -36,15 +36,9 @@ export class CreateReport implements OnInit {
 
   ngOnInit() {
     this.markers = this.getReportCoords();
-    console.log(this.geo.storedLat, this.geo.storedLng);
     console.log("init location", this.geo.currLat, this.geo.currLng);
-    if (!this.geo.currLat) {
-      this.lat = Number(localStorage.getItem("currLat"));
-      this.lng = Number(localStorage.getItem("currLng"));
-    } else {
-      this.lat = this.geo.currLat;
-      this.lng = this.geo.currLng;
-    }
+    this.lat = this.geo.currLat;
+    this.lng = this.geo.currLng;
   }
 
   getReportCoords() {

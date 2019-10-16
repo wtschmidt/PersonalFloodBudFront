@@ -21,15 +21,6 @@ export class AppComponent implements OnInit {
     }
 
   ngOnInit() {
-    // const userId = this.activatedRoute.snapshot.queryParams.id;
-    // console.log(userId);
-    // if (userId) {
-    //   localStorage.setItem('userId', userId);
-    // }
-    this.activatedRoute.queryParamMap.subscribe(queryParams => {
-      localStorage.setItem('userId', queryParams.get("id"));
-    })
-
     this.geo.getLocation();
 
     this.http.getReports().subscribe(data => {

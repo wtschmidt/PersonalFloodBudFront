@@ -11,7 +11,6 @@ import { HttpService } from "../http.service";
 export class AppHeaderComponent implements OnInit {
   googleLogoutUrl = `/logout`;
   googleLoginUrl = `/auth/google`;
-  currentUser = localStorage.getItem("userId");
   rainfall;
 
   constructor(
