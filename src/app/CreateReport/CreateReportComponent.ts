@@ -1,4 +1,4 @@
-import { Directive, Component, ViewChild, OnInit, NgZone } from "@angular/core";
+import { Directive, Component, ViewChild, OnInit, NgZone, OnDestroy } from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -44,14 +44,14 @@ export class CreateReport implements OnInit {
   }
 
   getReportCoords() {
-    this.setMarkers();
+    // this.setMarkers();
 
     let markerArray = [];
     // format the reports to create an array of objects of coords:
     // [{lat: 29.9777, lng: -90.0797473}, {lat: 29.9797, lng: -90.0777473}]
     this.http.dbReports.forEach(report => {
       // check if latlng is null. the db has some test data that has null
-      if (report.latLng) {
+      if (report.latlng) {
         let reportCoords = report.latlng.split(",");
         markerArray.push({
           lat: reportCoords[0],
@@ -69,8 +69,8 @@ export class CreateReport implements OnInit {
     // change the marker locations
     // this.lat = this.AutoSearch.lat || this.geo.currLat;
     // this.lng = this.AutoSearch.lng || this.geo.currLng;
-    this.lat = this.AutoSearch.lat || this.lat;
-    this.lng = this.AutoSearch.lng || this.lng;
+    this.lat = this.AutoSearch.lat || this.geo.currLat;
+    this.lng = this.AutoSearch.lng || this.geo.currLng;
 
     // update the report coords
     this.report.latLng = this.lat + "," + this.lng;
@@ -111,6 +111,7 @@ export class CreateReport implements OnInit {
   setLocation(place) {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
+    this.report.latLng = this.lat + "," + this.lng;
     this.report.location = place.formatted_address;
   }
 
@@ -125,7 +126,7 @@ export class CreateReport implements OnInit {
     });
 
     console.log(this.lat, this.lng);
-    this.report.latLng = this.lat + "," + this.lng;
+    // this.report.latLng = this.lat + "," + this.lng;
     console.log(this.report);
     this.http.getAddress(this.report.latLng).subscribe(location => {
       console.log(location);

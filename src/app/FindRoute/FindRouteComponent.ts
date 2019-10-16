@@ -25,6 +25,7 @@ export class FindRoute implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
   ngOnInit() {
+    this.geo.getLocation();
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
@@ -66,6 +67,6 @@ export class FindRoute implements OnInit {
       }
     });
     // change this later. the first object is formatted differently from the rest so exclude for now
-    return markerArray.slice(1);
+    return markerArray;
   }
 }
