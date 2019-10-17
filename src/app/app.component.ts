@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    // this.geo.handlePermission();
     this.geo.getLocation();
 
     this.http.getReports().subscribe(data => {

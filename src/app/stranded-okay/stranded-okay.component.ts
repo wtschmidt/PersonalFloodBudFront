@@ -43,6 +43,6 @@ export class StrandedOkayComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    console.log("init location", this.lat, this.lng);
+    // console.log("init location", this.lat, this.lng);
   }
 }
