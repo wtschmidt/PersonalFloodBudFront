@@ -3,6 +3,10 @@ import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
+// ngrok authtoken 1SIx28kDwos7LjPYUkYbBey30F8_Xzp1v88TLqAqsXinU8QJ
+// ^^^^^ token for accessing my ngrok profile after install
+// host secure tunnels with –––––> ngrok http 8080 <–––––––
+// be sure to choose the https hosted url
 
 @Component({
   selector: "find-route",
