@@ -40,12 +40,12 @@ export class AddContactsComponent implements OnInit {
     this.http.getContacts(this.userId)
     .subscribe(res => {
       console.log(res);
-      this.name1 = res[0].name || 'this.name1';
-      this.name2 = res[1].name || this.name2;
-      this.name3 = res[2].name || this.name3;
-      this.phone1 = res[0].phone_number || this.phone1;
-      this.phone2 = res[1].phone_number || this.phone2;
-      this.phone3 = res[2].phone_number || this.phone3;
+      this.name1 = res[0].name || 'name';
+      this.name2 = res[1].name || 'name';
+      this.name3 = res[2].name || 'name';
+      this.phone1 = res[0].phone_number || 'phone number';
+      this.phone2 = res[1].phone_number || 'phone number';
+      this.phone3 = res[2].phone_number || 'phone number';
     });
   }
 
