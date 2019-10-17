@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DialogService } from "../services/dialog.service";
 import { DialogData } from "../shared/dialog-data";
-import { HttpService } from '../http.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from "../http.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-app-header",
@@ -19,19 +19,19 @@ export class AppHeaderComponent implements OnInit {
     private http: HttpService,
     private dialogService: DialogService,
     private activatedRoute: ActivatedRoute,
-    public route: Router,
-    ) { }
+    public route: Router
+  ) {}
 
   openDialog() {
     const dialogData: DialogData = {
       title: "Current Rainfall Level",
       message: `It's rained ${this.http.rainfall} inches so far today.`,
-      showOKBtn: true,
-      showCancelBtn: true
+      showOKBtn: false,
+      showCancelBtn: false
     };
 
     const dialogRef = this.dialogService.openDialog(dialogData, {
-      disableClose: true
+      disableClose: false
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -44,20 +44,20 @@ export class AppHeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.setItem('userId', null);
+    localStorage.setItem("userId", null);
     this.userId = null;
   }
-  
+
   ngOnInit() {
     this.http.getRainfall().subscribe(result => {
       console.log("rain", result);
     });
-    
+
     this.activatedRoute.queryParamMap.subscribe(queryParams => {
-      if (queryParams.get('id') !== null) {
-        localStorage.setItem('userId', queryParams.get("id"));
-        this.userId = localStorage.getItem('userId');
+      if (queryParams.get("id") !== null) {
+        localStorage.setItem("userId", queryParams.get("id"));
+        this.userId = localStorage.getItem("userId");
       }
-    })
+    });
   }
 }
