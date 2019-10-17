@@ -44,8 +44,8 @@ export class AppHeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.setItem("userId", null);
-    this.userId = null;
+    localStorage.setItem("userId", 'null');
+    this.userId = 'null';
   }
 
   ngOnInit() {
@@ -57,6 +57,10 @@ export class AppHeaderComponent implements OnInit {
       if (queryParams.get("id") !== null) {
         localStorage.setItem("userId", queryParams.get("id"));
         this.userId = localStorage.getItem("userId");
+      } else if (localStorage.getItem("userId") !== 'null') {
+        this.userId = localStorage.getItem("userId");
+      } else {
+        this.userId = 'null';
       }
     });
   }

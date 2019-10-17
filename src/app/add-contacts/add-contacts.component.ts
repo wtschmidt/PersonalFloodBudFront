@@ -72,6 +72,9 @@ export class AddContactsComponent implements OnInit {
       phone2: this.phone2,
       phone3: this.phone3,
       userId: this.userId
+    })
+    .subscribe(data => {
+      console.log(data);
     });
   }
 }

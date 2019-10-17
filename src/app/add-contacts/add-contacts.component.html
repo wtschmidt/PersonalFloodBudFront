@@ -11,7 +11,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="tel" min="1" placeholder="Phone Number">
+      <input (change)="handlePhone1($event)" matInput type="tel" min="1" placeholder="Phone Number">
     </mat-form-field>
 
     <mat-action-row>
@@ -28,11 +28,11 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input (change)="handleName2($event)" matInput placeholder="Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="tel" min="1" placeholder="Phone Number">
+      <input (change)="handlePhone2($event)"matInput type="tel" min="1" placeholder="Phone Number">
     </mat-form-field>
 
     <mat-action-row>
@@ -49,11 +49,11 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input (change)="handleName3($event)" matInput placeholder="Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="tel" min="1" placeholder="Phone Number">
+      <input (change)="handlePhone3($event)" matInput type="tel" min="1" placeholder="Phone Number">
     </mat-form-field>
 
     <mat-action-row>
