@@ -10,15 +10,14 @@
       <form>
         <div class="form-group">
           <label for="message" class="bmd-label-floating">Message</label>
-          <textarea class="form-control user-message" id="message"
-            rows="3">I’ve been caught in a flood, but I’m OK. I’m headed to higher ground and my most recent location is attached.</textarea>
+          <textarea class="form-control user-message" id="message" rows="3" (change)="handleInput($event)">{{message}}</textarea>
           <span>
             <p class="helper-text mt-3">Click the message to edit. We'll send it, along with your route, to your
               contacts.</p>
           </span>
         </div>
-        <button class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+        <button class="btn btn-default" [routerLink]="['/connect-contacts']">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-raised" (click)="sendMessage()">Submit</button>
 
       </form>
     </div>
