@@ -28,7 +28,6 @@ p {
 .example-fill-remaining-space {
   /* This fills the remaining space, by using flexbox. 
      Every toolbar row uses a flexbox row layout. */
-
   flex: 1 1 auto;
 }
 
@@ -38,11 +37,8 @@ p {
   color: white;
   position: sticky;
   position: -webkit-sticky;
-  /* For macOS/iOS Safari */
   top: 0;
-  /* Sets the sticky toolbar to be on top */
   z-index: 1000;
-  /* Ensure that your app's content doesn't overlap the toolbar */
 }
 
 .user-message {
@@ -57,17 +53,6 @@ p {
 mat-form-field.mat-form-field {
   font-size: 1.6rem;
 }
-
-// .search-box {
-//   display: flex;
-// }
-
-// #route-button {
-//   display: inline-flex;
-//   justify-content: flex-end;
-//   margin-left: 2rem;
-// }
-
 
 .search-box {
   display: flex;
