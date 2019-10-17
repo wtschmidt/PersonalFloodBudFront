@@ -2,44 +2,40 @@
   <div class="row mt-3">
     <div class="col col-lg-4 report-card">
       <!-- start of card -->
-      <div class="card">
-        <h2 class="card-header">Report flooding</h2>
-        <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
-        <div class="card-body">
-          <div class="mb-4">
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
-              <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="moveReport($event)">
-              </agm-marker>
-              <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
-                [iconUrl]='otherUserMarker'>
-                <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
-              </agm-marker>
-            </agm-map>
+      <h4 class="mat-headline">Report flooding</h4>
+      <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
+      <div class="mb-4">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="moveReport($event)">
+          </agm-marker>
+          <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
+            [iconUrl]='otherUserMarker'>
+            <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+      <div class="mt-2 mb-4">
+        <form>
+          <div class="form-group mb-2">
+            <label for="auto-search" class="bmd-label-floating">Location</label>
+            <app-auto-search (eventEmitter)="setMarkers()"></app-auto-search>
           </div>
-          <div class="mt-2 mb-4">
-            <form action="">
-              <div class="form-group mb-2">
-                <label for="auto-search" class="bmd-label-floating">Location</label>
-                <app-auto-search (eventEmitter)="setMarkers()"></app-auto-search>
-              </div>
-              <div>
-                <label for="report-details" class="bmd-label-floating">Enter Details</label>
+          <div>
+            <label for="report-details" class="bmd-label-floating">Enter Details</label>
 
-                <textarea id="report-details" class="form-control" [(ngModel)]="report.desc"
-                  [ngModelOptions]="{standalone: true}"></textarea>
-              </div>
-              <div class="form-group mt-2">
-                <!-- <button mat-button>ADD PHOTO</button> -->
-                <label for="submit-photo" class="bmd-label-floating">Add a photo</label>
-
-                <input type="file" class="form-control-file" id="submit-photo" accept="image/*"
-                  (change)="processFile($event)">
-                <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
-                <button mat-button (click)="createReport()">SUBMIT</button>
-              </div>
-            </form>
+            <textarea id="report-details" class="form-control" [(ngModel)]="report.desc"
+              [ngModelOptions]="{standalone: true}"></textarea>
           </div>
-        </div>
+          <div class="form-group mt-2">
+            <!-- <button mat-button>ADD PHOTO</button> -->
+            <label for="submit-photo" class="bmd-label-floating">Add a photo</label>
+
+            <input type="file" class="form-control-file" id="submit-photo" accept="image/*"
+              (change)="processFile($event)">
+            <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
+            <button mat-button (click)="createReport()">SUBMIT</button>
+          </div>
+        </form>
       </div>
       <!-- end of card -->
       <h1 class="pt-5 pb-5"></h1>
