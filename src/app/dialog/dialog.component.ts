@@ -39,12 +39,10 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
 
     this.aeris.views().then(views => {
-      // console.log("!!!!!!!", views);
       const map = new views.InteractiveMap(
         document.getElementById("radar-map"),
         {
@@ -55,31 +53,13 @@ export class DialogComponent implements OnInit {
           // zoom: 4,
           strategy: "google",
           accessToken: "AIzaSyAbJOa8X-CeBSal5VFPQPT1Qkhd-XTnf0s", //GOOGLE
-          layers: "radar,alerts",
+          layers: "radar",
           timeline: {
             from: -6 * 3600,
             to: 0
           }
         }
       );
-      // console.log(map);
-      // this.radarLayer = map;
-      // var layers = new google.maps.ImageMapType({
-      //   getTileUrl: function(coord, zoom) {
-      //     return [
-      //       `https://maps.aerisapi.com/cpmoBx8KS2aW4va7zoDze_xADMSwJQCB4Ay8Fw21B0l2bCIn3kfjIcN6T9f3xG/flat,radar,admin/`,
-      //       zoom,
-      //       "/",
-      //       coord.x,
-      //       "/",
-      //       coord.y,
-      //       "/current.png"
-      //     ].join("");
-      //     // need to move these API keys to be in an env file, there's one for id and pass/secret
-      //   },
-      //   tileSize: new google.maps.Size(256, 256)
-      // });
-      // map.overlayMapTypes.push(layers);
       this.gmap = map;
     });
   }

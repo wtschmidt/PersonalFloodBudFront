@@ -9,11 +9,8 @@ import { ContactStrandedOkayComponent } from "../contact-stranded-okay/contact-s
   styleUrls: ["./connect-to-contacts.component.scss"]
 })
 export class ConnectToContactsComponent implements OnInit {
-  userId;
   constructor() {}
 
   ngOnInit() {
-    this.userId = localStorage.getItem('userId');
-    // console.log(this.userId);
   }
 }

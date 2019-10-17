@@ -46,6 +46,6 @@ export class HttpService {
   }
 
   submitContacts(contacts) {
-    return this.http.post("./submitContacts", { contacts });
+    return this.http.post("/submitContacts", { contacts });
   }
 }
