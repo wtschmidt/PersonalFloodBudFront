@@ -1,9 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { AgmCoreModule } from '@agm/core';
-import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from "@agm/core";
+import { AgmDirectionModule } from "agm-direction";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -24,7 +24,9 @@ import {
   MatMenuModule,
   MatDialogModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatStepperModule,
+  MatExpansionModule
 } from "@angular/material";
 
 import { DialogComponent } from "./dialog/dialog.component";
@@ -35,17 +37,17 @@ import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserReportsComponent } from "./user-reports/user-reports.component";
 import { UserLocationService } from "./services/user-location.service";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
-import { AutoSearchComponent } from './auto-search/auto-search.component';
-import { ConnectToContactsComponent } from './connect-to-contacts/connect-to-contacts.component';
-import { ContactSafeMovingComponent } from './contact-safe-moving/contact-safe-moving.component';
-import { ContactStrandedOkayComponent } from './contact-stranded-okay/contact-stranded-okay.component';
-import { ContactNeedHelpComponent } from './contact-need-help/contact-need-help.component';
-import { SafeMovingComponent } from './safe-moving/safe-moving.component';
-import { NeedHelpComponent } from './need-help/need-help.component';
-import { StrandedOkayComponent } from './stranded-okay/stranded-okay.component';
-import { HomeComponent } from './home/home.component';
-import { ReportComponent } from './report/report.component';
-import { AddContactsComponent } from './add-contacts/add-contacts.component';
+import { AutoSearchComponent } from "./auto-search/auto-search.component";
+import { ConnectToContactsComponent } from "./connect-to-contacts/connect-to-contacts.component";
+import { ContactSafeMovingComponent } from "./contact-safe-moving/contact-safe-moving.component";
+import { ContactStrandedOkayComponent } from "./contact-stranded-okay/contact-stranded-okay.component";
+import { ContactNeedHelpComponent } from "./contact-need-help/contact-need-help.component";
+import { SafeMovingComponent } from "./safe-moving/safe-moving.component";
+import { NeedHelpComponent } from "./need-help/need-help.component";
+import { StrandedOkayComponent } from "./stranded-okay/stranded-okay.component";
+import { HomeComponent } from "./home/home.component";
+import { ReportComponent } from "./report/report.component";
+import { AddContactsComponent } from "./add-contacts/add-contacts.component";
 
 @NgModule({
   declarations: [
@@ -68,7 +70,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     StrandedOkayComponent,
     HomeComponent,
     ReportComponent,
-    AddContactsComponent,
+    AddContactsComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],
@@ -88,8 +90,11 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     MatInputModule,
     HttpModule,
     MatGridListModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDparA5bqjrMG9t3hRPFFOzX-bbJ-cRwJ8',
+      apiKey: "AIzaSyDparA5bqjrMG9t3hRPFFOzX-bbJ-cRwJ8",
       libraries: ["places"]
     }),
     AgmDirectionModule,

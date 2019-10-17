@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from './http.service';
 import { UserLocationService } from './services/user-location.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: "app-root",
@@ -14,11 +13,7 @@ export class AppComponent implements OnInit {
   constructor(
     private http: HttpService,
     private geo: UserLocationService,
-    private activatedRoute: ActivatedRoute,
-    public route: Router
-    ) {
-      console.log('ROUTE', this.activatedRoute.snapshot.queryParams);
-    }
+    ) {}
 
   ngOnInit() {
     // this.geo.handlePermission();
