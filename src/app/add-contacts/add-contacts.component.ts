@@ -71,10 +71,10 @@ export class AddContactsComponent implements OnInit {
       phone1: this.phone1,
       phone2: this.phone2,
       phone3: this.phone3,
-      userId: this.userId
+      id: this.userId
     })
-    .subscribe(data => {
-      console.log(data);
+    .subscribe(res => {
+      console.log(res);
     });
   }
 }
