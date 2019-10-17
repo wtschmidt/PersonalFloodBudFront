@@ -26,8 +26,8 @@
             <p class="helper-text">We'll send this message, along with your route, to your contacts.</p>
           </span>
         </div>
-        <button class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+        <button class="btn btn-default" [routerLink]="['/connect-contacts']">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-raised" (click)="sendMessage()">Submit</button>
 
       </form>
     </div>
