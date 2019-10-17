@@ -37,6 +37,16 @@ export class AddContactsComponent implements OnInit {
 
   ngOnInit() {
     this.userId = localStorage.getItem("userId");
+    this.http.getContacts(this.userId)
+    .subscribe(res => {
+      console.log(res);
+      this.name1 = res[0].name || 'name';
+      this.name2 = res[1].name || 'name';
+      this.name3 = res[2].name || 'name';
+      this.phone1 = res[0].phone_number || 'phone number';
+      this.phone2 = res[1].phone_number || 'phone number';
+      this.phone3 = res[2].phone_number || 'phone number';
+    });
   }
 
   handleName1(event) {
@@ -71,10 +81,10 @@ export class AddContactsComponent implements OnInit {
       phone1: this.phone1,
       phone2: this.phone2,
       phone3: this.phone3,
-      userId: this.userId
+      id: this.userId
     })
-    .subscribe(data => {
-      console.log(data);
+    .subscribe(res => {
+      console.log(res);
     });
   }
 }

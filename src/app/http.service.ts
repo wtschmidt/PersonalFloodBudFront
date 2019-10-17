@@ -48,4 +48,8 @@ export class HttpService {
   submitContacts(contacts) {
     return this.http.post("/submitContacts", { contacts });
   }
+
+  getContacts(userId) {
+    return this.http.get(`/getContacts/?id=${userId} `)
+  }
 }
