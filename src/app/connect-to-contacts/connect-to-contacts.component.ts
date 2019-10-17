@@ -14,6 +14,6 @@ export class ConnectToContactsComponent implements OnInit {
 
   ngOnInit() {
     this.userId = localStorage.getItem('userId');
-    console.log(this.userId);
+    // console.log(this.userId);
   }
 }

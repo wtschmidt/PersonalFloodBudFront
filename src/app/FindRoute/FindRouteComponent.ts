@@ -33,8 +33,8 @@ export class FindRoute implements OnInit {
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    console.log(this.geo.currLat, "this is my lat");
-    console.log(this.lng, "this is my lng");
+    // console.log(this.geo.currLat, "this is my lat");
+    // console.log(this.lng, "this is my lng");
   }
 
   getDirections() {
@@ -49,7 +49,7 @@ export class FindRoute implements OnInit {
       //use "diretions" to make API call to agm-direction,
       // to create a route with the series of waypoints returned from the http req in "directions"
       this.directions = directions;
-      console.log("these are the directions from turf", this.directions);
+      // console.log("these are the directions from turf", this.directions);
       this.wayPoints = this.directions.waypoints;
     });
   }

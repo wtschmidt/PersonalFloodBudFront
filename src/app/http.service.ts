@@ -15,7 +15,7 @@ export class HttpService {
   }
 
   submitReport(report) {
-    console.log(report);
+    // console.log(report);
     return this.http.post("/submitReport", { report });
   }
 

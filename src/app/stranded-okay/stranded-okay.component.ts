@@ -16,7 +16,7 @@ export class StrandedOkayComponent implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
   sendMessage() {
-    console.log(this.message);
+    // console.log(this.message);
     this.http
       .submitMessage({
         user: 1,
@@ -36,6 +36,6 @@ export class StrandedOkayComponent implements OnInit {
   ngOnInit() {
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    console.log("init location", this.lat, this.lng);
+    // console.log("init location", this.lat, this.lng);
   }
 }

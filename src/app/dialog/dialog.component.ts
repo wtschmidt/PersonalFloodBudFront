@@ -39,12 +39,12 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("init location", this.geo.currLat, this.geo.currLng);
+    // console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
 
     this.aeris.views().then(views => {
-      console.log("!!!!!!!", views);
+      // console.log("!!!!!!!", views);
       const map = new views.InteractiveMap(
         document.getElementById("radar-map"),
         {
@@ -62,7 +62,7 @@ export class DialogComponent implements OnInit {
           }
         }
       );
-      console.log(map);
+      // console.log(map);
       // this.radarLayer = map;
       // var layers = new google.maps.ImageMapType({
       //   getTileUrl: function(coord, zoom) {

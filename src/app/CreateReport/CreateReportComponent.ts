@@ -37,7 +37,7 @@ export class CreateReport implements OnInit {
 
   ngOnInit() {
     this.markers = this.getReportCoords();
-    console.log("init location", this.geo.currLat, this.geo.currLng);
+    // console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
     this.userId = localStorage.getItem('userId');
@@ -65,7 +65,7 @@ export class CreateReport implements OnInit {
   }
 
   setMarkers() {
-    console.log("off click");
+    // console.log("off click");
     // change the marker locations
     // this.lat = this.AutoSearch.lat || this.geo.currLat;
     // this.lng = this.AutoSearch.lng || this.geo.currLng;
@@ -97,7 +97,7 @@ export class CreateReport implements OnInit {
       Swal.fire("Your location is missing!");
     } else {
       this.http.submitReport(this.report).subscribe(data => {
-        console.log(data);
+        // console.log(data);
       });
       Swal.fire(
         "Report sent!",
@@ -125,11 +125,11 @@ export class CreateReport implements OnInit {
       }
     });
 
-    console.log(this.lat, this.lng);
+    // console.log(this.lat, this.lng);
     // this.report.latLng = this.lat + "," + this.lng;
-    console.log(this.report);
+    // console.log(this.report);
     this.http.getAddress(this.report.latLng).subscribe(location => {
-      console.log(location);
+      // console.log(location);
       // this.report.location = location.data;
     });
   }
