@@ -3,6 +3,10 @@ import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
 import { AutoSearchComponent } from "../auto-search/auto-search.component";
+// ngrok authtoken 1SIx28kDwos7LjPYUkYbBey30F8_Xzp1v88TLqAqsXinU8QJ
+// ^^^^^ token for accessing my ngrok profile after install
+// host secure tunnels with –––––> ngrok http 8080 <–––––––
+// be sure to choose the https hosted url
 
 @Component({
   selector: "find-route",
@@ -29,8 +33,8 @@ export class FindRoute implements OnInit {
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    console.log(this.geo.currLat, "this is my lat");
-    console.log(this.lng, "this is my lng");
+    // console.log(this.geo.currLat, "this is my lat");
+    // console.log(this.lng, "this is my lng");
   }
 
   getDirections() {
@@ -46,6 +50,10 @@ export class FindRoute implements OnInit {
       // to create a route with the series of waypoints returned from the http req in "directions"
       console.log(directions, "these are directions from graphHopper");
       this.directions = directions;
+<<<<<<< HEAD
+=======
+      // console.log("these are the directions from turf", this.directions);
+>>>>>>> c8cd051b2318eeef7e1d37b0689f194f20720fba
       this.wayPoints = this.directions.waypoints;
     });
   }

@@ -33,34 +33,26 @@ export class AppHeaderComponent implements OnInit {
     const dialogRef = this.dialogService.openDialog(dialogData, {
       disableClose: false
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log("User clicked OK");
-      } else {
-        console.log("User clicked Cancel");
-      }
-    });
   }
 
   logout() {
-    localStorage.setItem("userId", 'null');
-    this.userId = 'null';
+    localStorage.setItem("userId", "null");
+    this.userId = "null";
   }
 
   ngOnInit() {
     this.http.getRainfall().subscribe(result => {
-      console.log("rain", result);
+      this.rainfall = result;
     });
 
     this.activatedRoute.queryParamMap.subscribe(queryParams => {
       if (queryParams.get("id") !== null) {
         localStorage.setItem("userId", queryParams.get("id"));
         this.userId = localStorage.getItem("userId");
-      } else if (localStorage.getItem("userId") !== 'null') {
+      } else if (localStorage.getItem("userId") !== "null") {
         this.userId = localStorage.getItem("userId");
       } else {
-        this.userId = 'null';
+        this.userId = "null";
       }
     });
   }

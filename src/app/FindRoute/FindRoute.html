@@ -5,30 +5,30 @@
       <div>
         <p class="mat-body">Enter your destination and we'll do our best to get you around potential and reported
           flooding.</p>
-
         <!-- <app-auto-search-start></app-auto-search-start> -->
         <div class="search-box">
           <app-auto-search></app-auto-search>
           <button mat-button id="route-button" color="primary" (click)="getDirections()">GET ROUTE</button>
         </div>
-
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
-          <!-- <div *ngIf="autoSearchStart; else currLocation">
-              <agm-marker [latitude]="autoSearchStart.lat" [longitude]="autoSearchStart.lng"></agm-marker>
-            </div>
-            <ng-template #currLocation> -->
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          <!-- </ng-template> -->
+          <agm-marker [latitude]="destination.lat" [longitude]="destination.lng"></agm-marker>
           <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
             [iconUrl]='otherUserMarker'>
             <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
           </agm-marker>
+<<<<<<< HEAD
           <agm-polyline [strokeColor]="'blue'">
             <agm-polyline-point *ngFor="let point of wayPoints" [latitude]="point.location.lat" [longitude]="point.location.lng"></agm-polyline-point>
           </agm-polyline>
+=======
+          <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints"
+            [renderOptions]="{ suppressMarkers : true }">
+          </agm-direction>
+>>>>>>> c8cd051b2318eeef7e1d37b0689f194f20720fba
         </agm-map>
       </div>
-      <h1 class="pt-5 mb-5"></h1>
     </div>
+    <h1 class="pt-5 mb-5"></h1>
   </div>
 </div>

@@ -15,7 +15,7 @@ export class HttpService {
   }
 
   submitReport(report) {
-    console.log(report);
+    // console.log(report);
     return this.http.post("/submitReport", { report });
   }
 
@@ -47,5 +47,9 @@ export class HttpService {
 
   submitContacts(contacts) {
     return this.http.post("/submitContacts", { contacts });
+  }
+
+  getContacts(userId) {
+    return this.http.get(`/getContacts/?id=${userId} `)
   }
 }
