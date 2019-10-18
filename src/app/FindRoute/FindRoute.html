@@ -17,9 +17,9 @@
             [iconUrl]='otherUserMarker'>
             <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
           </agm-marker>
-          <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints"
-            [renderOptions]="{ suppressMarkers : true }">
-          </agm-direction>
+          <agm-polyline [strokeColor]="'blue'">
+            <agm-polyline-point *ngFor="let point of wayPoints" [latitude]="point.location.lat" [longitude]="point.location.lng"></agm-polyline-point>
+          </agm-polyline>
         </agm-map>
       </div>
     </div>
