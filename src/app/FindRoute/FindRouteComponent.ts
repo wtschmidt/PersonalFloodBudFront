@@ -44,8 +44,8 @@ export class FindRoute implements OnInit {
     this.http.getMap(this.mapReqInfo).subscribe(directions => {
       //use "diretions" to make API call to agm-direction,
       // to create a route with the series of waypoints returned from the http req in "directions"
+      console.log(directions, "these are directions from graphHopper");
       this.directions = directions;
-      console.log("these are the directions from turf", this.directions);
       this.wayPoints = this.directions.waypoints;
     });
   }
