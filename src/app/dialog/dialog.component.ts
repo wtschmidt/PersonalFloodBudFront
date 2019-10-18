@@ -18,7 +18,7 @@ export class DialogComponent implements OnInit {
   lng;
   currUser = "You Are Here!";
   gmap;
-
+  
   radarLayer;
 
   radar;
