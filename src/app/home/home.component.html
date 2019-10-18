@@ -1,14 +1,28 @@
 <div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
   <div class="row mt-5">
     <div class="col">
-      <button class="btn btn-primary btn-raised btn-block" routerLink="/route" routerLinkActive="active">
-        FIND A ROUTE
+      <button mat-raised-button color="primary" class="btn-block btn-custom mb-2" routerLink="/route"
+        routerLinkActive="active">
+        <i class="material-icons mr-3">
+          directions
+        </i>FIND A ROUTE
       </button>
-      <button class="btn btn-warning btn-raised btn-block" routerLink="/create-report" routerLinkActive="active">
-        REPORT FLOODING
+      <button mat-raised-button color="accent" class="btn-block btn-custom mb-2" routerLink="/create-report"
+        routerLinkActive="active">
+        <i class="material-icons mr-3">
+          warning
+        </i>REPORT FLOODING
       </button>
-      <button class="btn btn-danger btn-raised btn-block " routerLink="/connect-contacts" routerLinkActive="active">
-        CONTACT FRIENDS
+      <button mat-raised-button color="warn" class="btn-custom btn-block mb-2" routerLink="/connect-contacts"
+        routerLinkActive="active">
+        <i class="material-icons mr-3">
+          message
+        </i>CONTACT FRIENDS
       </button>
 
     </div>
