@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 // import { Accuracy } from "tns-core-modules/ui/enums"; // used to describe
 
 @Injectable({
@@ -12,9 +11,6 @@ export class UserLocationService implements OnInit{
   currLocation: any;
   currLat: number;
   currLng: number;
-  geoBtn = document.querySelector('.enable');
-  revokeBtn = document.querySelector('.revoke');
-  nudge = document.getElementById("nudge");
 
   ngOnInit() {
     this.getLocation();
@@ -35,7 +31,7 @@ export class UserLocationService implements OnInit{
       (error) => {
         console.log(error);
       }, 
-      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
+      { maximumAge: 0, timeout: 10000, enableHighAccuracy: true });
     } else { 
       // this.handlePermission();
       alert("Geolocation is not supported by this browser.");

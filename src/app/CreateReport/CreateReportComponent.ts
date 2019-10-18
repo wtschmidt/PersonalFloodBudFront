@@ -1,4 +1,4 @@
-import { Directive, Component, ViewChild, OnInit, NgZone, OnDestroy } from "@angular/core";
+import { Directive, Component, ViewChild, OnInit, OnChanges, NgZone, OnDestroy } from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -41,6 +41,10 @@ export class CreateReport implements OnInit {
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
     this.userId = localStorage.getItem('userId');
+  }
+  
+  ngOnChanges() {
+    this.markers = this.getReportCoords();
   }
 
   getReportCoords() {
@@ -105,6 +109,7 @@ export class CreateReport implements OnInit {
         "success"
       );
       this.router.navigate([""]);
+      setTimeout(() => {location.reload(true)}, 2500);
     }
   }
 
