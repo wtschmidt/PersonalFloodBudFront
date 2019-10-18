@@ -11,17 +11,18 @@
           <button mat-button id="route-button" color="primary" (click)="getDirections()">GET ROUTE</button>
         </div>
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            <agm-marker [latitude]="destination.lat" [longitude]="destination.lng"></agm-marker>
-            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
-              [iconUrl]='otherUserMarker'>
-              <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
-            </agm-marker>
-            <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints" [renderOptions]="{ suppressMarkers : true }">
-            </agm-direction>
-          </agm-map>
-        </div>
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          <agm-marker [latitude]="destination.lat" [longitude]="destination.lng"></agm-marker>
+          <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
+            [iconUrl]='otherUserMarker'>
+            <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
+          </agm-marker>
+          <agm-direction [origin]="origin" [destination]="destination" [waypoints]="wayPoints"
+            [renderOptions]="{ suppressMarkers : true }">
+          </agm-direction>
+        </agm-map>
       </div>
-      <h1 class="pt-5 mb-5"></h1>
     </div>
+    <h1 class="pt-5 mb-5"></h1>
   </div>
+</div>
