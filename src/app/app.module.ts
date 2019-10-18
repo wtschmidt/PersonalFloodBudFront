@@ -70,7 +70,7 @@ import { AddContactsComponent } from "./add-contacts/add-contacts.component";
     StrandedOkayComponent,
     HomeComponent,
     ReportComponent,
-    AddContactsComponent,
+    AddContactsComponent
     // CourseDialogComponent
   ],
   entryComponents: [DialogComponent],

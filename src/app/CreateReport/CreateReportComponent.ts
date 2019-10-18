@@ -1,4 +1,11 @@
-import { Directive, Component, ViewChild, OnInit, OnChanges, NgZone, OnDestroy } from "@angular/core";
+import {
+  Directive,
+  Component,
+  ViewChild,
+  OnInit,
+  NgZone,
+  OnDestroy
+} from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -20,13 +27,15 @@ export class CreateReport implements OnInit {
   lng;
   currUser = "You Are Here!";
   otherUserMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+  userId;
   report = {
-    latLng: this.lat + "," + this.lng,
+    latLng: "",
     location: "",
     desc: "",
-    img: ""
+    img: "",
+    time: new Date().toLocaleTimeString(),
+    id: localStorage.getItem("userId")
   };
-  userId;
 
   constructor(
     private http: HttpService,
@@ -40,7 +49,7 @@ export class CreateReport implements OnInit {
     // console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    this.userId = localStorage.getItem('userId');
+    this.report.latLng = this.lat + "," + this.lng;
   }
   
   ngOnChanges() {
@@ -92,9 +101,10 @@ export class CreateReport implements OnInit {
   }
 
   createReport() {
-    // check if user is logged in
-    if (this.userId === 'null') {
-      Swal.fire('Please log in');
+    console.log(this.report);
+    // // check if user is logged in
+    if (this.userId === "null") {
+      Swal.fire("Please log in");
     }
     //user must have location
     else if (this.report.latLng === "undefined,undefined") {
