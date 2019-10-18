@@ -11,8 +11,10 @@
           <button mat-button id="route-button" color="primary" (click)="getDirections()">GET ROUTE</button>
         </div>
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            <agm-marker [latitude]="destination.lat" [longitude]="destination.lng"></agm-marker>
+            <agm-marker (eventEmitter)="updateLocation()" [latitude]="lat" [longitude]="lng"></agm-marker>
+            <div *ngIf="endLat">
+              <agm-marker [latitude]="endLat" [longitude]="endLng"></agm-marker>
+            </div>
             <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
               [iconUrl]='otherUserMarker'>
               <agm-info-window><img src="{{marker.img}}" width="200"> {{marker.desc}}</agm-info-window>
