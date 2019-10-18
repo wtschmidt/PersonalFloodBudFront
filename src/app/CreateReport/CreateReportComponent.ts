@@ -1,4 +1,11 @@
-import { Directive, Component, ViewChild, OnInit, NgZone, OnDestroy } from "@angular/core";
+import {
+  Directive,
+  Component,
+  ViewChild,
+  OnInit,
+  NgZone,
+  OnDestroy
+} from "@angular/core";
 import { MatCardModule } from "@angular/material";
 import { HttpService } from "../http.service";
 import {} from "googlemaps";
@@ -27,7 +34,7 @@ export class CreateReport implements OnInit {
     desc: "",
     img: "",
     time: new Date().toLocaleTimeString(),
-    id: localStorage.getItem('userId')
+    id: localStorage.getItem("userId")
   };
 
   constructor(
@@ -42,7 +49,7 @@ export class CreateReport implements OnInit {
     // console.log("init location", this.geo.currLat, this.geo.currLng);
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
-    this.report.latLng = this.lat + "," + this.lng; 
+    this.report.latLng = this.lat + "," + this.lng;
   }
 
   getReportCoords() {
@@ -92,23 +99,23 @@ export class CreateReport implements OnInit {
   createReport() {
     console.log(this.report);
     // // check if user is logged in
-    // if (this.userId === 'null') {
-    //   Swal.fire('Please log in');
-    // }
-    // //user must have location
-    // else if (this.report.latLng === "undefined,undefined") {
-    //   Swal.fire("Your location is missing!");
-    // } else {
-    //   this.http.submitReport(this.report).subscribe(data => {
-    //     // console.log(data);
-    //   });
-    //   Swal.fire(
-    //     "Report sent!",
-    //     "Thanks for helping your fellow New Orleanians. Stay safe out there!",
-    //     "success"
-    //   );
-    //   this.router.navigate([""]);
-    // }
+    if (this.userId === "null") {
+      Swal.fire("Please log in");
+    }
+    //user must have location
+    else if (this.report.latLng === "undefined,undefined") {
+      Swal.fire("Your location is missing!");
+    } else {
+      this.http.submitReport(this.report).subscribe(data => {
+        // console.log(data);
+      });
+      Swal.fire(
+        "Report sent!",
+        "Thanks for helping your fellow New Orleanians. Stay safe out there!",
+        "success"
+      );
+      this.router.navigate([""]);
+    }
   }
 
   setLocation(place) {
