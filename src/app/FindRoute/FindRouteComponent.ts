@@ -50,10 +50,6 @@ export class FindRoute implements OnInit {
       // to create a route with the series of waypoints returned from the http req in "directions"
       console.log(directions, "these are directions from graphHopper");
       this.directions = directions;
-<<<<<<< HEAD
-=======
-      // console.log("these are the directions from turf", this.directions);
->>>>>>> c8cd051b2318eeef7e1d37b0689f194f20720fba
       this.wayPoints = this.directions.waypoints;
     });
   }
