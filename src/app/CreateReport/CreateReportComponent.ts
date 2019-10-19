@@ -28,7 +28,6 @@ export class CreateReport implements OnInit {
   lng;
   currUser = "You Are Here!";
   otherUserMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-  userId;
   report = {
     latLng: "",
     location: "",
@@ -100,7 +99,7 @@ export class CreateReport implements OnInit {
   createReport() {
     console.log(this.report);
     // // check if user is logged in
-    if (this.userId === "null") {
+    if (this.report.id === "null") {
       Swal.fire("Please log in");
     }
     //user must have location
