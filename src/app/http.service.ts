@@ -25,8 +25,8 @@ export class HttpService {
   }
 
   //this will get info about the current user
-  getUserInfo() {
-    return this.http.get("/userInfo");
+  getUserInfo(googleId) {
+    return this.http.get(`/userInfo/?id=${googleId}`);
   }
 
   getRoute() {
