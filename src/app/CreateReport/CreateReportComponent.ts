@@ -104,7 +104,11 @@ export class CreateReport implements OnInit {
     }
     //user must have location
     else if (this.report.latLng === "undefined,undefined") {
-      Swal.fire("Your location is missing!");
+      Swal.fire(
+        "Oops...",
+        "We can't find your location",
+        "error"
+      );
     } else {
       this.http.submitReport(this.report).subscribe(data => {
         // console.log(data);
