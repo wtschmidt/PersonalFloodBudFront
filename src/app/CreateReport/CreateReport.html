@@ -17,7 +17,7 @@
       <div class="mt-2 mb-4 search-box">
         <app-auto-search (eventEmitter)="setMarkers()"></app-auto-search>
         <mat-form-field>
-          <textarea matInput placeholder="Enter Details" [(ngModel)]="report.desc"
+          <textarea matInput placeholder="Enter Details" rows="2" [(ngModel)]="report.desc"
             [ngModelOptions]="{standalone: true}"></textarea>
         </mat-form-field>
       </div>
