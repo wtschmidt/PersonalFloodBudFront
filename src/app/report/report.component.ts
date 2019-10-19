@@ -16,7 +16,7 @@ export class ReportComponent implements OnInit {
   constructor(private http: HttpService) {}
 
   async ngOnInit() {
-    this.http.getUserInfo(this.googleId).subscribe(data => {
+    await this.http.getUserInfo(this.googleId).subscribe(data => {
       this.user = data
     })
     this.http.getReports().subscribe(data => {

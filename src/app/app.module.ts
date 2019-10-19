@@ -16,6 +16,7 @@ import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatTabsModule } from '@angular/material/tabs';
 
 import {
   MatButtonModule,
@@ -26,7 +27,7 @@ import {
   MatCardModule,
   MatInputModule,
   MatStepperModule,
-  MatExpansionModule
+  MatExpansionModule,
 } from "@angular/material";
 
 import { DialogComponent } from "./dialog/dialog.component";
@@ -93,6 +94,7 @@ import { AddContactsComponent } from "./add-contacts/add-contacts.component";
     MatStepperModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    MatTabsModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDparA5bqjrMG9t3hRPFFOzX-bbJ-cRwJ8",
       libraries: ["places"]

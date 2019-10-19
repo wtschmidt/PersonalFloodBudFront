@@ -1,4 +1,6 @@
 <ul *ngIf="reports">
+  <mat-tab-group>
+  <mat-tab label="Your Flood Reports">
   <li *ngFor="let userReport of userReports">
       <mat-card class="mb-3" style="width: 100%;">
         <img *ngIf="userReport.img" src={{userReport.img}} alt="Card image cap" class="card-img-top">
@@ -16,7 +18,9 @@
         </mat-card-actions>
         <!-- We need a (click) function that will remove the selected report from the database -->
     </mat-card>
-    <mat-divider></mat-divider>
+    </li>
+  </mat-tab>
+  <mat-tab label="All Users' Flood Reports">
   <li *ngFor="let report of reports">
     <mat-card class="mb-3" style="width: 100%;">
       <img *ngIf="report.img" src={{report.img}} alt="Card image cap" class="card-img-top">
@@ -35,4 +39,6 @@
       <!-- We need a (click) function that will remove the selected report from the database -->
     </mat-card>
   </li>
+  </mat-tab>
+  </mat-tab-group>
 </ul>
