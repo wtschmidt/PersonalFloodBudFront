@@ -18,7 +18,7 @@ export class DialogComponent implements OnInit {
   lng;
   currUser = "You Are Here!";
   gmap;
-
+  rainfall;
   radarLayer;
 
   radar;
@@ -41,6 +41,10 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+
+    this.http.getRainfall().subscribe(result => {
+      this.rainfall = result;
+    });
 
     this.aeris.views().then(views => {
       const map = new views.InteractiveMap(
