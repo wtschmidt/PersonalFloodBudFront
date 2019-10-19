@@ -6,12 +6,18 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="name1">
       <input (change)="handleName1($event)" matInput placeholder={{name1}}>
     </mat-form-field>
+    <mat-form-field *ngIf="!name1">
+      <input (change)="handleName1($event)" matInput placeholder="name">
+    </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="phone1">
       <input (change)="handlePhone1($event)" matInput type="tel" min="1" placeholder={{phone1}}>
+    </mat-form-field>
+    <mat-form-field *ngIf="!phone1">
+      <input (change)="handlePhone1($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 
     <mat-action-row>
@@ -27,12 +33,18 @@
 
     </mat-expansion-panel-header>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="name2">
       <input (change)="handleName2($event)" matInput placeholder={{name2}}>
     </mat-form-field>
+    <mat-form-field *ngIf="!name1">
+      <input (change)="handleName2($event)" matInput placeholder="name">
+    </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="phone2">
       <input (change)="handlePhone2($event)"matInput type="tel" min="1" placeholder={{phone2}}>
+    </mat-form-field>
+    <mat-form-field *ngIf="!phone2">
+      <input (change)="handlePhone2($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 
     <mat-action-row>
@@ -49,12 +61,18 @@
 
     </mat-expansion-panel-header>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="name3">
       <input (change)="handleName3($event)" matInput placeholder={{name3}}>
     </mat-form-field>
+    <mat-form-field *ngIf="!name3">
+      <input (change)="handleName3($event)" matInput placeholder="name">
+    </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="phone3">
       <input (change)="handlePhone3($event)" matInput type="tel" min="1" placeholder={{phone3}}>
+    </mat-form-field>
+    <mat-form-field *ngIf="!phone3">
+      <input (change)="handlePhone3($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 
     <mat-action-row>
