@@ -22,7 +22,11 @@ export class StrandedOkayComponent implements OnInit {
     if (this.userId === 'null') {
       Swal.fire('Please log in');
     } else if (!this.lat || !this.lng) {
-      Swal.fire("Your location is missing!");
+      Swal.fire(
+        "Oops...",
+        "We can't find your location",
+        "error"
+      );
     } else {
       console.log(this.message);
       this.http
