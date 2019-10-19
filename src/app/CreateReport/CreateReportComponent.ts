@@ -17,6 +17,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "create-report",
   styles: ["agm-map { height: 35vh;}"],
+  styleUrls: ["./CreateReport.scss"],
   templateUrl: "./CreateReport.html"
 })
 export class CreateReport implements OnInit {

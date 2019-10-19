@@ -17,20 +17,20 @@
       <div class="mt-2 mb-4 search-box">
         <app-auto-search (eventEmitter)="setMarkers()"></app-auto-search>
         <mat-form-field>
-          <textarea matInput placeholder="Enter Details" [(ngModel)]="report.desc"
+          <textarea matInput placeholder="Enter Details" rows="2" [(ngModel)]="report.desc"
             [ngModelOptions]="{standalone: true}"></textarea>
         </mat-form-field>
       </div>
       <div class="form-group mt-2">
         <!-- <button mat-button>ADD PHOTO</button> -->
-        <label for="submit-photo" class="bmd-label-floating">Add a photo</label>
 
-        <input type="file" class="form-control-file" id="submit-photo" accept="image/*" (change)="processFile($event)">
+        <input type="file" class="inputfile" id="submit-photo" accept="image/*" (change)="processFile($event)">
+        <label for="submit-photo">Add a photo</label>
         <!-- <button mat-button (click)="getCurrentLocation()">CURRENT LOCATION</button> -->
         <button mat-button (click)="createReport()">SUBMIT</button>
       </div>
     </div>
     <!-- end of card -->
-    <h1 class="pt-5 pb-5"></h1>
   </div>
+  <h1 class="pt-5 pb-5"></h1>
 </div>
