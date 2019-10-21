@@ -1,23 +1,23 @@
 <!--The mat-toolbar is our header. It is where the hanburger and the radar/rainfall buttons will go.-->
 <mat-toolbar class="header-nav mat-elevation-z4">
   <div *ngIf="userId === 'null'">
-    <a [href]="googleLoginUrl"><button color="primary" mat-raised-button>LOGIN</button></a>
+    <a [href]="googleLoginUrl"><button class="btn-custom" mat-stroked-button>LOGIN</button></a>
   </div>
   <span *ngIf="userId !== 'null'"> <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu>
       <button mat-menu-item routerLink="/add-contacts" routerLinkActive="active">
-        <span>Edit Contacts</span>
+        Edit Contacts
       </button>
       <button mat-menu-item routerLink="/user-reports" routerLinkActive="active">
-        <span>Flood Reports</span>
+        Flood Reports
       </button>
       <mat-divider></mat-divider>
 
-      <button mat-menu-item>
-        <a [href]="googleLogoutUrl"><button (click)='logout()'>Logout</button></a>
-        <!-- <span>Logout</span> -->
+      <button mat-menu-item><a [href]="googleLogoutUrl" (click)='logout()'>Logout
+          <!-- <span>Logout</span> -->
+        </a>
       </button>
 
     </mat-menu>
@@ -32,13 +32,13 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <span *ngIf="rainfall !== undefined"> <button mat-raised-button color="primary" (click)='openDialog()'>
+  <span *ngIf="rainfall !== undefined"> <button mat-stroked-button class="btn-custom" (click)='openDialog()'>
       <div class="circleBase type1">{{rainfall}}"</div>
 
       <!-- this is where the rainfall total will go -->
     </button>
   </span>
-  <span *ngIf="rainfall === undefined"> <button mat-raised-button color="primary" (click)='openDialog()'>
+  <span *ngIf="rainfall === undefined"> <button mat-stroked-button class="btn-custom" (click)='openDialog()'>
       <div class="circleBase type1">RADAR</div>
 
       <!-- this is where the rainfall total will go -->
