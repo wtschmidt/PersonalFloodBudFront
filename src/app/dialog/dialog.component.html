@@ -1,7 +1,13 @@
-<h2 mat-headlne [innerHTML]="data.title"></h2>
-<mat-divider class="mt-3"></mat-divider>
+<div *ngIf="rainfall !== undefined">
+  <h2 mat-headlne [innerHTML]="data.title"></h2>
+  <mat-divider class="mt-3"></mat-divider>
 
-<mat-dialog-content class="mat-subheading-1" [innerHTML]="data.message"></mat-dialog-content>
+  <mat-dialog-content class="mat-subheading-1" [innerHTML]="data.message"></mat-dialog-content>
+</div>
+<div *ngIf="rainfall === undefined">
+  <h2 mat-headlne>Current Radar</h2>
+  <mat-divider class="mt-3"></mat-divider>
+</div>
 <mat-divider class="mb-4"></mat-divider>
 
 <div style="height:60vh;" id='radar-map' class="map">{{this.gmap}}</div>

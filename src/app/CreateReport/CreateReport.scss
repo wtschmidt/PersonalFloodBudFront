@@ -1,5 +1,35 @@
 .report-card {
   max-width: 400px;
   margin: auto;
+}
 
+agm-map {
+  height: 35vh;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile+label {
+  font-size: 1.2rem;
+  color: white;
+  background-color: #0D47A1;
+  display: inline-block;
+  padding: .6rem;
+  text-transform: uppercase;
+}
+
+.inputfile:focus+label,
+.inputfile+label:hover {
+  background-color: #1976D2;
+}
+
+#add-photo {
+  font-size: 1.2rem;
 }

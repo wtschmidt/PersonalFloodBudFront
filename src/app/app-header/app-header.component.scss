@@ -1,13 +1,24 @@
-.type1 {
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  text-align: center;
-  vertical-align: middle;
-  // display: table-cell;
-  ;
-}
+// .type1 {
+//   width: 3rem;
+//   height: 3rem;
+//   line-height: 3rem;
+//   text-align: center;
+//   vertical-align: middle;
+//   // display: table-cell;
+//   ;
+// }
 
 .custom-class {
   color: white;
+}
+
+#logo-1 {
+  font-size: 2rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+#logo-2 {
+  font-weight: 900;
+  text-transform: uppercase;
 }

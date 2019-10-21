@@ -1,30 +1,77 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="spacer"></div>
 
+  <div class="row" routerLink="/route">
+    <div class="col-2">
+      <img id="find-route" src="../../assets/images/HomePage find route.png" alt="">
+    </div>
+    <div class="col-8 header-text">Find a route<br>
+      <p class="mat-body-1">Give us a destination and we’ll give you a route around reported and potential flooding.
+      </p>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col">
-      <button mat-raised-button color="primary" class="btn-block btn-custom mb-2" routerLink="/route"
-        routerLinkActive="active">
-        <i class="material-icons mr-3">
-          directions
-        </i>FIND A ROUTE
-      </button>
-      <button mat-raised-button color="accent" class="btn-block btn-custom mb-2" routerLink="/create-report"
-        routerLinkActive="active">
-        <i class="material-icons mr-3">
-          warning
-        </i>REPORT FLOODING
-      </button>
-      <button mat-raised-button color="warn" class="btn-custom btn-block mb-2" routerLink="/connect-contacts"
-        routerLinkActive="active">
-        <i class="material-icons mr-3">
-          message
-        </i>CONTACT FRIENDS
-      </button>
-
+  <div class="spacer"></div>
+  <div class="row" routerLink="/create-report">
+    <div class="col-2">
+      <img id="report-flooding" src="../../assets/images/HomePage report flooding.png" alt="">
+    </div>
+    <div class="col-8 header-text">Report flooding<br>
+      <p class="mat-body-1">Help improve our ability to get fellow New Orleanians through the flood by reporting
+        flooding.
+      </p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row" routerLink="/connect-contacts">
+    <div class="col-2">
+      <img id="connect-contacts" src="../../assets/images/HomePage contact.png" alt="">
+    </div>
+    <div class="col-8 header-text">Contact friends<br>
+      <p class="mat-body-1">Easily message your emergency contacts to tell them where you are or where you’re going.
+      </p>
     </div>
   </div>
 </div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn-block btn-custom mb-2"
+        routerLink="/route"
+        routerLinkActive="active"
+      >
+        <i class="material-icons mr-3">
+          directions </i
+        >FIND A ROUTE
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn-block btn-custom mb-2"
+        routerLink="/create-report"
+        routerLinkActive="active"
+      >
+        <i class="material-icons mr-3">
+          warning </i
+        >REPORT FLOODING
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        class="btn-custom btn-block mb-2"
+        routerLink="/connect-contacts"
+        routerLinkActive="active"
+      >
+        <i class="material-icons mr-3">
+          message </i
+        >CONTACT FRIENDS
+      </button>
+    </div>
+  </div>
+</div> -->
