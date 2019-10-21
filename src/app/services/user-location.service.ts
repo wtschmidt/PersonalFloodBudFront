@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpService } from '../http.service';
 // import { Accuracy } from "tns-core-modules/ui/enums"; // used to describe
 
 @Injectable({
@@ -7,14 +8,14 @@ import { Observable, of } from 'rxjs';
 })
 export class UserLocationService implements OnInit{
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
-  currLocation: any;
   currLat: number;
   currLng: number;
   geoBtn = document.querySelector('.enable');
   revokeBtn = document.querySelector('.revoke');
   nudge = document.getElementById("nudge");
+  response: any;
 
   ngOnInit() {
     this.getLocation();
@@ -30,40 +31,25 @@ export class UserLocationService implements OnInit{
         }
         this.currLat = pos.lat;
         this.currLng = pos.lng;
-        this.currLocation = pos.lat + " " + pos.lng;
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
+        this.http.getGeoLocation().subscribe((response) => {
+          console.log('api response', response);
+          this.response = response;
+          console.log(this.response);
+          var responselocation = this.response.loc.split(',');
+          var pos = {
+            lat: responselocation[0],
+            lng: responselocation[1]
+          };
+          this.currLat = pos.lat;
+          this.currLng = pos.lng;
+        })
       }, 
       { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
     } else { 
-      // this.handlePermission();
       alert("Geolocation is not supported by this browser.");
     }
   }
-
-  // handlePermission() {
-  //   navigator.permissions.query({name:'geolocation'}).then(function(result) {
-  //     if (result.state == 'granted') {
-  //       this.report(result.state);
-  //       this.geoBtn.style.display = 'none';
-  //       this.getLocation();
-  //     } else if (result.state == 'prompt') {
-  //       this.report(result.state);
-  //       this.geoBtn.style.display = 'none';
-  //       // navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
-  //       this.getLocation();
-  //     } else if (result.state == 'denied') {
-  //       this.report(result.state);
-  //       this.geoBtn.style.display = 'inline';
-  //     }
-  //     result.onchange = function() {
-  //       console.log('Permission ' + result.state);
-  //     }
-  //   });
-  // }
-  
-  // report(state) {
-  //   console.log('Permission ' + state);
-  // }
 }
