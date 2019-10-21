@@ -35,16 +35,14 @@ export class UserLocationService implements OnInit{
       (error) => {
         // console.log(error);
         this.http.getGeoLocation().subscribe((response) => {
-          console.log('api response', response);
           this.response = response;
-          console.log(this.response);
           var responselocation = this.response.loc.split(',');
           var pos = {
             lat: responselocation[0],
             lng: responselocation[1]
           };
-          this.currLat = pos.lat;
-          this.currLng = pos.lng;
+          this.currLat = Number(pos.lat);
+          this.currLng = Number(pos.lng);
         })
       }, 
       { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
