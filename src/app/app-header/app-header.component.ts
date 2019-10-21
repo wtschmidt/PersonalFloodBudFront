@@ -25,7 +25,7 @@ export class AppHeaderComponent implements OnInit {
   openDialog() {
     const dialogData: DialogData = {
       title: "Today's Rainfall",
-      message: `It's rained <span class="mat-body-2"> ${this.http.rainfall} inches </span>in the last 3 hours in the New Orleans area.`,
+      message: `It's rained <span class="mat-body-2"> ${this.rainfall} inches </span>in the last 3 hours in the New Orleans area.`,
       showOKBtn: false,
       showCancelBtn: false
     };
