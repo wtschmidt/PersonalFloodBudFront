@@ -45,15 +45,15 @@ export class AppHeaderComponent implements OnInit {
       this.rainfall = result;
     });
 
-    // this.activatedRoute.queryParamMap.subscribe(queryParams => {
-    //   if (queryParams.get("id") !== null) {
-    //     localStorage.setItem("userId", queryParams.get("id"));
-    //     this.userId = localStorage.getItem("userId");
-    //   } else if (localStorage.getItem("userId") !== "null") {
-    //     this.userId = localStorage.getItem("userId");
-    //   } else {
-    //     this.userId = "null";
-    //   }
-    // });
+    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+      if (queryParams.get("id") !== null) {
+        localStorage.setItem("userId", queryParams.get("id"));
+        this.userId = localStorage.getItem("userId");
+      } else if (localStorage.getItem("userId") !== "null") {
+        this.userId = localStorage.getItem("userId");
+      } else {
+        this.userId = "null";
+      }
+    });
   }
 }
