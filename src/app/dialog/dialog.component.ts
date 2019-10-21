@@ -45,6 +45,7 @@ export class DialogComponent implements OnInit {
     this.http.getRainfall().subscribe(result => {
       this.rainfall = result;
     });
+    console.log(this.rainfall);
 
     this.aeris.views().then(views => {
       const map = new views.InteractiveMap(
