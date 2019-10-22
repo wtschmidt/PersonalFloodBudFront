@@ -51,6 +51,10 @@ export class CreateReport implements OnInit {
     this.lng = this.geo.currLng;
     this.report.latLng = this.lat + "," + this.lng;
   }
+  
+  ngOnChanges() {
+    this.markers = this.getReportCoords();
+  }
 
   getReportCoords() {
     // this.setMarkers();
@@ -119,6 +123,7 @@ export class CreateReport implements OnInit {
         "success"
       );
       this.router.navigate([""]);
+      setTimeout(() => {location.reload(true)}, 2500);
     }
   }
 

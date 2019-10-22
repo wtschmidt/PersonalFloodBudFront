@@ -7,12 +7,33 @@ import { HttpService } from "../http.service";
   styleUrls: ["./report.component.scss"]
 })
 export class ReportComponent implements OnInit {
-  reports;
+
+  reports = [];
+  userReports = [];
+  googleId = localStorage.getItem("userId");
+  user;
+
   constructor(private http: HttpService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.http.getUserInfo(this.googleId).subscribe(data => {
+      this.user = data
+    })
     this.http.getReports().subscribe(data => {
-      this.reports = data;
+      for (var key in data) {
+        if (data[key].user_id === this.user.id) {
+          this.userReports.push(data[key])
+        } else {
+          this.reports.push(data[key]);
+        }
+      }
     });
+  }
+
+  deleteReport(event, report) {
+    console.log(report);
+    this.http.deleteReport(report.id).subscribe((response) => {
+      console.log(response);
+    })
   }
 }

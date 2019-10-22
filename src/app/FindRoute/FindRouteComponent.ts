@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, ElementRef } from "@angular/core";
+import { Component, ViewChild, OnInit, ElementRef, EventEmitter, Output } from "@angular/core";
 import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
@@ -17,6 +17,8 @@ export class FindRoute implements OnInit {
   @ViewChild(AutoSearchComponent, { static: true }) autoSearch;
   lat;
   lng;
+  endLat;
+  endLng;
   origin: any;
   destination: any;
   wayPoints: object;
@@ -25,6 +27,10 @@ export class FindRoute implements OnInit {
   markers;
   mapReqInfo: object;
   otherUserMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+  bounds;
+
+  // @Output()
+  // eventEmitter = new EventEmitter();
 
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
@@ -33,6 +39,7 @@ export class FindRoute implements OnInit {
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+    this.bounds  = new google.maps.LatLngBounds();
     // console.log(this.geo.currLat, "this is my lat");
     // console.log(this.lng, "this is my lng");
   }
@@ -40,6 +47,8 @@ export class FindRoute implements OnInit {
   getDirections() {
     this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
+    this.endLat = this.destination.lat;
+    this.endLng = this.destination.lng;
     this.mapReqInfo = {
       origin: this.origin,
       destination: this.destination
@@ -73,4 +82,13 @@ export class FindRoute implements OnInit {
     // change this later. the first object is formatted differently from the rest so exclude for now
     return markerArray;
   }
+
+  // updateLocation() {
+  //   this.lat = this.geo.currLat;
+  //   this.lng = this.geo.currLng;
+  // }
+
+  // emitter() {
+  //   this.eventEmitter.emit();
+  // }
 }
