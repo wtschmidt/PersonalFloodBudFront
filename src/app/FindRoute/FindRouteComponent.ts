@@ -35,7 +35,6 @@ export class FindRoute implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
   ngOnInit() {
-    this.geo.getLocation();
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;

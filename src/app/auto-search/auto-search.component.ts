@@ -45,10 +45,7 @@ export class AutoSearchComponent implements OnInit {
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
-        this.searchElementRef.nativeElement,
-        {
-          types: ["establishment"]
-        }
+        this.searchElementRef.nativeElement
       );
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
