@@ -6,17 +6,17 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <mat-form-field *ngIf="name1">
+    <mat-form-field *ngIf="name1" class="contact-input">
       <input (change)="handleName1($event)" matInput placeholder={{name1}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!name1">
+    <mat-form-field *ngIf="!name1" class="contact-input">
       <input (change)="handleName1($event)" matInput placeholder="name">
     </mat-form-field>
 
-    <mat-form-field *ngIf="phone1">
+    <mat-form-field *ngIf="phone1" class="contact-input">
       <input (change)="handlePhone1($event)" matInput type="tel" min="1" placeholder={{phone1}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!phone1">
+    <mat-form-field *ngIf="!phone1" class="contact-input">
       <input (change)="handlePhone1($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 
@@ -33,17 +33,17 @@
 
     </mat-expansion-panel-header>
 
-    <mat-form-field *ngIf="name2">
+    <mat-form-field *ngIf="name2" class="contact-input">
       <input (change)="handleName2($event)" matInput placeholder={{name2}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!name1">
+    <mat-form-field *ngIf="!name1" class="contact-input">
       <input (change)="handleName2($event)" matInput placeholder="name">
     </mat-form-field>
 
-    <mat-form-field *ngIf="phone2">
-      <input (change)="handlePhone2($event)"matInput type="tel" min="1" placeholder={{phone2}}>
+    <mat-form-field *ngIf="phone2" class="contact-input">
+      <input (change)="handlePhone2($event)" matInput type="tel" min="1" placeholder={{phone2}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!phone2">
+    <mat-form-field *ngIf="!phone2" class="contact-input">
       <input (change)="handlePhone2($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 
@@ -61,17 +61,17 @@
 
     </mat-expansion-panel-header>
 
-    <mat-form-field *ngIf="name3">
+    <mat-form-field *ngIf="name3" class="contact-input">
       <input (change)="handleName3($event)" matInput placeholder={{name3}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!name3">
+    <mat-form-field *ngIf="!name3" class="contact-input">
       <input (change)="handleName3($event)" matInput placeholder="name">
     </mat-form-field>
 
-    <mat-form-field *ngIf="phone3">
+    <mat-form-field *ngIf="phone3" class="contact-input">
       <input (change)="handlePhone3($event)" matInput type="tel" min="1" placeholder={{phone3}}>
     </mat-form-field>
-    <mat-form-field *ngIf="!phone3">
+    <mat-form-field *ngIf="!phone3" class="contact-input">
       <input (change)="handlePhone3($event)" matInput type="tel" min="1" placeholder="phone">
     </mat-form-field>
 

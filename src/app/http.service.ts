@@ -56,4 +56,8 @@ export class HttpService {
   deleteReport(reportId) {
     return this.http.get(`/deleteReport/?id=${reportId}`)
   }
+  
+  getGeoLocation() {
+    return this.http.get('https://ipinfo.io/geo');
+  }
 }
