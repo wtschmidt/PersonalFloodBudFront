@@ -17,6 +17,9 @@
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15>
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
             <!-- <agm-marker [latitude]="destination.lat" [longitude]="destination.lng"></agm-marker> -->
+            <div *ngIf='endLat'>
+              <agm-marker [latitude]="endLat" [longitude]="endLng"></agm-marker>
+            </div>
             <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
               [iconUrl]='otherUserMarker'>
               <agm-info-window>

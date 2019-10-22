@@ -27,6 +27,7 @@ export class FindRoute implements OnInit {
   markers;
   mapReqInfo: object;
   otherUserMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+  bounds;
 
   // @Output()
   // eventEmitter = new EventEmitter();
@@ -38,6 +39,7 @@ export class FindRoute implements OnInit {
     this.markers = this.getReportCoords();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+    this.bounds  = new google.maps.LatLngBounds();
     // console.log(this.geo.currLat, "this is my lat");
     // console.log(this.lng, "this is my lng");
   }

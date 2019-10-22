@@ -29,4 +29,11 @@ export class ReportComponent implements OnInit {
       }
     });
   }
+
+  deleteReport(event, report) {
+    console.log(report);
+    this.http.deleteReport(report.id).subscribe((response) => {
+      console.log(response);
+    })
+  }
 }

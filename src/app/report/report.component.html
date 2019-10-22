@@ -14,7 +14,7 @@
           {{userReport.description}}
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button color="warn">DELETE</button>
+          <button mat-button color="warn" (click)="deleteReport($event, userReport)">DELETE</button>
         </mat-card-actions>
         <!-- We need a (click) function that will remove the selected report from the database -->
     </mat-card>

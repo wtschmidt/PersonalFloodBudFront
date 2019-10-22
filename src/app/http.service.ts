@@ -52,4 +52,8 @@ export class HttpService {
   getContacts(userId) {
     return this.http.get(`/getContacts/?id=${userId} `)
   }
+
+  deleteReport(reportId) {
+    return this.http.get(`/deleteReport/?id=${reportId}`)
+  }
 }
