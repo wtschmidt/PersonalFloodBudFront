@@ -12,9 +12,6 @@ export class UserLocationService implements OnInit{
 
   currLat: number;
   currLng: number;
-  geoBtn = document.querySelector('.enable');
-  revokeBtn = document.querySelector('.revoke');
-  nudge = document.getElementById("nudge");
   response: any;
 
   ngOnInit() {
