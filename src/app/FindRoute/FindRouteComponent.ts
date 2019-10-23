@@ -14,7 +14,10 @@ import { AutoSearchComponent } from "../auto-search/auto-search.component";
   templateUrl: "./FindRoute.html"
 })
 export class FindRoute implements OnInit {
+
   @ViewChild(AutoSearchComponent, { static: true }) autoSearch;
+  // @ViewChild('AgmMap') agmMap: AgmMap;
+
   lat;
   lng;
   endLat;
@@ -35,10 +38,10 @@ export class FindRoute implements OnInit {
   constructor(private http: HttpService, private geo: UserLocationService) {}
 
   ngOnInit() {
-    this.geo.getLocation();
-    this.markers = this.getReportCoords();
+    // this.geo.getLocation();
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
+    this.markers = this.getReportCoords();
     this.bounds  = new google.maps.LatLngBounds();
     // console.log(this.geo.currLat, "this is my lat");
     // console.log(this.lng, "this is my lng");
