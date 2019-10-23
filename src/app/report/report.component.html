@@ -1,5 +1,25 @@
 <div *ngIf="reports">
   <mat-tab-group>
+    <mat-tab label="All Users' Flood Reports">
+    <div *ngFor="let report of reports">
+      <mat-card class="mb-3" style="width: 100%;">
+        <img *ngIf="report.img" src={{report.img}} alt="Card image cap" class="card-img-top">
+        <mat-card-title-group>
+          <mat-card-title>Flood report</mat-card-title>
+          <mat-card-subtitle *ngIf="report.physical_address !== null && report.physical_address.length > 0">Location:
+            {{report.physical_address.slice(0, report.physical_address.length -5)}}
+          </mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+          {{report.description}}
+        </mat-card-content>
+        <!-- <mat-card-actions>
+          <button mat-button color="warn">DELETE</button>
+        </mat-card-actions> -->
+        <!-- We need a (click) function that will remove the selected report from the database -->
+      </mat-card>
+    </div>
+  </mat-tab>
   <mat-tab label="Your Flood Reports">
   <div *ngFor="let userReport of userReports">
       <mat-card class="mb-3" style="width: 100%;">
@@ -17,26 +37,6 @@
           <button mat-button color="warn" (click)="deleteReport($event, userReport)">DELETE</button>
         </mat-card-actions>
         <!-- We need a (click) function that will remove the selected report from the database -->
-    </mat-card>
-  </div>
-  </mat-tab>
-  <mat-tab label="All Users' Flood Reports">
-  <div *ngFor="let report of reports">
-    <mat-card class="mb-3" style="width: 100%;">
-      <img *ngIf="report.img" src={{report.img}} alt="Card image cap" class="card-img-top">
-      <mat-card-title-group>
-        <mat-card-title>Flood report</mat-card-title>
-        <mat-card-subtitle *ngIf="report.physical_address !== null && report.physical_address.length > 0">Location:
-          {{report.physical_address.slice(0, report.physical_address.length -5)}}
-        </mat-card-subtitle>
-      </mat-card-title-group>
-      <mat-card-content>
-        {{report.description}}
-      </mat-card-content>
-      <!-- <mat-card-actions>
-        <button mat-button color="warn">DELETE</button>
-      </mat-card-actions> -->
-      <!-- We need a (click) function that will remove the selected report from the database -->
     </mat-card>
   </div>
   </mat-tab>
