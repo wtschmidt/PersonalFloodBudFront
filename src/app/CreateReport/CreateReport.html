@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row mt-3">
-    <div class="col col-lg-4 report-card">
+  <div class="row mt-4">
+    <div class="col col-lg-6 report-card">
       <!-- start of card -->
       <h4 class="mat-headline">Report flooding</h4>
       <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
@@ -8,15 +8,17 @@
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
           <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="moveReport($event)">
           </agm-marker>
-          <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
-            [iconUrl]='otherUserMarker'>
-            <agm-info-window>
-              <h3 mat-headline class="mb-2">Flood Reported</h3>
-              <hr>
-              <p class="mat-body-2">Report details: <span class="mat-body-1">{{marker.desc}}</span></p>
-              <hr><img *ngIf="marker.img" src="{{marker.img}}" width="200"><br>
-            </agm-info-window>
-          </agm-marker>
+          <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"
+              [iconUrl]='otherUserMarker'>
+              <agm-info-window>
+                <h3 mat-headline class="mb-2">Flood Reported</h3>
+                <hr>
+                <p class="mat-body-2">Report details: <span class="mat-body-1">{{marker.desc}}</span></p>
+                <hr><img *ngIf="marker.img" src="{{marker.img}}" width="200"><br>
+              </agm-info-window>
+            </agm-marker>
+          </agm-marker-cluster>
         </agm-map>
       </div>
       <div class="mt-2 mb-4 search-box">

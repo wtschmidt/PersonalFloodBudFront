@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { AgmCoreModule } from "@agm/core";
 import { AgmDirectionModule } from "agm-direction";
+import { AgmJsMarkerClustererModule } from "@agm/js-marker-clusterer"
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -100,6 +101,7 @@ import { AddContactsComponent } from "./add-contacts/add-contacts.component";
       libraries: ["places"]
     }),
     AgmDirectionModule,
+    AgmJsMarkerClustererModule,
     MatDividerModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
