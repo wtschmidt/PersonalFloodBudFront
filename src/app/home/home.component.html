@@ -1,5 +1,33 @@
 <div class="container">
-  <div class="spacer"></div>
+  <div class="row home-section" routerLink="/route">
+    <button mat-fab color="primary"><i class="material-icons ">
+        directions
+      </i></button>
+    <h1 mat-headline class="home-header">Find a route</h1><br>
+    <p class="mat-body-1">Give us a destination and we’ll give you a route around potential flooding.
+    </p>
+  </div>
+
+  <div class="row home-section" routerLink="/create-report">
+    <button mat-fab color="primary"><i class="material-icons">
+        warning
+      </i></button>
+    <h1 mat-headline class="home-header">Report flooding</h1><br>
+    <p class="mat-body-1">Help improve our ability to get your fellow New Orleanians through the flood.
+    </p>
+  </div>
+  <div class="row home-section" routerLink="/connect-contacts">
+    <button mat-fab color="primary"><i class="material-icons">
+        message
+      </i></button>
+    <h1 mat-headline class="home-header">Contact friends</h1><br>
+    <p class="mat-body-1">Message your emergency contacts to tell them where you are or where you’re going.
+    </p>
+  </div>
+</div>
+
+
+<!-- <div class="container">
 
   <div class="row" routerLink="/route">
     <div class="col-2">
@@ -29,49 +57,6 @@
     <div class="col-8 header-text">Contact friends<br>
       <p class="mat-body-1">Easily message your emergency contacts to tell them where you are or where you’re going.
       </p>
-    </div>
-  </div>
-</div>
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col"></div>
-  </div>
-  <div class="row mt-5">
-    <div class="col">
-      <button
-        mat-raised-button
-        color="primary"
-        class="btn-block btn-custom mb-2"
-        routerLink="/route"
-        routerLinkActive="active"
-      >
-        <i class="material-icons mr-3">
-          directions </i
-        >FIND A ROUTE
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        class="btn-block btn-custom mb-2"
-        routerLink="/create-report"
-        routerLinkActive="active"
-      >
-        <i class="material-icons mr-3">
-          warning </i
-        >REPORT FLOODING
-      </button>
-      <button
-        mat-raised-button
-        color="warn"
-        class="btn-custom btn-block mb-2"
-        routerLink="/connect-contacts"
-        routerLinkActive="active"
-      >
-        <i class="material-icons mr-3">
-          message </i
-        >CONTACT FRIENDS
-      </button>
     </div>
   </div>
 </div> -->

@@ -1,5 +1,75 @@
 <div class="container">
+  <div class="row">
+    <h1 mat-headline>Contact friends</h1>
+    <p class="mat-body-1">Choose a scenario below and we'll get you in touch with your emergency contacts.</p>
+    <button mat-stroked-button color="primary" routerLink="/add-contacts">EDIT CONTACTS</button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="row home-section" routerLink="/contact-safe-moving">
+    <button mat-fab color="primary"><i class="material-icons ">
+        message
+      </i></button>
+    <h2 mat-headline class="home-header">I'm safe, and I'm moving.</h2><br>
+    <!-- <p class="mat-body-1">Give us a destination and we’ll give you a route around potential flooding.
+    </p> -->
+  </div>
+
+  <div class="row home-section" routerLink="/contact-stranded-okay">
+    <button mat-fab color="primary"><i class="material-icons">
+        message
+      </i></button>
+    <h2 mat-headline class="home-header">I'm stranded, but I'm okay.</h2><br>
+
+  </div>
+  <div class="row home-section" routerLink="/contact-need-help">
+    <button mat-fab color="warn"><i class="material-icons">
+        message
+      </i></button>
+    <h2 mat-headline class="home-header">I'm stranded, and I need help.</h2><br>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="spacer"></div>
+
+  <div class="row" routerLink="/route">
+    <div class="col-2">
+      <img id="find-route" src="../../assets/images/HomePage find route@2x.png" alt="">
+    </div>
+    <div class="col-8 header-text">I'm safe and I'm moving<br>
+      <p class="mat-body-1">On the move? Send a message to your conctacts to let them know.
+      </p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row" routerLink="/create-report">
+    <div class="col-2">
+      <img id="report-flooding" src="../../assets/images/HomePage report flooding.png" alt="">
+    </div>
+    <div class="col-8 header-text">I'm stranded, but I'm okay<br>
+      <p class="mat-body-1">Send your location to your contacts until you can get moving again.
+      </p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row" routerLink="/connect-contacts">
+    <div class="col-2">
+      <img id="connect-contacts" src="../../assets/images/HomePage contact.png" alt="">
+    </div>
+    <div class="col-8 header-text">I'm stranded and I need help<br>
+      <p class="mat-body-1">Connect to emergency services and message your contacts.
+      </p>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+<!-- <div class="container">
   <app-contact-safe-moving></app-contact-safe-moving>
   <app-contact-stranded-okay></app-contact-stranded-okay>
   <app-contact-need-help></app-contact-need-help>
-</div>
+</div> -->
