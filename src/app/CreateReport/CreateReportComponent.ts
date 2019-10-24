@@ -122,8 +122,9 @@ export class CreateReport implements OnInit {
         "Thanks for helping your fellow New Orleanians. Stay safe out there!",
         "success"
       );
+      this.markers.push(this.report);
       this.router.navigate([""]);
-      setTimeout(() => {location.reload(true)}, 2500);
+      // setTimeout(() => {location.reload(true)}, 2500);
     }
   }
 

@@ -4,7 +4,7 @@
       <!-- start of card -->
       <h4 class="mat-headline">Report flooding</h4>
       <!-- <mat-card-subtitle>{{this.lat}} {{this.lng}}</mat-card-subtitle> -->
-      <div class="mb-4">
+      <div class="mb-4 mat-elevation-z2">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
           <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="moveReport($event)">
           </agm-marker>
