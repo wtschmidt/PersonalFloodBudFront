@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, ElementRef, EventEmitter, Output } from "@angular/core";
+import { Component, ViewChild, OnInit, ElementRef, EventEmitter, Output, AfterViewInit } from "@angular/core";
 import { HttpService } from "../http.service";
 import { Observable } from "rxjs";
 import { UserLocationService } from "../services/user-location.service";
@@ -16,7 +16,6 @@ import { AutoSearchComponent } from "../auto-search/auto-search.component";
 export class FindRoute implements OnInit {
 
   @ViewChild(AutoSearchComponent, { static: true }) autoSearch;
-  // @ViewChild('AgmMap') agmMap: AgmMap;
 
   lat;
   lng;
@@ -24,13 +23,14 @@ export class FindRoute implements OnInit {
   endLng;
   origin: any;
   destination: any;
-  wayPoints: object;
+  wayPoints;
   directions: any;
   reports: any;
   markers;
   mapReqInfo: object;
   otherUserMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
   bounds;
+  fitBounds = false;
 
   // @Output()
   // eventEmitter = new EventEmitter();
@@ -41,14 +41,15 @@ export class FindRoute implements OnInit {
     this.lat = this.geo.currLat;
     this.lng = this.geo.currLng;
     this.markers = this.getReportCoords();
-    this.bounds  = new google.maps.LatLngBounds();
+    this.bounds;
     // console.log(this.geo.currLat, "this is my lat");
     // console.log(this.lng, "this is my lng");
   }
 
-  getDirections() {
+  async getDirections() {
     this.origin = { lat: this.lat, lng: this.lng };
     this.destination = { lat: this.autoSearch.lat, lng: this.autoSearch.lng };
+    this.fitBounds = true;
     this.endLat = this.destination.lat;
     this.endLng = this.destination.lng;
     this.mapReqInfo = {
@@ -56,12 +57,20 @@ export class FindRoute implements OnInit {
       destination: this.destination
     };
 
-    this.http.getMap(this.mapReqInfo).subscribe(directions => {
+    await this.http.getMap(this.mapReqInfo).subscribe(directions => {
       //use "diretions" to make API call to agm-direction,
       // to create a route with the series of waypoints returned from the http req in "directions"
       console.log(directions, "these are directions from graphHopper");
       this.directions = directions;
       this.wayPoints = this.directions.waypoints;
+      // console.log(this.agmMap);
+      // this.agmMap.mapReady().subscribe(map => {
+      //   this.bounds = new google.maps.LatLngBounds();
+      //   for (const mm of this.wayPoints) {
+      //     this.bounds.extend(new google.maps.LatLng(mm.lat, mm.lng));
+      //   }
+      //   map.fitBounds(this.bounds);
+      // });
     });
   }
 

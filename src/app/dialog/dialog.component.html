@@ -1,10 +1,10 @@
-<div *ngIf="rainfall !== undefined">
+<div *ngIf="rainfall !== undefined || rainfall !== null">
   <h2 mat-headlne [innerHTML]="data.title"></h2>
   <mat-divider class="mt-3"></mat-divider>
 
   <mat-dialog-content class="mat-subheading-1" [innerHTML]="data.message"></mat-dialog-content>
 </div>
-<div *ngIf="rainfall === undefined">
+<div *ngIf="rainfall === undefined || rainfall === null">
   <h2 mat-headlne>Current Radar</h2>
   <mat-divider class="mt-3"></mat-divider>
 </div>
