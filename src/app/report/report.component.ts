@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "../http.service";
+import { Observable, of } from 'rxjs';
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 
@@ -22,7 +23,7 @@ export class ReportComponent implements OnInit {
     await this.http.getUserInfo(this.googleId).subscribe(data => {
       this.user = data
     })
-    this.http.getReports().subscribe(data => {
+    await this.http.getReports().subscribe(data => {
       for (var key in data) {
         if (data[key].user_id === this.user.id) {
           this.userReports.unshift(data[key])
