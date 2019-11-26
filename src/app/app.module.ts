@@ -97,7 +97,7 @@ import { AddContactsComponent } from "./add-contacts/add-contacts.component";
     MatExpansionModule,
     MatTabsModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyDparA5bqjrMG9t3hRPFFOzX-bbJ-cRwJ8",
+      apiKey: "AIzaSyAbJOa8X-CeBSal5VFPQPT1Qkhd-XTnf0s",
       libraries: ["places"]
     }),
     AgmDirectionModule,
